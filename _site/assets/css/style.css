@@ -709,3 +709,29 @@ html[data-theme="dark"] .icon-moon { display: none; }
     .prevnext-btn { max-width: 100%; }
     .prevnext-next { text-align: left; }
 }
+
+/* ─── Changelog ──────────────────────────────────────────────────────────── */
+.article-body h2 {
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+    font-size: 1.5rem;
+}
+
+.article-body h2:first-child {
+    margin-top: 0;
+}
+
+.article-body h3 {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+}
