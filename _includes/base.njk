@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} — {% endif %}{{ site.title }} {{ site.subtitle }}</title>
+    {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+<body>
+    {{ content | safe }}
+    <script src="/assets/js/docs.js"></script>
+</body>
+</html>

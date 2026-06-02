@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Post Layouts — Pure Blog Docs</title>
+    <meta name="description" content="How to use custom post layouts in Pure Blog.">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+<body>
+    <div class="layout">
+
+    
+    <nav id="sidebar" class="sidebar" aria-label="Documentation navigation">
+        <div class="sidebar-header">
+            <a href="/" class="sidebar-logo">
+                <span class="logo"><span class="pure">PURE</span><span class="service">BLOG</span></span>
+            </a>
+            <span class="sidebar-subtitle">Docs</span>
+        </div>
+
+        <div class="sidebar-nav">
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Getting started</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/getting-started/"
+                           class="nav-link">
+                            Get started
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/how-to-write-content/"
+                           class="nav-link">
+                            How to write content
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/where-is-my-content/"
+                           class="nav-link">
+                            Where is my content?
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/how-to-update-pure-blog/"
+                           class="nav-link">
+                            How to update Pure Blog
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/ignoring-files-during-updates/"
+                           class="nav-link">
+                            Ignoring files during updates
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Configuration</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/customising-your-pure-blog/"
+                           class="nav-link">
+                            Customising Pure Blog
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/setting-time-zones-and-date-format/"
+                           class="nav-link">
+                            Setting time zones &amp; date format
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/hiding-the-blog-page/"
+                           class="nav-link">
+                            Hiding the blog page
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/using-feature-images/"
+                           class="nav-link">
+                            Using feature images
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/post-scheduling/"
+                           class="nav-link">
+                            Post scheduling
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/local-caching/"
+                           class="nav-link">
+                            Local caching
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/custom-routes/"
+                           class="nav-link">
+                            Custom routes
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/using-pure-blog-with-other-server-configurations/"
+                           class="nav-link">
+                            Other server configs
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Content &amp; Templates</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/using-shortcodes/"
+                           class="nav-link">
+                            Using shortcodes
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/working-with-data-files/"
+                           class="nav-link">
+                            Working with data files
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/layout-partials/"
+                           class="nav-link">
+                            Layout partials
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/post-layout-partial/"
+                           class="nav-link">
+                            Post layout partial
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/custom-post-layouts/"
+                           class="nav-link active">
+                            Custom post layouts
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/custom-include-as-homepage/"
+                           class="nav-link">
+                            Custom include as homepage
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/using-hooks/"
+                           class="nav-link">
+                            Using hooks
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Advanced</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/core-functions-reference/"
+                           class="nav-link">
+                            Core functions reference
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/custom-functions/"
+                           class="nav-link">
+                            Custom functions
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/dashboard-stats/"
+                           class="nav-link">
+                            Dashboard stats
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/how-to-add-syntax-highlighting-to-pure-blog/"
+                           class="nav-link">
+                            Syntax highlighting
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Guides &amp; Quick Tips</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/how-to-create-a-tag-cloud/"
+                           class="nav-link">
+                            Create a tag cloud
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/how-to-create-a-titleless-notes-page/"
+                           class="nav-link">
+                            Create a notes page
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/how-to-create-a-blog-archive/"
+                           class="nav-link">
+                            Create a blog archive
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/quick-tip-secure-your-cms-with-ip-filtering/"
+                           class="nav-link">
+                            Secure with IP filtering
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/quick-tip-add-emojis-to-your-notice-boxes/"
+                           class="nav-link">
+                            Add emojis to notice boxes
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/quick-tip-add-a-custom-font-to-your-site/"
+                           class="nav-link">
+                            Add a custom font
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Importers</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/pure-blog-importers/"
+                           class="nav-link">
+                            Pure Blog importers
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/bear-blog-importer/"
+                           class="nav-link">
+                            Bear Blog importer
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/pagecord-importer/"
+                           class="nav-link">
+                            Pagecord importer
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/wordpress-importer/"
+                           class="nav-link">
+                            WordPress importer
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-section-label">Changelog</span>
+                <ul class="nav-items">
+                    
+                    <li>
+                        <a href="/docs/upgrading-to-v300-and-moving-to-codeberg/"
+                           class="nav-link">
+                            Upgrading to v3.0.0
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/docs/pure-blog-v150/"
+                           class="nav-link">
+                            Pure Blog v1.5.0
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+
+    
+    <div class="main-wrapper">
+
+        
+        <header class="topbar">
+            <button id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+
+            <button id="search-btn" class="search-trigger" aria-label="Search documentation">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                </svg>
+                <span class="search-placeholder">Search...</span>
+                <kbd class="search-kbd">CTRL+K</kbd>
+            </button>
+
+            <div class="topbar-actions">
+                <a href="https://codeberg.org/kevquirk/pureblog" target="_blank" rel="noopener" class="topbar-link" aria-label="Codeberg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648zz"/>
+                    </svg>
+                    <span class="topbar-link-label">Codeberg</span>
+                </a>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        
+        <div class="content-area">
+            <main class="doc-content">
+                <article>
+                    <div class="article-header">
+                        <h1>Custom Post Layouts</h1>
+                        <p class="article-description">How to use custom post layouts in Pure Blog.</p>
+                    </div>
+                    <div class="article-body">
+                        <p>Layouts let you create custom post templates with their own fields. A book review, a recipe, a film review; anything that needs structured data beyond a standard blog post.</p>
+<h2 id="how-it-works" tabindex="-1"><a class="header-anchor" href="#how-it-works"><span>How it works</span></a></h2>
+<ol>
+<li>Create a <code>.php</code> template file in <code>/content/layouts/</code></li>
+<li>Optionally create a matching <code>.json</code> file to define custom editor fields</li>
+<li>When creating a new post, Pure Blog will prompt you to choose a layout if any exist</li>
+<li>You can set <code>layout: name</code> in a post’s frontmatter to use a custom layout on an existing post</li>
+</ol>
+<h2 id="creating-a-layout-template" tabindex="-1"><a class="header-anchor" href="#creating-a-layout-template"><span>Creating a layout template</span></a></h2>
+<p>Create <code>/content/layouts/my-layout.php</code>. The file is a standard PHP/HTML template. Three variables are available:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$post</code></td>
+<td><code>array</code></td>
+<td>The post data, including all custom fields</td>
+</tr>
+<tr>
+<td><code>$config</code></td>
+<td><code>array</code></td>
+<td>The site configuration</td>
+</tr>
+<tr>
+<td><code>$adjacentPosts</code></td>
+<td><code>array</code></td>
+<td>Previous/next posts (<code>$adjacentPosts['previous']</code>, <code>$adjacentPosts['next']</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="helper-functions" tabindex="-1"><a class="header-anchor" href="#helper-functions"><span>Helper functions</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>render_markdown($post['content'])</code></td>
+<td>Renders a markdown string as HTML</td>
+</tr>
+<tr>
+<td><code>render_post_navigation()</code></td>
+<td>Renders previous/next post navigation and tags</td>
+</tr>
+<tr>
+<td><code>format_post_date_for_display((string) $post['date'], $config)</code></td>
+<td>Formats a post date for display</td>
+</tr>
+<tr>
+<td><code>e($value)</code></td>
+<td>Escapes a value for safe HTML output — always use this for user content</td>
+</tr>
+</tbody>
+</table>
+<h3 id="minimal-example" tabindex="-1"><a class="header-anchor" href="#minimal-example"><span>Minimal example</span></a></h3>
+<pre><code class="hljs language-php">&lt;article&gt;
+    &lt;h1&gt;<span class="hljs-meta">&lt;?=</span> <span class="hljs-title function_ invoke__">e</span>(<span class="hljs-variable">$post</span>[<span class="hljs-string">&#x27;title&#x27;</span>]) <span class="hljs-meta">?&gt;</span>&lt;/h1&gt;
+    <span class="hljs-meta">&lt;?=</span> <span class="hljs-title function_ invoke__">render_markdown</span>(<span class="hljs-variable">$post</span>[<span class="hljs-string">&#x27;content&#x27;</span>]) <span class="hljs-meta">?&gt;</span>
+    <span class="hljs-meta">&lt;?=</span> <span class="hljs-title function_ invoke__">render_post_navigation</span>() <span class="hljs-meta">?&gt;</span>
+&lt;/article&gt;
+</code></pre>
+<h3 id="example-with-custom-fields" tabindex="-1"><a class="header-anchor" href="#example-with-custom-fields"><span>Example with custom fields</span></a></h3>
+<pre><code class="hljs language-php">&lt;article <span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;<span class="hljs-title">book</span>-<span class="hljs-title">review</span>&quot;&gt;
+    &lt;<span class="hljs-title">h1</span>&gt;&lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">title</span>&#x27;]) ?&gt;&lt;/<span class="hljs-title">h1</span>&gt;
+
+    &lt;<span class="hljs-title">div</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">book</span>-<span class="hljs-title">meta</span>&quot;&gt;
+        &lt;<span class="hljs-title">p</span>&gt;&lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Author</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">author</span>&#x27;]) ?&gt;&lt;/<span class="hljs-title">p</span>&gt;
+        &lt;<span class="hljs-title">p</span>&gt;&lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Genre</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">genre</span>&#x27;]) ?&gt;&lt;/<span class="hljs-title">p</span>&gt;
+    &lt;/<span class="hljs-title">div</span>&gt;
+
+    &lt;?= <span class="hljs-title">render_markdown</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">content</span>&#x27;]) ?&gt;
+    &lt;?= <span class="hljs-title">render_post_navigation</span>() ?&gt;
+&lt;/<span class="hljs-title">article</span>&gt;
+</span></code></pre>
+<h2 id="defining-custom-fields-(optional)" tabindex="-1"><a class="header-anchor" href="#defining-custom-fields-(optional)"><span>Defining custom fields (optional)</span></a></h2>
+<p>Create <code>/content/layouts/my-layout.json</code> alongside the <code>.php</code> file to add custom fields to the post editor.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Display name in the layout picker&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;author&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Author&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;notes&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Notes&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;markdown&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;select&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;Fiction&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;Non-fiction&quot;</span>
+        <span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;recommended&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Recommended&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The <code>name</code> of each field becomes the key on <code>$post</code> in your template, e.g. <code>name: &quot;author&quot;</code> is accessed as <code>$post['author']</code>.</p>
+<h3 id="field-types" tabindex="-1"><a class="header-anchor" href="#field-types"><span>Field types</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>Single-line text input</td>
+</tr>
+<tr>
+<td><code>markdown</code></td>
+<td>Multi-line CodeMirror editor with markdown and HTML support</td>
+</tr>
+<tr>
+<td><code>select</code></td>
+<td>Dropdown menu — requires an <code>options</code> array</td>
+</tr>
+<tr>
+<td><code>checkbox</code></td>
+<td>Checkbox — value is <code>&quot;1&quot;</code> when checked, <code>&quot;&quot;</code> when unchecked</td>
+</tr>
+</tbody>
+</table>
+<h3 id="select-options" tabindex="-1"><a class="header-anchor" href="#select-options"><span><code>select</code> options</span></a></h3>
+<p>Options are defined as a string array. The stored value is the selected string.</p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;select&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-string">&quot;Fiction&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-string">&quot;Non-fiction&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-string">&quot;Biography&quot;</span>
+<span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="checkbox-usage-in-templates" tabindex="-1"><a class="header-anchor" href="#checkbox-usage-in-templates"><span><code>checkbox</code> usage in templates</span></a></h3>
+<pre><code class="hljs language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable">$post</span>[<span class="hljs-string">&#x27;recommended&#x27;</span>] === <span class="hljs-string">&#x27;1&#x27;</span>): <span class="hljs-meta">?&gt;</span>
+    &lt;p&gt;Recommended&lt;/p&gt;
+<span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">endif</span>; <span class="hljs-meta">?&gt;</span>
+</code></pre>
+<!-- screenshot: custom fields in the post editor -->
+<h2 id="custom-functions" tabindex="-1"><a class="header-anchor" href="#custom-functions"><span>Custom functions</span></a></h2>
+<p>Layout templates have access to any functions defined in <code>/content/functions.php</code>. Create this file to add your own helpers without modifying the Pure Blog core.</p>
+<p>See <a href="/custom-functions">custom functions docs</a> for details.</p>
+<h2 id="the-layout-picker" tabindex="-1"><a class="header-anchor" href="#the-layout-picker"><span>The layout picker</span></a></h2>
+<p>When at least one layout exists in <code>/content/layouts/</code>, clicking <strong>New post</strong> in the dashboard opens a picker instead of going straight to the editor. You can choose a layout or select <strong>Default post</strong> for a standard post with no custom fields.</p>
+<p>If a custom layout is selected in the editor, any defined custom fields will be displayed under the default content field in the post editor.</p>
+<!-- screenshot: layout picker modal -->
+<h2 id="example%3A-book-review" tabindex="-1"><a class="header-anchor" href="#example%3A-book-review"><span>Example: book review</span></a></h2>
+<p><code>/content/layouts/book.json</code></p>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Book review&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;author&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Author&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;year&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Year published&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rating&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rating (e.g. 4/5)&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;summary&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Summary&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;markdown&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Genre&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;select&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;Fiction&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;Non-fiction&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;Biography&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;Science&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;History&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;Other&quot;</span>
+        <span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;recommended&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Recommended&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><code>/content/layouts/book.php</code></p>
+<pre><code class="hljs language-php">&lt;article <span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;<span class="hljs-title">book</span>-<span class="hljs-title">review</span>&quot;&gt;
+    &lt;<span class="hljs-title">h1</span>&gt;&lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">title</span>&#x27;]) ?&gt;&lt;/<span class="hljs-title">h1</span>&gt;
+
+    &lt;<span class="hljs-title">div</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">book</span>&quot;&gt;
+        &lt;<span class="hljs-title">p</span>&gt;
+            &lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Author</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">author</span>&#x27;]) ?&gt;&lt;<span class="hljs-title">br</span>&gt;
+            &lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Published</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">year</span>&#x27;]) ?&gt;&lt;<span class="hljs-title">br</span>&gt;
+            &lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Genre</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">genre</span>&#x27;]) ?&gt;&lt;<span class="hljs-title">br</span>&gt;
+            &lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Rating</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;?= <span class="hljs-title">e</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">rating</span>&#x27;]) ?&gt;&lt;<span class="hljs-title">br</span>&gt;
+            &lt;<span class="hljs-title">b</span>&gt;<span class="hljs-title">Reviewed</span>:&lt;/<span class="hljs-title">b</span>&gt; &lt;<span class="hljs-title">time</span>&gt;&lt;?= <span class="hljs-title">e</span>(<span class="hljs-title">format_post_date_for_display</span>((<span class="hljs-title">string</span>) $<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">date</span>&#x27;], $<span class="hljs-title">config</span>)) ?&gt;&lt;/<span class="hljs-title">time</span>&gt;
+        &lt;/<span class="hljs-title">p</span>&gt;
+        &lt;?= <span class="hljs-title">render_markdown</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">summary</span>&#x27;]) ?&gt;
+    &lt;/<span class="hljs-title">div</span>&gt;
+
+    &lt;?= <span class="hljs-title">render_markdown</span>($<span class="hljs-title">post</span>[&#x27;<span class="hljs-title">content</span>&#x27;]) ?&gt;
+    &lt;?= <span class="hljs-title">render_post_navigation</span>() ?&gt;
+&lt;/<span class="hljs-title">article</span>&gt;
+</span></code></pre>
+
+                    </div>
+                </article>
+
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                    
+                
+
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+                
+                <nav class="doc-prevnext" aria-label="Page navigation">
+                    
+                    <a href="/docs/post-layout-partial/" class="prevnext-btn prevnext-prev">
+                        <span class="prevnext-direction">← Previous</span>
+                        <span class="prevnext-title">Post layout partial</span>
+                    </a>
+                    
+                    
+                    <a href="/docs/custom-include-as-homepage/" class="prevnext-btn prevnext-next">
+                        <span class="prevnext-direction">Next →</span>
+                        <span class="prevnext-title">Custom include as homepage</span>
+                    </a>
+                    
+                </nav>
+                
+            </main>
+
+            
+            <aside class="toc-sidebar" id="toc-sidebar" aria-label="On this page">
+                <div class="toc-label">On this page</div>
+                <nav id="toc-nav"></nav>
+            </aside>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="search-modal" class="search-modal" hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-backdrop" id="search-backdrop"></div>
+    <div class="search-dialog">
+        <div class="search-input-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="search" id="search-input" placeholder="Search documentation…" autocomplete="off" spellcheck="false">
+            <button id="search-close" aria-label="Close search">Esc</button>
+        </div>
+        <ul id="search-results" class="search-results" role="listbox"></ul>
+        <div id="search-empty" class="search-empty" hidden>No results found</div>
+    </div>
+</div>
+
+    <script src="/assets/js/docs.js"></script>
+</body>
+</html>

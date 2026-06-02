@@ -1,0 +1,73 @@
+[
+    {
+        "label": "Getting started",
+        "items": [
+            { "label": "Get started",                 "slug": "getting-started" },
+            { "label": "How to write content",        "slug": "how-to-write-content" },
+            { "label": "Where is my content?",        "slug": "where-is-my-content" },
+            { "label": "How to update Pure Blog",     "slug": "how-to-update-pure-blog" },
+            { "label": "Ignoring files during updates","slug": "ignoring-files-during-updates" }
+        ]
+    },
+    {
+        "label": "Configuration",
+        "items": [
+            { "label": "Customising Pure Blog",       "slug": "customising-your-pure-blog" },
+            { "label": "Setting time zones & date format", "slug": "setting-time-zones-and-date-format" },
+            { "label": "Hiding the blog page",        "slug": "hiding-the-blog-page" },
+            { "label": "Using feature images",        "slug": "using-feature-images" },
+            { "label": "Post scheduling",             "slug": "post-scheduling" },
+            { "label": "Local caching",               "slug": "local-caching" },
+            { "label": "Custom routes",               "slug": "custom-routes" },
+            { "label": "Other server configs",        "slug": "using-pure-blog-with-other-server-configurations" }
+        ]
+    },
+    {
+        "label": "Content & Templates",
+        "items": [
+            { "label": "Using shortcodes",            "slug": "using-shortcodes" },
+            { "label": "Working with data files",     "slug": "working-with-data-files" },
+            { "label": "Layout partials",             "slug": "layout-partials" },
+            { "label": "Post layout partial",         "slug": "post-layout-partial" },
+            { "label": "Custom post layouts",         "slug": "custom-post-layouts" },
+            { "label": "Custom include as homepage",  "slug": "custom-include-as-homepage" },
+            { "label": "Using hooks",                 "slug": "using-hooks" }
+        ]
+    },
+    {
+        "label": "Advanced",
+        "items": [
+            { "label": "Core functions reference",    "slug": "core-functions-reference" },
+            { "label": "Custom functions",            "slug": "custom-functions" },
+            { "label": "Dashboard stats",             "slug": "dashboard-stats" },
+            { "label": "Syntax highlighting",         "slug": "how-to-add-syntax-highlighting-to-pure-blog" }
+        ]
+    },
+    {
+        "label": "Guides & Quick Tips",
+        "items": [
+            { "label": "Create a tag cloud",          "slug": "how-to-create-a-tag-cloud" },
+            { "label": "Create a notes page",         "slug": "how-to-create-a-titleless-notes-page" },
+            { "label": "Create a blog archive",       "slug": "how-to-create-a-blog-archive" },
+            { "label": "Secure with IP filtering",    "slug": "quick-tip-secure-your-cms-with-ip-filtering" },
+            { "label": "Add emojis to notice boxes",  "slug": "quick-tip-add-emojis-to-your-notice-boxes" },
+            { "label": "Add a custom font",           "slug": "quick-tip-add-a-custom-font-to-your-site" }
+        ]
+    },
+    {
+        "label": "Importers",
+        "items": [
+            { "label": "Pure Blog importers",         "slug": "pure-blog-importers" },
+            { "label": "Bear Blog importer",          "slug": "bear-blog-importer" },
+            { "label": "Pagecord importer",           "slug": "pagecord-importer" },
+            { "label": "WordPress importer",          "slug": "wordpress-importer" }
+        ]
+    },
+    {
+        "label": "Changelog",
+        "items": [
+            { "label": "Upgrading to v3.0.0",         "slug": "upgrading-to-v300-and-moving-to-codeberg" },
+            { "label": "Pure Blog v1.5.0",            "slug": "pure-blog-v150" }
+        ]
+    }
+]
