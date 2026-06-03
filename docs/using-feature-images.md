@@ -2,7 +2,6 @@
 title: Using Feature Images
 description: How to set a feature image on a post or page, and how to use it in a custom layout.
 date: 2026-06-02
-permalink: false
 ---
 
 Pure Blog v3.3.0 adds support for feature images on posts and pages. A feature image serves two purposes: it overrides the site-wide Open Graph (OG) image in the `<head>` of that specific post or page, and it is available as a variable in custom layouts so you can display it however you like.
