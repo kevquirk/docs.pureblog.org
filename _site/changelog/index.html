@@ -369,23 +369,7 @@
                         <p class="article-description">Release history for Pure Blog.</p>
                     </div>
                     <div class="article-body">
-                        <h2 id="v3.3.0---currently-in-development" tabindex="-1"><a class="header-anchor" href="#v3.3.0---currently-in-development"><span>v3.3.0 - CURRENTLY IN DEVELOPMENT</span></a></h2>
-<h3 id="new-features" tabindex="-1"><a class="header-anchor" href="#new-features"><span>New Features</span></a></h3>
-<ul>
-<li><strong>Image library</strong> — new admin page listing all uploaded images as a thumbnail grid, sortable newest-first with pagination (32 per page). Each image shows its folder slug, a copy-markdown button, and a delete button. Deleting an image that is referenced in a post or page shows a warning with links to the relevant editors. A filename search field filters the grid in real time.</li>
-</ul>
-<h3 id="improvements" tabindex="-1"><a class="header-anchor" href="#improvements"><span>Improvements</span></a></h3>
-<ul>
-<li><strong>Feature images</strong> — each image attached to a post or page now has a checkbox to mark it as the feature image. The feature image overrides the site-wide OG image in meta tags and is available as <code>feature_image</code> in custom themes. Only one image can be set at a time; switching to a different image shows a confirmation prompt.</li>
-<li>New pages now default to excluded from the navigation menu.</li>
-<li>The editor sidebar now scrolls independently when its content is taller than the viewport, making attached images accessible without scrolling the entire page.</li>
-</ul>
-<h3 id="maintenance" tabindex="-1"><a class="header-anchor" href="#maintenance"><span>Maintenance</span></a></h3>
-<ul>
-<li>Removed 5 unused CSS selectors from <code>admin.css</code> (<code>.form-actions</code>, <code>.admin-search</code>, <code>.notice.notice-filter</code>, <code>.settings-grid</code>, <code>.settings-column</code>).</li>
-<li>Added English placeholder translation strings for all new Images library keys across all 10 non-English language packs.</li>
-</ul>
-<h2 id="3.2.2---01-june-2026" tabindex="-1"><a class="header-anchor" href="#3.2.2---01-june-2026"><span>3.2.2 - 01 June 2026</span></a></h2>
+                        <h2 id="3.2.2---01-june-2026" tabindex="-1"><a class="header-anchor" href="#3.2.2---01-june-2026"><span>3.2.2 - 01 June 2026</span></a></h2>
 <p><strong>Fixed fatal error on homepage when posts directory is missing.</strong> <code>get_all_posts()</code> and <code>get_all_posts_meta()</code> were setting the internal <code>$all</code> cache to an empty array when the posts directory didn’t exist, but leaving <code>$published</code> as <code>null</code>. Because the default call returns <code>$published</code>, PHP threw a fatal <code>TypeError</code> on the homepage. Both functions now correctly initialise <code>$published</code> to <code>[]</code> alongside <code>$all</code> in that branch. Fixes <a href="https://codeberg.org/kevquirk/pureblog/issues/17">#17</a>.</p>
 <h2 id="v3.2.1---30-may-2026" tabindex="-1"><a class="header-anchor" href="#v3.2.1---30-may-2026"><span>v3.2.1 - 30 May 2026</span></a></h2>
 <h3 id="fixed" tabindex="-1"><a class="header-anchor" href="#fixed"><span>Fixed</span></a></h3>
