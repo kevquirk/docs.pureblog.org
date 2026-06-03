@@ -62,13 +62,5 @@
             { "label": "Pagecord importer",           "slug": "pagecord-importer" },
             { "label": "WordPress importer",          "slug": "wordpress-importer" }
         ]
-    },
-    {
-        "label": "Changelog",
-        "items": [
-            { "label": "Changelog",                   "slug": "changelog" },
-            { "label": "Upgrading to v3.0.0",         "slug": "upgrading-to-v300-and-moving-to-codeberg" },
-            { "label": "Pure Blog v1.5.0",            "slug": "pure-blog-v150" }
-        ]
     }
 ]
