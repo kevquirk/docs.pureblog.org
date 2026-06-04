@@ -15,7 +15,7 @@ permalink: /changelog/
 
 ### Improvements
 
-- **Feature images** — each image attached to a post or page now has a checkbox to mark it as the feature image. The feature image overrides the site-wide OG image in meta tags and is available as `feature_image` in custom themes. Only one image can be set at a time; switching to a different image shows a confirmation prompt.
+- **Feature images** — each image attached to a post or page now has a checkbox to mark it as the feature image. The feature image overrides the site-wide OG image in meta tags and is available as `feature_image` in custom themes. Only one image can be set at a time; switching to a different image shows a confirmation prompt. [Read the docs](https://docs.pureblog.org/using-feature-images/).
 - New pages now default to excluded from the navigation menu.
 - The editor sidebar now scrolls independently when its content is taller than the viewport, making attached images accessible without scrolling the entire page.
 
