@@ -25,6 +25,7 @@
     {
         "label": "Content & Templates",
         "items": [
+            { "label": "Themes",                      "slug": "themes" },
             { "label": "Using shortcodes",            "slug": "using-shortcodes" },
             { "label": "Working with data files",     "slug": "working-with-data-files" },
             { "label": "Layout partials",             "slug": "layout-partials" },

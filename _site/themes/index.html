@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Write Content — Pure Blog Docs</title>
-    <meta name="description" content="A quick guide on writing content with Pure Blog.">
+    <title>Themes — Pure Blog Docs</title>
+    <meta name="description" content="Some example themes that you can use on your Pure Blog site.">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <meta property="og:title" content="How to Write Content — Pure Blog Docs">
-    <meta property="og:description" content="A quick guide on writing content with Pure Blog.">
+    <meta property="og:title" content="Themes — Pure Blog Docs">
+    <meta property="og:description" content="Some example themes that you can use on your Pure Blog site.">
     <meta property="og:image" content="https://docs.pureblog.org/assets/images/og-image.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +41,7 @@
                     
                     <li>
                         <a href="/how-to-write-content/"
-                           class="nav-link active">
+                           class="nav-link">
                             How to write content
                         </a>
                     </li>
@@ -139,7 +139,7 @@
                     
                     <li>
                         <a href="/themes/"
-                           class="nav-link">
+                           class="nav-link active">
                             Themes
                         </a>
                     </li>
@@ -372,42 +372,268 @@
             <main class="doc-content">
                 <article>
                     <div class="article-header">
-                        <h1>How to Write Content</h1>
-                        <p class="article-description">A quick guide on writing content with Pure Blog.</p>
+                        <h1>Themes</h1>
+                        <p class="article-description">Some example themes that you can use on your Pure Blog site.</p>
                     </div>
                     <div class="article-body">
-                        <p>Now that you’ve <a href="/getting-started">setup your site</a>, it’s time for the fun part - writing content!</p>
-<p>Luckily for you, Pure Blog includes a simple Content Management System (CMS) to help you write all those lovely thoughts swirling around your grey matter.</p>
-<h2 id="login" tabindex="-1"><a class="header-anchor" href="#login"><span>Login</span></a></h2>
-<p>The first thing you need to do is login to the Pure Blog CMS. To do this, you visit <code>/admin</code> and login with the credentials you set when you setup Pure Blog.</p>
-<p>Once logged in you will be taken to the dashboard, which is a lost of all the blog posts your written. Obviously on a new blog your dashboard will be empty, but I hope you fill it up quickly!</p>
-<p class="notice tip">Draft posts will always be listed at the top of your dashboard.</p>
-<p><img src="/assets/images/how-to-write-content/dashboard.webp" alt="Dashboard"></p>
-<h2 id="write-a-new-post" tabindex="-1"><a class="header-anchor" href="#write-a-new-post"><span>Write a new post</span></a></h2>
-<p>Once you’re in the dashboard, you can hit the <kbd>NEW POST</kbd> to start a fresh post. It’s all pretty self explanatory at this point, but I’ll give you a few tips:</p>
-<ul>
-<li>The <strong>Content</strong> window supports both Markdown and plain HTML. If you’re not familiar with how Markdown works, <a href="/markdown-helper">this reference guide</a> should help.</li>
-<li>The <strong>Slug</strong> is the URL of your post and will be automatically set. If you want to change it to something different, you can.</li>
-<li>The <strong>Description</strong> is used to give you post a HTML meta description.</li>
-<li>The <strong>Status</strong> field tells Pure Blog whether the post is ready for prime time. <code>Draft</code> posts are not visible on the site, but can be previewed from the editor. <code>Published</code> posts are publicly available for the world to enjoy.</li>
-</ul>
-<p class="notice tip">If Pure Blog detects that you've used a slug elsewhere on your site, it will append a number so the URL doesn't duplicate.</p>
-<p>Here’s what this post looks like in the Pure Blog CMS:</p>
-<p><img src="/assets/images/how-to-write-content/post-example.webp" alt="post example"></p>
-<h2 id="managing-images" tabindex="-1"><a class="header-anchor" href="#managing-images"><span>Managing images</span></a></h2>
-<p>There’s 2 ways in which you can add images to your content. You can use the image uploader, which is found in the editor sidebar. Simply click on the <kdb>Browse</kbd> buttons and select your image. ONce you’re happy, click the <kbd>UPLOAD</kbd> button and the image will be added to your post.</p>
-<p><img src="/assets/images/how-to-write-content/images.webp" alt="images"></p>
-<p>From there you can delete any images, or click the <kbd>COPY</kbd> button to copy the correct Markdown for that image to your clipboard. Then, head to the main content area, find where you want the image to be inserted, and paste in the Markdown.</p>
-<p>Ta daaa! You image has been inserted.</p>
-<p>The other way of doing it is to simply drag and drop the image from your computer, into the content area. Pure Blog will automatically upload the image for you, and add the Markdown where ever your cursor was.</p>
-<h2 id="creating-a-page" tabindex="-1"><a class="header-anchor" href="#creating-a-page"><span>Creating a page</span></a></h2>
-<p>Creating a page is pretty much exactly the same as creating a post, except you go to the Pages part of the CMS and hit the <kbd>NEW PAGE</kbd> button there.</p>
-<p>Pages don’t have a tag field as pages cannot be tagged. There is an additional option for adding your page to the site’s navigation menu.</p>
-<p>Here’s a video that walks through what we covered in this post:</p>
-<video controls width="100%" preload="metadata">
-  <source src="https://kevq.b-cdn.net/pure-blog/02-creating-content.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+                        <p>This is a list of themes that you can use on your own Pure Blog site. All you need to do is navigate to <strong>Settings → Theme</strong> and update the appropriate colours for light or dark under the <strong>Site Custom Colours</strong> section.</p>
+<p class="notice">If you're using a theme you'd like to add to this list, please <a href="https://kevquirk.com/contact">get in touch</a>.</p>
+<div class="card">
+  <h2>Classic Light</h2>
+  <img src="/assets/images/themes/classic-light.webp" alt="Classic Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#ffffff;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#ffffff</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#222222;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#222222</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#0066cc;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#0066cc</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#cccccc;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#cccccc</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#f0f4f8;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f0f4f8</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Classic Dark</h2>
+  <img src="/assets/images/themes/classic-dark.webp" alt="Classic Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#1a1a1a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1a1a1a</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#e8e8e8;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e8e8e8</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#4da6ff;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#4da6ff</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#444444;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#444444</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#2a2a2a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#2a2a2a</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Sepia Light</h2>
+  <img src="/assets/images/themes/sepia-light.webp" alt="Sepia Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#f5edd6;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f5edd6</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#3b2f1e;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3b2f1e</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#8b4513;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#8b4513</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#c8a97a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#c8a97a</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#ede0c4;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#ede0c4</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Sepia Dark</h2>
+  <img src="/assets/images/themes/sepia-dark.webp" alt="Sepia Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#2a1f10;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#2a1f10</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#e8d5b0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e8d5b0</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#c8843a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#c8843a</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#6b4f2a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#6b4f2a</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#3d2e18;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3d2e18</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Forest Light</h2>
+  <img src="/assets/images/themes/forest-light.webp" alt="Forest Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#f0f7ee;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f0f7ee</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#1a2e1a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1a2e1a</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#3a7d44;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3a7d44</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#a8c8a0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#a8c8a0</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#deeeda;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#deeeda</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Forest Dark</h2>
+  <img src="/assets/images/themes/forest-dark.webp" alt="Forest Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#1a2e1a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1a2e1a</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#d4e8d0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#d4e8d0</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#6abf69;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#6abf69</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#3a5c3a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3a5c3a</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#243824;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#243824</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Solarized Light</h2>
+  <img src="/assets/images/themes/solarized-light.webp" alt="Solarized Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#fdf6e3;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#fdf6e3</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#657b83;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#657b83</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#268bd2;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#268bd2</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#c8baa0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#c8baa0</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#eee8d5;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#eee8d5</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Solarized Dark</h2>
+  <img src="/assets/images/themes/solarized-dark.webp" alt="Solarized Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#002b36;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#002b36</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#839496;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#839496</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#268bd2;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#268bd2</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#1d4b56;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1d4b56</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#073642;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#073642</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Nord Light</h2>
+  <img src="/assets/images/themes/nord-light.webp" alt="Nord Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#eceff4;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#eceff4</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#2e3440;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#2e3440</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#5e81ac;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#5e81ac</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#d8dee9;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#d8dee9</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#e5e9f0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e5e9f0</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Nord Dark</h2>
+  <img src="/assets/images/themes/nord-dark.webp" alt="Nord Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#2e3440;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#2e3440</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#d8dee9;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#d8dee9</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#88c0d0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#88c0d0</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#4c566a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#4c566a</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#3b4252;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3b4252</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Rose Light</h2>
+  <img src="/assets/images/themes/rose-light.webp" alt="Rose Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#fff5f5;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#fff5f5</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#3d1a1a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3d1a1a</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#c0392b;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#c0392b</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#e8b4b4;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e8b4b4</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#fce8e8;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#fce8e8</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Rose Dark</h2>
+  <img src="/assets/images/themes/rose-dark.webp" alt="Rose Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#2a1010;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#2a1010</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#f5d5d5;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f5d5d5</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#e06060;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e06060</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#6b3333;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#6b3333</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#3d1a1a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3d1a1a</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Monochrome Light</h2>
+  <img src="/assets/images/themes/monochrome-light.webp" alt="Monochrome Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#f5f5f5;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f5f5f5</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#121212;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#121212</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#333333;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#333333</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#cccccc;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#cccccc</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#e8e8e8;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#e8e8e8</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Monochrome Dark</h2>
+  <img src="/assets/images/themes/monochrome-dark.webp" alt="Monochrome Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#121212;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#121212</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#f0f0f0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f0f0f0</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#ffffff;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#ffffff</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#3a3a3a;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#3a3a3a</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#1e1e1e;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1e1e1e</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Ocean Light</h2>
+  <img src="/assets/images/themes/ocean-light.webp" alt="Ocean Light theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#f0f8ff;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#f0f8ff</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#0d2233;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#0d2233</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#0077aa;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#0077aa</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#a0c8e0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#a0c8e0</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#dceef8;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#dceef8</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <h2>Ocean Dark</h2>
+  <img src="/assets/images/themes/ocean-dark.webp" alt="Ocean Dark theme screenshot">
+  <table class="themes">
+    <thead>
+      <tr><th>Variable</th><th>Colour</th><th>Hex Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Background</td><td><span style="background:#0d2233;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#0d2233</code></td></tr>
+      <tr><td>Text</td><td><span style="background:#cce8f0;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#cce8f0</code></td></tr>
+      <tr><td>Accent</td><td><span style="background:#00bcd4;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#00bcd4</code></td></tr>
+      <tr><td>Border</td><td><span style="background:#1a4a66;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#1a4a66</code></td></tr>
+      <tr><td>Accent Background</td><td><span style="background:#122d42;border:var(--standard-border);padding:0 13px;"></span></td><td><code>#122d42</code></td></tr>
+    </tbody>
+  </table>
+</div>
 
                     </div>
                 </article>
@@ -503,31 +729,31 @@
                     
                 
                     
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
                         
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
                     
                 
                     
@@ -576,15 +802,15 @@
                 
                 <nav class="doc-prevnext" aria-label="Page navigation">
                     
-                    <a href="/docs/getting-started/" class="prevnext-btn prevnext-prev">
+                    <a href="/docs/using-pure-blog-with-other-server-configurations/" class="prevnext-btn prevnext-prev">
                         <span class="prevnext-direction">← Previous</span>
-                        <span class="prevnext-title">Get started</span>
+                        <span class="prevnext-title">Other server configs</span>
                     </a>
                     
                     
-                    <a href="/docs/where-is-my-content/" class="prevnext-btn prevnext-next">
+                    <a href="/docs/using-shortcodes/" class="prevnext-btn prevnext-next">
                         <span class="prevnext-direction">Next →</span>
-                        <span class="prevnext-title">Where is my content?</span>
+                        <span class="prevnext-title">Using shortcodes</span>
                     </a>
                     
                 </nav>

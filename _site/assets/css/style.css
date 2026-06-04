@@ -21,6 +21,7 @@
     --accent:       #0D47A1;
     --border:       #898EA4;
     --accent-bg:    #F5F7FF;
+    --standard-border: 1px solid var(--border);
     --sidebar-bg:   #F0F2F8;
     --topbar-bg:    #FAFAFA;
 
@@ -734,4 +735,52 @@ html[data-theme="dark"] .icon-moon { display: none; }
     background: var(--accent-bg);
     color: var(--accent);
     border-left: 3px solid var(--accent);
+}
+
+/* ─── Themes ─────────────────────────────────────────────────────────────── */
+.card {
+    border: 1px solid var(--border);
+    padding: 1rem;
+    background: var(--accent-bg);
+    margin: 2.5rem 0;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+table.themes {
+    background-color: var(--bg);
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+}
+
+table.themes td, 
+table.themes th {
+    border: 1px solid var(--border);
+    padding: 0.5rem;
+}
+
+table.themes th {
+    background-color: var(--accent-bg);
+    font-weight: 700;
+}
+
+table.themes td:nth-child(2),
+table.themes td:nth-child(3) {
+    text-align: center;
+}
+
+table.themes td code {
+    background: var(--accent-bg);
+    padding: 0.1rem 0.25rem;
 }
