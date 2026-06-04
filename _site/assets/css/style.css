@@ -36,7 +36,8 @@
     color-scheme: light;
 }
 
-html[data-theme="dark"] {
+/* Define the dark palette once as a reusable block */
+:root .theme-dark {
     --bg:           #212121;
     --text:         #DCDCDC;
     --accent:       #FFB300;
@@ -47,8 +48,14 @@ html[data-theme="dark"] {
     color-scheme: dark;
 }
 
+/* Apply it to the HTML attribute */
+html[data-theme="dark"] {
+    @extend .theme-dark;
+}
+
+/* Apply it to the system preference */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg:           #212121;
         --text:         #DCDCDC;
         --accent:       #FFB300;
