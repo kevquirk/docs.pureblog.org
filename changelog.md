@@ -7,6 +7,19 @@ tags: docs
 permalink: /changelog/
 ---
 
+## v3.4.0 - 06 June 2026
+
+### Added
+- New French translation strings for image library and feature images. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#18](https://codeberg.org/kevquirk/pureblog/pulls/18))
+- Add a setting to disable blog features (posts, tags, stats) in the admin panel when the blog page is set to Hidden. This hides the Dashboard, changes the quick-action button, defaults Content to Pages, and enforces redirection checks on direct access to blog pages ([read the docs](https://docs.pureblog.org/hiding-the-blog-page/)). (Thanks to [@daj](https://codeberg.org/daj) in [#21](https://codeberg.org/kevquirk/pureblog/issues/21))
+
+### Fixed
+- Add keyboard shortcuts (bold, italic, link, save) in custom layout markdown fields.
+- Fix sidebar logout button overlapping navigation menu items on small screens. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#20](https://codeberg.org/kevquirk/pureblog/issues/20))
+- Standardize arrow symbols in language files. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#19](https://codeberg.org/kevquirk/pureblog/issues/19))
+- Update pureblog logo link in the sidebar to reflect the configured admin homepage. (Thanks to [@abu](https://codeberg.org/abu) in [#22](https://codeberg.org/kevquirk/pureblog/issues/22))
+
+
 ## v3.3.0 - 03 June 2026
 
 ### New Features
