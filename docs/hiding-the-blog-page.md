@@ -10,4 +10,12 @@ So this is a perfect use case for hiding a blog. Or, maybe someone just wants to
 
 To hide your blog page, head to `Settings` then `Site Settings`, scroll down to the `Blog Page` option and set it to *"Hidden (disable blog page)"* and your blog page will be no more.
 
-<p class="notice">If you have any published blog posts, they will still be available via their URL. The RSS feed will remain available too.</p>
+Once hidden, a new checkbox option will appear directly below: **"Enable blog features (posts, tags, stats)"**. Unchecking this option will disable all blog-centric elements in the admin area:
+* The Dashboard is disabled and hidden from navigation
+* Direct access to the Dashboard and Post Editor will redirect to the Content area.
+* The sidebar quick-action changes from "Write a post" to "New page"
+* The "Content" area defaults to showing static pages only.
+
+![Disable blog checkbox](/assets/images/hiding-the-blog-page/disable-blog.png)
+
+<p class="notice">If you have any published blog posts, they will still be available via their URL and the RSS feed will remain available.</p>
