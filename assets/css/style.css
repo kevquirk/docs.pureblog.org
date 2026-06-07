@@ -37,6 +37,7 @@
 }
 
 /* Define the dark palette once as a reusable block */
+html[data-theme="dark"],
 :root .theme-dark {
     --bg:           #212121;
     --text:         #DCDCDC;
@@ -46,11 +47,6 @@
     --sidebar-bg:   #1A1A1A;
     --topbar-bg:    #212121;
     color-scheme: dark;
-}
-
-/* Apply it to the HTML attribute */
-html[data-theme="dark"] {
-    @extend .theme-dark;
 }
 
 /* Apply it to the system preference */
