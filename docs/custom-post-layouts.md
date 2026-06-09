@@ -79,6 +79,30 @@ Create `/content/layouts/my-layout.json` alongside the `.php` file to add custom
 
 The `name` of each field becomes the key on `$post` in your template, e.g. `name: "author"` is accessed as `$post['author']`.
 
+### Customising default fields
+
+By default, the default fields (`title` and `content`) are rendered at the top of the editor. Starting in v3.4.1, you can include them in the `fields` array to customise their sequence, label, or display order relative to your custom fields:
+
+```json
+{
+    "label": "Book Post",
+    "fields": [
+        { "name": "title", "label": "Book Title", "type": "text" },
+        { "name": "author", "label": "Author", "type": "text" },
+        { "name": "genre", "label": "Genre", "type": "text" },
+        { "name": "released", "label": "Released Year", "type": "text" },
+        { "name": "rating", "label": "Rating", "type": "select", "options": ["1/5 ★☆☆☆☆", "2/5 ★★☆☆☆", "3/5 ★★★☆☆", "4/5 ★★★★☆", "5/5 ★★★★★"] },
+        { "name": "goodreads", "label": "Goodreads URL", "type": "text" },
+        { "name": "summary", "label": "Summary", "type": "markdown" },
+        { "name": "content", "label": "My thoughts", "type": "markdown" }
+    ]
+}
+```
+
+- When `title` or `content` are specified in the layout JSON, their default input boxes at the top of the editor are hidden, and they are rendered inline exactly where they are declared in the layout.
+- The standard `title` and `content` fields will still save and autosave as normal.
+
+
 ### Field types
 
 | Type | Description |
@@ -120,7 +144,7 @@ See [custom functions docs](/custom-functions) for details.
 
 When at least one layout exists in `/content/layouts/`, clicking **New post** in the dashboard opens a picker instead of going straight to the editor. You can choose a layout or select **Default post** for a standard post with no custom fields.
 
-If a custom layout is selected in the editor, any defined custom fields will be displayed under the default content field in the post editor.
+If a custom layout is selected in the editor, the layout's fields will be displayed. If you haven't explicitly positioned the default `title` and `content` fields in the layout configuration, they will show at the top with custom fields displayed below them. Otherwise, they will display in the exact order configured in the layout JSON.
 
 <!-- screenshot: layout picker modal -->
 
