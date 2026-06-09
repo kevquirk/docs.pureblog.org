@@ -7,6 +7,13 @@ tags: docs
 permalink: /changelog/
 ---
 
+## v3.4.1 - 09 June 2026
+
+### Added
+- Added ability to position the default `title` and `content` fields within custom post layouts. 
+  By defining `title` and/or `content` inside the custom layout `.json` file's `fields` array, the editor-main area hides the default top input/textarea and renders them inline exactly where configured in the layout sequence. [Read the docs](https://docs.pureblog.org/custom-post-layouts/).
+
+
 ## v3.4.0 - 06 June 2026
 
 ### Added
