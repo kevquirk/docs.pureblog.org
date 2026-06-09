@@ -67,7 +67,7 @@ Create `/content/layouts/my-layout.json` alongside the `.php` file to add custom
     "label": "Display name in the layout picker",
     "fields": [
         { "name": "author", "label": "Author", "type": "text" },
-        { "name": "notes", "label": "Notes", "type": "markdown" },
+        { "name": "summary", "label": "Book Summary", "type": "markdown" },
         { "name": "genre", "label": "Genre", "type": "select", "options": [
             "Fiction",
             "Non-fiction"
@@ -89,14 +89,16 @@ By default, the default fields (`title` and `content`) are rendered at the top o
     "fields": [
         { "name": "title", "label": "Book Title", "type": "text" },
         { "name": "author", "label": "Author", "type": "text" },
-        { "name": "genre", "label": "Genre", "type": "text" },
-        { "name": "released", "label": "Released Year", "type": "text" },
-        { "name": "rating", "label": "Rating", "type": "select", "options": ["1/5 ★☆☆☆☆", "2/5 ★★☆☆☆", "3/5 ★★★☆☆", "4/5 ★★★★☆", "5/5 ★★★★★"] },
-        { "name": "goodreads", "label": "Goodreads URL", "type": "text" },
-        { "name": "summary", "label": "Summary", "type": "markdown" },
+        { "name": "summary", "label": "Book Summary", "type": "markdown" },
+        { "name": "genre", "label": "Genre", "type": "select", "options": [
+            "Fiction",
+            "Non-fiction"
+        ] },
+        { "name": "recommended", "label": "Recommended", "type": "checkbox" },
         { "name": "content", "label": "My thoughts", "type": "markdown" }
     ]
 }
+
 ```
 
 - When `title` or `content` are specified in the layout JSON, their default input boxes at the top of the editor are hidden, and they are rendered inline exactly where they are declared in the layout.
