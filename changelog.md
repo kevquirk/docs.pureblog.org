@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## v3.4.2 - 10 June 2026
+
+### Updated
+- Improved sidebar in editor that can be shrunk down to provide a less distracting editing experience.
+
 ## v3.4.1 - 09 June 2026
 
 ### Added
