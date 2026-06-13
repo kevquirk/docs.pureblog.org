@@ -6,6 +6,16 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.4.3 - 13 June 2026
+
+### Fixed
+- Various admin CSS cleanup
+- Improved "hovering" notifications in admin that no longer shift the UI around.
+- Fixed missing "green" class from new page button when blog is disabled.
+
+### Updated
+- Getman translations (thanks [@bttr](https://codeberg.org/bttr) for [#23](https://codeberg.org/kevquirk/pureblog/pulls/23))
+
 
 ## v3.4.2 - 10 June 2026
 
