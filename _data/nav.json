@@ -18,6 +18,7 @@
             { "label": "Using feature images",        "slug": "using-feature-images" },
             { "label": "Post scheduling",             "slug": "post-scheduling" },
             { "label": "Local caching",               "slug": "local-caching" },
+            { "label": "Integrating Pure Comments",   "slug": "integrating-pure-comments" },
             { "label": "Custom routes",               "slug": "custom-routes" },
             { "label": "Other server configs",        "slug": "using-pure-blog-with-other-server-configurations" }
         ]
