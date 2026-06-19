@@ -9,12 +9,13 @@ permalink: /changelog/
 ## v3.4.4 - 19 June 3036
 
 ### Added
-- Added a new "Community" section to site settings.
-- Added a checkbox to enable/disable [Pure Comments](https://purecomments.org).
-- Added a text input field for the Pure Comments URL, which is dynamically enabled/disabled and required based on the checkbox state.
-- Integrated the Pure Comments HTML container and embed script in `/includes/post-meta.php` to display comment threads on all posts.
-- Configured the comments container to use `data-post-slug` with the post's unique slug to guarantee comment thread stability.
-- Added translations for all community settings and validation errors across all 11 language files.
+- **Added Pure Comments integration ([read the docs](https://docs.pureblog.org/integrating-pure-comments/))**
+    - Added a new "Community" section to site settings.
+    - Added a checkbox to enable/disable [Pure Comments](https://purecomments.org).
+    - Added a text input field for the Pure Comments URL, which is dynamically enabled/disabled and required based on the checkbox state.
+    - Integrated the Pure Comments HTML container and embed script in `/includes/post-meta.php` to display comment threads on all posts.
+    - Configured the comments container to use `data-post-slug` with the post's unique slug to guarantee comment thread stability.
+    - Added translations for all community settings and validation errors across all 11 language files.
 
 ### Fixed
 - Placeholder text in page head HTML and post head HTML embed fields in site settings were the wrong way round.
