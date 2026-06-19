@@ -61,6 +61,7 @@
         "items": [
             { "label": "Pure Blog importers",         "slug": "pure-blog-importers" },
             { "label": "Bear Blog importer",          "slug": "bear-blog-importer" },
+            { "label": "Ghost importer",              "slug": "ghost-importer" },
             { "label": "Pagecord importer",           "slug": "pagecord-importer" },
             { "label": "WordPress importer",          "slug": "wordpress-importer" }
         ]

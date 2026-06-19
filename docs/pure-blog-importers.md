@@ -18,6 +18,12 @@ Two versions are available depending on your setup:
 
 <p><a class="button" href="/wordpress-importer">Read WordPress importer docs</a></p>
 
+### Ghost
+
+A web UI importer for Ghost exports. Export your content as a JSON file from Ghost, drop the file into your server or upload it, and the importer handles the rest. It supports posts, pages, tags, feature images, inline images, and SEO descriptions.
+
+<p><a class="button" href="/ghost-importer">Read Ghost importer docs</a></p>
+
 ### BearBlog
 
 A web UI importer for BearBlog exports. Export your posts as Markdown from BearBlog, drop the files into a folder, and the importer handles the rest. Posts containing images are flagged and saved as drafts so you can verify the image URLs before publishing.
