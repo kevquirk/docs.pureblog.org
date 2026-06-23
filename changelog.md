@@ -6,6 +6,20 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.5.0 - 23 June 2026
+
+### Improvement
+- Replaced CodeMirror 5 with CodeJar + Prism.js in post/page/CSS editors:
+  - Resolves typing bugs with Swiss and French accented characters (e.g. "é") and Enter key lockups after brackets.
+  - Restores native browser spellcheck, autocorrect, and dictionary lookup.
+  - Significantly reduces script size, improving admin page load speeds.
+
+### Fixed
+- Footer docs link in admin now points to the new docs site. (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#14](https://codeberg.org/kevquirk/pureblog/issues/24)).
+
+### Added
+- Updated Finnish translations, completing previously missing localisation strings (thanks to Olli).
+
 ## v3.4.4 - 19 June 3036
 
 ### Added
