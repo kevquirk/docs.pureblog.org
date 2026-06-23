@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.5.1 - 23 June 2026
+
+### Fixed
+- Fixed a bug in the editor where saving a post or page (via Ctrl+S or the Save button) reset the scroll position back to the top of the page. The scroll position of the main container (`.admin-main`) and the editor cursor selection are now correctly preserved on reload.
+
 ## v3.5.0 - 23 June 2026
 
 ### Improvement
