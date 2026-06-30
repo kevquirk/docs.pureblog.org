@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.5.2 - 30 June 2026
+
+### Added
+- Added native lazy loading (`loading="lazy"`) to all images in post and page bodies, improving initial page load performance.
+
 ## v3.5.1 - 23 June 2026
 
 ### Fixed
