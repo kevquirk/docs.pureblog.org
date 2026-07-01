@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.5.3 - 01 July 2026
+
+### Fixed
+- Fixed an issue in CodeJar editors where newlines/line breaks were stripped out during copy/paste operations (thanks [@northperseids](https://codeberg.org/northperseids) for reporting [#25](https://codeberg.org/kevquirk/pureblog/issues/25)).
+
 ## v3.5.2 - 30 June 2026
 
 ### Added
