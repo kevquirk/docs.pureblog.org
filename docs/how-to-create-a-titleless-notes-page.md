@@ -208,15 +208,17 @@ The key is to re-filter from `$allPosts` (available in scope) and recalculate pa
 ```php
 <?php
 // Exclude notes from the main list and recalculate pagination.
-$filteredPosts = array_values(array_filter(
-    $allPosts,
-    fn(array $post): bool => ($post['layout'] ?? '') !== 'notes'
-));
-$perPage     = (int) ($config['posts_per_page'] ?? 20);
-$pagination  = paginate_posts($filteredPosts, $perPage, $currentPage);
-$posts       = $pagination['posts'];
-$totalPages  = $pagination['totalPages'];
-$currentPage = $pagination['currentPage'];
+if (isset($allPosts)) {
+    $filteredPosts = array_values(array_filter(
+        $allPosts,
+        fn(array $post): bool => ($post['layout'] ?? '') !== 'notes'
+    ));
+    $perPage     = (int) ($config['posts_per_page'] ?? 20);
+    $pagination  = paginate_posts($filteredPosts, $perPage, $currentPage);
+    $posts       = $pagination['posts'];
+    $totalPages  = $pagination['totalPages'];
+    $currentPage = $pagination['currentPage'];
+}
 
 $paginationQueryParams = (isset($paginationQueryParams) && is_array($paginationQueryParams))
     ? $paginationQueryParams : [];
