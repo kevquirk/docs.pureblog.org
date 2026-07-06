@@ -26,13 +26,13 @@ You can store these in a `/data` folder in the root of your Pure Blog install, e
 In your page content you can include a loop, like this:
 
 ```liquid
-{% for site in site.data.blogroll %}
+{% raw %}{% for site in site.data.blogroll %}
 <div class="card">
   <h2>{{ site.name }}</h2>
   <p>{{ site.comment }}</p>
   <a class="button" href="{{ site.url }}">Visit</a>
 </div>
-{% endfor %}
+{% endfor %}{% endraw %}
 ```
 
 Pure Blog will replace that loop with your actual items at render time. I use this for my blogroll and projects page and it keeps things tidy.

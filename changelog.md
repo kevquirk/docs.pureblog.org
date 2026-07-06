@@ -10,6 +10,7 @@ permalink: /changelog/
 
 ### Fixed
 - Fixed an issue in layout partials where stylesheet, icon, and custom CSS file checks in the document head and body open relied on relative paths (`__DIR__ . '/../...'`), which broke when using custom `header.php` layouts inside `content/includes/` (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#27](https://codeberg.org/kevquirk/pureblog/issues/27)).
+- Fixed an issue in the documentation pages "Using Shortcodes" and "Working with Data Files" where double curly braces and Liquid tags were being processed by Eleventy/11ty rather than rendering as plain code blocks, resulting in empty or missing examples (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#29](https://codeberg.org/kevquirk/pureblog/issues/29) and [#30](https://codeberg.org/kevquirk/pureblog/issues/30)).
 - Simplified occurrences of `rtrim(get_base_url(), '/')` to just `get_base_url()` since the helper function already guarantees a base URL without trailing slashes.
 
 ## v3.5.3 - 01 July 2026
