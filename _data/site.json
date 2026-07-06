@@ -3,5 +3,6 @@
     "subtitle": "Docs",
     "description": "Documentation for Pure Blog, the simple flat-file PHP blogging platform.",
     "url": "https://docs.pureblog.org",
-    "codebergUrl": "https://codeberg.org/kevquirk/pureblog"
+    "codebergUrl": "https://codeberg.org/kevquirk/docs.pureblog.org",
+    "sourceCodeUrl": "https://codeberg.org/kevquirk/pureblog"
 }
