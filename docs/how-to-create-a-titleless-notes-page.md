@@ -366,10 +366,10 @@ In **Admin → Settings → Custom Routes**, add a second line:
 
 ```
 /notes | /content/includes/notes.php
-/notes-feed | /content/includes/notes-feed.php
+/notes/feed | /content/includes/notes-feed.php
 ```
 
-Your notes feed will be live at `/notes-feed`.
+Your notes feed will be live at `/notes/feed`.
 
 ## Writing a Note
 
