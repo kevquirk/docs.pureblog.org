@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.5.5 - 06 July 2026
+
+### Fixed
+- Fixed an issue in CodeJar editors where copy/paste formatting (such as indentation and newlines) was lost in some browsers (like Vivaldi), and pressing the Tab key did not indent text in Firefox (thanks Jan for reporting).
+
 ## v3.5.4 - 06 July 2026
 
 ### Fixed
