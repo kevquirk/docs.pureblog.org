@@ -6,10 +6,10 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## v3.5.6 - 07 July 2026
 
 ### Changed
-- Updated the licence to version 1.2 to restrict only commercial hosting for a fee, while explicitly permitting free hosting for friends and family.
+- Updated the license to version 1.2 to restrict only commercial hosting for a fee, while explicitly permitting free hosting for friends and family.
 
 ### Added
 - Updated Romanian translations, completing previously missing localisation strings (thanks [@ThinkRoot](https://codeberg.org/ThinkRoot) for [#33](https://codeberg.org/kevquirk/pureblog/pulls/33)).
