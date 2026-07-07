@@ -6,6 +6,15 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Changed
+- Updated the licence to version 1.2 to restrict only commercial hosting for a fee, while explicitly permitting free hosting for friends and family.
+
+### Added
+- Updated Romanian translations, completing previously missing localisation strings (thanks [@ThinkRoot](https://codeberg.org/ThinkRoot) for [#33](https://codeberg.org/kevquirk/pureblog/pulls/33)).
+- Updated French translations, completing community settings localisation strings (thanks [@nfriedli](https://codeberg.org/nfriedli) for [#34](https://codeberg.org/kevquirk/pureblog/pulls/34)).
+
 ## v3.5.5 - 06 July 2026
 
 ### Fixed
