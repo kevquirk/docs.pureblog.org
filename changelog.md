@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Fixed
+- Fixed a layout issue on the admin dashboard where vertical bar charts scrolled off-screen on mobile devices. Enabled clean horizontal overflow scrolling and prevented columns from squishing. Thanks to [Sven](https://svbck.blog/) for reporting.
+
 ## v3.5.6 - 07 July 2026
 
 ### Changed
