@@ -8,8 +8,11 @@ permalink: /changelog/
 ---
 ## Unreleased
 
+## v3.5.7 - 10 July 2026
+
 ### Fixed
 - Fixed a layout issue on the admin dashboard where vertical bar charts scrolled off-screen on mobile devices. Enabled clean horizontal overflow scrolling and prevented columns from squishing. Thanks to [Sven](https://svbck.blog/) for reporting.
+- Fixed an issue where multi-line front matter values (such as layout fields or meta descriptions) were truncated at the first line break when saving. Implemented support for building and parsing YAML block scalars (`|`) to preserve formatting.
 
 ## v3.5.6 - 07 July 2026
 
