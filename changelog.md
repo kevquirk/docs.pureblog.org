@@ -6,8 +6,6 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
-
 ## v3.5.7 - 10 July 2026
 
 ### Fixed
