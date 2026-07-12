@@ -10,7 +10,7 @@ permalink: /changelog/
 
 ### Added
 - Automatically append `rel="noopener noreferrer"` to all external markdown links for improved security and privacy. Thanks to [pimoore](https://codeberg.org/pimoore) for recommending/reporting this in issue [#35](https://codeberg.org/kevquirk/pureblog/issues/35).
-- Added parser support for custom inline link attributes (allowing target specifications like `{target="_blank"}`).
+- Added parser support for custom inline link attributes (allowing target specifications like `{target="_blank"}`). [Read the docs](https://docs.pureblog.org/markdown-helper/#adding-target-and-other-attributes-to-links)
 
 ## v3.5.7 - 10 July 2026
 
