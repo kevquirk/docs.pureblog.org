@@ -152,6 +152,24 @@ this can also be useful when adding notice boxes:
 This is now a notice box! {.notice}
 ```
 
+## Adding target and other attributes to links
+
+Pure Blog supports adding custom attributes to your links (such as `target="_blank"`, `id`, or custom classes). To do this, append curly braces with the desired attributes immediately after the link parentheses:
+
+```
+[Google](https://google.com){target="_blank"}
+[GitHub](https://github.com){.some-class target="_self" id="github-link"}
+```
+
+Which would then be rendered like this:
+
+```html
+<a href="https://google.com" target="_blank" rel="noopener noreferrer">Google</a>
+<a href="https://github.com" target="_self" id="github-link" class="some-class" rel="noopener noreferrer">GitHub</a>
+```
+
+By default, any external links will automatically have `rel="noopener noreferrer"` added for security and privacy.
+
 ## Using Markdown in HTML elements
 
 You can mix and match markdown and HTML for certain elements. For example, to have a `div` that supports markdown you can do this:
