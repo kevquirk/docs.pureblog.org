@@ -62,7 +62,7 @@ At the moment, Pure Blog supports these events:
 - `on_filter_content($markdown)` — transform post/page content after built-in shortcodes are processed but before Markdown conversion. Return the modified string.
 - `on_render_markdown($html)` — post-process the rendered HTML after Markdown conversion. Return the modified string.
 
-You can implement any or all of them, it's entirely optional. `/config/hooks-example.php` is included with Pure Blog, which is a working example that adds support for clearing cache with Bunny CDN whenever a post/page is published, updated, or deleted, as well as an on-demand purge button in admin. Just enter the API and Zone ID at the top.
+You can implement any or all of them, it's entirely optional. You can find pre-made examples (like clearing cache with Bunny CDN or posting to Mastodon) on [hooks.pureblog.org](https://hooks.pureblog.org).
 
 ## Adding custom admin buttons
 
