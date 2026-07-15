@@ -6,6 +6,15 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.6.0 - 15 July 2026
+
+### Changed
+- Removed the redundant `/config/hooks-example.php` file from the repository, directing users to the online library at [hooks.pureblog.org](https://hooks.pureblog.org) for examples instead.
+
+### Fixed
+- Fixed a bug where pages viewed by logged-in administrators using "remember me" could be saved to the public cache, making the "edit page" button visible to logged-out visitors.
+- Prevented login session conflicts when hosting multiple blogs on the same domain or localhost by using site-specific cookie and session names. Thanks to [Sven](https://svbck.blog/) for helping me work through the issue.
+
 ## v3.5.8 - 12 July 2026
 
 ### Added
