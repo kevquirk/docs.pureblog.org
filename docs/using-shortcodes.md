@@ -16,5 +16,5 @@ Pure Blog now supports similar shortcodes, so far only 2 have been added, as tha
 So if you wanted to use a similar "*reply by email*" link in your posts, you can add something like:
 
 ```
-{% raw %}<a class="button reply-button"href="mailto:{{ site_email }}?subject=Reply to: {{ page_title }}">✉️ Reply by email</a>{% endraw %}
+{% raw %}<a class="button reply-button"href="mailto:{{ site_email }}?subject=Reply to: {{ post_title }}">✉️ Reply by email</a>{% endraw %}
 ```
