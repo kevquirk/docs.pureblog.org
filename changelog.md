@@ -6,6 +6,12 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.6.1 - 16 July 2026
+
+### Fixed
+- Fixed a bug where Markdown abbreviations and reference links were not parsed within footnotes. Thanks to [citizenk](https://codeberg.org/citizenk) for reporting this in issue [#37](https://codeberg.org/kevquirk/pureblog/issues/37).
+- Automatically rename the uploaded images folder and update all embedded image and featured image references when a post or page slug changes. Thanks to [citizenk](https://codeberg.org/citizenk) for reporting this in issue [#39](https://codeberg.org/kevquirk/pureblog/issues/39).
+
 ## v3.6.0 - 15 July 2026
 
 ### Changed

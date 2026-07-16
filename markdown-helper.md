@@ -170,6 +170,29 @@ Which would then be rendered like this:
 
 By default, any external links will automatically have `rel="noopener noreferrer"` added for security and privacy.
 
+## Footnotes
+
+Pure Blog supports footnotes to reference notes or citations at the bottom of your post/page. Use `[^1]` in the text where you want the superscript link to appear, and define the footnote content on a new line using `[^1]: Footnote content.`
+
+```
+Here is some text with a footnote reference.[^1]
+
+[^1]: This is the footnote text.
+```
+
+By default, footnote backlinks (the `↩` symbol) are added automatically to let readers return to the body text.
+
+## Abbreviations
+
+You can define abbreviations that will be automatically expanded into HTML `<abbr>` tags throughout your content (including inside footnotes). To define an abbreviation, use the following syntax at the bottom of your post/page:
+
+```
+*[HTML]: Hypertext Markup Language
+*[CSS]: Cascading Style Sheets
+```
+
+When a reader hovers over a defined abbreviation like HTML or CSS, they will see a tooltip displaying the full explanation.
+
 ## Using Markdown in HTML elements
 
 You can mix and match markdown and HTML for certain elements. For example, to have a `div` that supports markdown you can do this:

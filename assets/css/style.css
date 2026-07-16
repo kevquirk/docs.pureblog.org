@@ -93,6 +93,7 @@ body {
 
 a { color: var(--accent); }
 a:hover { text-decoration: none; }
+abbr { cursor: help; }
 
 /* ─── Layout shell ───────────────────────────────────────────────────────── */
 .layout {
