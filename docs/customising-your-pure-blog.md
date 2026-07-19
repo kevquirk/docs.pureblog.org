@@ -5,7 +5,7 @@ date: 2026-02-05
 
 Pure Blog is a very opinionated project that I've created to work in a way that makes sense to me. However, I have added a number of customisation options that allow other users of Pure Blog to have it reflect their personality.
 
-Customisation in Pure Blog ranges from very basic, to expert level where a developer can change any aspect of their blog, as it's all [open source](https://codeberg.org/kevquirk.com/pureblog).
+Customisation in Pure Blog ranges from very basic, to expert level where a developer can change any aspect of their blog, as it's all [open source](https://github.com/kevquirk.com/pureblog).
 
 ## Fonts, colours, and layouts
 

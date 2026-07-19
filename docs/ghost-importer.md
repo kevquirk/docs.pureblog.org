@@ -6,7 +6,7 @@ date: 2026-06-19
 
 This guide will show you how to import your Ghost posts, pages, tags, feature images, and inline images into Pure Blog. The process is fairly simple and should only take a few minutes.
 
-All the files mentioned below are available [on GitHub](https://codeberg.org/kevquirk/pureblog-importers).
+All the files mentioned below are available [on GitHub](https://github.com/kevquirk/pureblog-importers).
 
 ## Ghost — Web UI
 

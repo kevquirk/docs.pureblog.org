@@ -4,7 +4,7 @@ description: A look at how to update Pure Blog from inside the admin screen.
 date: 2026-02-11
 ---
 
-As of [v1.5.0](https://codeberg.org/kevquirk/pureblog/releases/tag/1.5.0) Pure Blog allows you to update direct from the Admin interface. To do this, visit `Settings` > `Updates` and you will be greeted by a page similar to this:
+As of [v1.5.0](https://github.com/kevquirk/pureblog/releases/tag/1.5.0) Pure Blog allows you to update direct from the Admin interface. To do this, visit `Settings` > `Updates` and you will be greeted by a page similar to this:
 
 ![updates 01](/assets/images/how-to-update-pure-blog/updates-01.webp)
 

@@ -6,7 +6,7 @@ date: 2026-02-04
 
 Getting started with your very own Pure Blog consists of a just a few steps:
 
-1. [Download the latest source code](https://codeberg.org/kevquirk/pureblog/releases)
+1. [Download the latest source code](https://github.com/kevquirk/pureblog/releases)
 2. Upload it to your sever
 3. Enjoy!
 

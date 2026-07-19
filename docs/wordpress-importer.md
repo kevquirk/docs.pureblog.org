@@ -6,7 +6,7 @@ date: 2026-03-24
 
 This guide will show you how to import your WordPress posts, pages and images into Pure Blog. The process is fairly simple and should only take a few minutes.
 
-All the files mentioned below are available [on GitHub](https://codeberg.org/kevquirk/pureblog-importers).
+All the files mentioned below are available [on GitHub](https://github.com/kevquirk/pureblog-importers).
 
 ## WordPress — Web UI
 

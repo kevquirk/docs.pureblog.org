@@ -6,11 +6,19 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.6.2 - 19 July 2026
+
+## Changed
+- **Moved back to [GitHub](https://github.com/kevquirk/pureblog) for repo hosting.**
+
+### Added
+- Updated Italian translations, completing missing localisation strings (thanks [@citizenk](https://github.org/citizenk) for [#40](https://github.com/kevquirk/pureblog/pull/40)).
+
 ## v3.6.1 - 16 July 2026
 
 ### Fixed
-- Fixed a bug where Markdown abbreviations and reference links were not parsed within footnotes. Thanks to [citizenk](https://codeberg.org/citizenk) for reporting this in issue [#37](https://codeberg.org/kevquirk/pureblog/issues/37).
-- Automatically rename the uploaded images folder and update all embedded image and featured image references when a post or page slug changes. Thanks to [citizenk](https://codeberg.org/citizenk) for reporting this in issue [#39](https://codeberg.org/kevquirk/pureblog/issues/39).
+- Fixed a bug where Markdown abbreviations and reference links were not parsed within footnotes. Thanks to [citizenk](https://github.org/citizenk) for reporting this in issue [#37](https://github.com/kevquirk/pureblog/issues/37).
+- Automatically rename the uploaded images folder and update all embedded image and featured image references when a post or page slug changes. Thanks to [citizenk](https://github.org/citizenk) for reporting this in issue [#39](https://github.com/kevquirk/pureblog/issues/39).
 
 ## v3.6.0 - 15 July 2026
 
@@ -24,7 +32,7 @@ permalink: /changelog/
 ## v3.5.8 - 12 July 2026
 
 ### Added
-- Automatically append `rel="noopener noreferrer"` to all external markdown links for improved security and privacy. Thanks to [pimoore](https://codeberg.org/pimoore) for recommending/reporting this in issue [#35](https://codeberg.org/kevquirk/pureblog/issues/35).
+- Automatically append `rel="noopener noreferrer"` to all external markdown links for improved security and privacy. Thanks to [pimoore](https://github.org/pimoore) for recommending/reporting this in issue [#35](https://github.com/kevquirk/pureblog/issues/35).
 - Added parser support for custom inline link attributes (allowing target specifications like `{target="_blank"}`). [Read the docs](https://docs.pureblog.org/markdown-helper/#adding-target-and-other-attributes-to-links)
 
 ## v3.5.7 - 10 July 2026
@@ -39,8 +47,8 @@ permalink: /changelog/
 - Updated the license to version 1.2 to restrict only commercial hosting for a fee, while explicitly permitting free hosting for friends and family.
 
 ### Added
-- Updated Romanian translations, completing previously missing localisation strings (thanks [@ThinkRoot](https://codeberg.org/ThinkRoot) for [#33](https://codeberg.org/kevquirk/pureblog/pulls/33)).
-- Updated French translations, completing community settings localisation strings (thanks [@nfriedli](https://codeberg.org/nfriedli) for [#34](https://codeberg.org/kevquirk/pureblog/pulls/34)).
+- Updated Romanian translations, completing previously missing localisation strings (thanks [@ThinkRoot](https://github.org/ThinkRoot) for [#33](https://github.com/kevquirk/pureblog/pull/33)).
+- Updated French translations, completing community settings localisation strings (thanks [@nfriedli](https://github.org/nfriedli) for [#34](https://github.com/kevquirk/pureblog/pull/34)).
 
 ## v3.5.5 - 06 July 2026
 
@@ -50,19 +58,19 @@ permalink: /changelog/
 ## v3.5.4 - 06 July 2026
 
 ### Fixed
-- Fixed an issue in layout partials where stylesheet, icon, and custom CSS file checks in the document head and body open relied on relative paths (`__DIR__ . '/../...'`), which broke when using custom `header.php` layouts inside `content/includes/` (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#27](https://codeberg.org/kevquirk/pureblog/issues/27)).
-- Fixed an issue in the documentation pages "Using Shortcodes" and "Working with Data Files" where double curly braces and Liquid tags were being processed by Eleventy/11ty rather than rendering as plain code blocks, resulting in empty or missing examples (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#29](https://codeberg.org/kevquirk/pureblog/issues/29) and [#30](https://codeberg.org/kevquirk/pureblog/issues/30)).
-- Fixed an issue on the documentation site where markdown block attributes (like `{.notice .tip}`) were not parsed, leaving them visible as raw text at the end of paragraphs and causing emoji indicators on notice boxes to fail to render. Installed and configured the `markdown-it-attrs` plugin, and added corresponding notice box emoji styles to the stylesheet (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#31](https://codeberg.org/kevquirk/pureblog/issues/31)).
-- Fixed a documentation inconsistency in "How to Create a Titleless Notes Page" where the notes feed RSS URL route was referred to as `/notes/feed` in some sections but `/notes-feed` in the custom routing step. Updated the route configuration instructions to consistently use `/notes/feed` (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#32](https://codeberg.org/kevquirk/pureblog/issues/32)).
+- Fixed an issue in layout partials where stylesheet, icon, and custom CSS file checks in the document head and body open relied on relative paths (`__DIR__ . '/../...'`), which broke when using custom `header.php` layouts inside `content/includes/` (thanks [@citizenk](https://github.org/citizenk) for reporting [#27](https://github.com/kevquirk/pureblog/issues/27)).
+- Fixed an issue in the documentation pages "Using Shortcodes" and "Working with Data Files" where double curly braces and Liquid tags were being processed by Eleventy/11ty rather than rendering as plain code blocks, resulting in empty or missing examples (thanks [@citizenk](https://github.org/citizenk) for reporting [#29](https://github.com/kevquirk/pureblog/issues/29) and [#30](https://github.com/kevquirk/pureblog/issues/30)).
+- Fixed an issue on the documentation site where markdown block attributes (like `{.notice .tip}`) were not parsed, leaving them visible as raw text at the end of paragraphs and causing emoji indicators on notice boxes to fail to render. Installed and configured the `markdown-it-attrs` plugin, and added corresponding notice box emoji styles to the stylesheet (thanks [@citizenk](https://github.org/citizenk) for reporting [#31](https://github.com/kevquirk/pureblog/issues/31)).
+- Fixed a documentation inconsistency in "How to Create a Titleless Notes Page" where the notes feed RSS URL route was referred to as `/notes/feed` in some sections but `/notes-feed` in the custom routing step. Updated the route configuration instructions to consistently use `/notes/feed` (thanks [@citizenk](https://github.org/citizenk) for reporting [#32](https://github.com/kevquirk/pureblog/issues/32)).
 - Simplified occurrences of `rtrim(get_base_url(), '/')` to just `get_base_url()` since the helper function already guarantees a base URL without trailing slashes.
 
 ### Added
-- New public repository for docs site - [https://codeberg.org/kevquirk/docs.pureblog.org](https://codeberg.org/kevquirk/docs.pureblog.org)
+- New public repository for docs site - [https://github.com/kevquirk/docs.pureblog.org](https://github.com/kevquirk/docs.pureblog.org)
 
 ## v3.5.3 - 01 July 2026
 
 ### Fixed
-- Fixed an issue in CodeJar editors where newlines/line breaks were stripped out during copy/paste operations (thanks [@northperseids](https://codeberg.org/northperseids) for reporting [#25](https://codeberg.org/kevquirk/pureblog/issues/25)).
+- Fixed an issue in CodeJar editors where newlines/line breaks were stripped out during copy/paste operations (thanks [@northperseids](https://github.org/northperseids) for reporting [#25](https://github.com/kevquirk/pureblog/issues/25)).
 
 ## v3.5.2 - 30 June 2026
 
@@ -83,7 +91,7 @@ permalink: /changelog/
   - Significantly reduces script size, improving admin page load speeds.
 
 ### Fixed
-- Footer docs link in admin now points to the new docs site. (thanks [@citizenk](https://codeberg.org/citizenk) for reporting [#14](https://codeberg.org/kevquirk/pureblog/issues/24)).
+- Footer docs link in admin now points to the new docs site. (thanks [@citizenk](https://github.org/citizenk) for reporting [#14](https://github.com/kevquirk/pureblog/issues/24)).
 
 ### Added
 - Updated Finnish translations, completing previously missing localisation strings (thanks to Olli).
@@ -111,7 +119,7 @@ permalink: /changelog/
 - Fixed missing "green" class from new page button when blog is disabled.
 
 ### Updated
-- Getman translations (thanks [@bttr](https://codeberg.org/bttr) for [#23](https://codeberg.org/kevquirk/pureblog/pulls/23))
+- Getman translations (thanks [@bttr](https://github.org/bttr) for [#23](https://github.com/kevquirk/pureblog/pull/23))
 
 
 ## v3.4.2 - 10 June 2026
@@ -129,14 +137,14 @@ permalink: /changelog/
 ## v3.4.0 - 06 June 2026
 
 ### Added
-- New French translation strings for image library and feature images. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#18](https://codeberg.org/kevquirk/pureblog/pulls/18))
-- Add a setting to disable blog features (posts, tags, stats) in the admin panel when the blog page is set to Hidden. This hides the Dashboard, changes the quick-action button, defaults Content to Pages, and enforces redirection checks on direct access to blog pages ([read the docs](https://docs.pureblog.org/hiding-the-blog-page/)). (Thanks to [@daj](https://codeberg.org/daj) in [#21](https://codeberg.org/kevquirk/pureblog/issues/21))
+- New French translation strings for image library and feature images. (Thanks to [@nfriedli](https://github.org/nfriedli) in [#18](https://github.com/kevquirk/pureblog/pull/18))
+- Add a setting to disable blog features (posts, tags, stats) in the admin panel when the blog page is set to Hidden. This hides the Dashboard, changes the quick-action button, defaults Content to Pages, and enforces redirection checks on direct access to blog pages ([read the docs](https://docs.pureblog.org/hiding-the-blog-page/)). (Thanks to [@daj](https://github.org/daj) in [#21](https://github.com/kevquirk/pureblog/issues/21))
 
 ### Fixed
 - Add keyboard shortcuts (bold, italic, link, save) in custom layout markdown fields.
-- Fix sidebar logout button overlapping navigation menu items on small screens. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#20](https://codeberg.org/kevquirk/pureblog/issues/20))
-- Standardize arrow symbols in language files. (Thanks to [@nfriedli](https://codeberg.org/nfriedli) in [#19](https://codeberg.org/kevquirk/pureblog/issues/19))
-- Update pureblog logo link in the sidebar to reflect the configured admin homepage. (Thanks to [@abu](https://codeberg.org/abu) in [#22](https://codeberg.org/kevquirk/pureblog/issues/22))
+- Fix sidebar logout button overlapping navigation menu items on small screens. (Thanks to [@nfriedli](https://github.org/nfriedli) in [#20](https://github.com/kevquirk/pureblog/issues/20))
+- Standardize arrow symbols in language files. (Thanks to [@nfriedli](https://github.org/nfriedli) in [#19](https://github.com/kevquirk/pureblog/issues/19))
+- Update pureblog logo link in the sidebar to reflect the configured admin homepage. (Thanks to [@abu](https://github.org/abu) in [#22](https://github.com/kevquirk/pureblog/issues/22))
 
 
 ## v3.3.0 - 03 June 2026
@@ -159,17 +167,17 @@ permalink: /changelog/
 
 ## 3.2.2 - 01 June 2026
 
-**Fixed fatal error on homepage when posts directory is missing.** `get_all_posts()` and `get_all_posts_meta()` were setting the internal `$all` cache to an empty array when the posts directory didn't exist, but leaving `$published` as `null`. Because the default call returns `$published`, PHP threw a fatal `TypeError` on the homepage. Both functions now correctly initialise `$published` to `[]` alongside `$all` in that branch. Fixes [#17](https://codeberg.org/kevquirk/pureblog/issues/17).
+**Fixed fatal error on homepage when posts directory is missing.** `get_all_posts()` and `get_all_posts_meta()` were setting the internal `$all` cache to an empty array when the posts directory didn't exist, but leaving `$published` as `null`. Because the default call returns `$published`, PHP threw a fatal `TypeError` on the homepage. Both functions now correctly initialise `$published` to `[]` alongside `$all` in that branch. Fixes [#17](https://github.com/kevquirk/pureblog/issues/17).
 
 
 
 ## v3.2.1 - 30 May 2026
 
 ### Fixed
-- `code` and `pre` elements now correctly use the monospace font stack. Thanks to [@nfriedli](https://codeberg.org/nfriedli) for reorting.
+- `code` and `pre` elements now correctly use the monospace font stack. Thanks to [@nfriedli](https://github.org/nfriedli) for reorting.
 
 ### Added
-- Font and static asset caching headers added to `.htaccess` for new installs (fonts cached for 3 months, CSS/JS/images for 1 month). Thanks to [@nfriedli](https://codeberg.org/nfriedli) for recommending.
+- Font and static asset caching headers added to `.htaccess` for new installs (fonts cached for 3 months, CSS/JS/images for 1 month). Thanks to [@nfriedli](https://github.org/nfriedli) for recommending.
 
 
 `.htaccess` is ignored in the updater tool, so you will need to update the file manually on existing installs. {.notice}
@@ -199,11 +207,11 @@ permalink: /changelog/
 ## v3.1.1 - 25 May 2026
 
 ### Fixed
-- Reinstated `render_post_navigation()` following accidental removal during the v3 cleanup ([#15](https://codeberg.org/kevquirk/pureblog/issues/15)). (Thanks [David](https://codeberg.org/daj)).
+- Reinstated `render_post_navigation()` following accidental removal during the v3 cleanup ([#15](https://github.com/kevquirk/pureblog/issues/15)). (Thanks [David](https://github.org/daj)).
 
 ### Changed
-- Updated German translation for scheduled posts (thanks [@Lahusen](https://codeberg.org/Lahusen)).
-- Updated French translation for scheduled posts (thanks [@nfriedli](https://codeberg.org/nfriedli)).
+- Updated German translation for scheduled posts (thanks [@Lahusen](https://github.org/Lahusen)).
+- Updated French translation for scheduled posts (thanks [@nfriedli](https://github.org/nfriedli)).
 
 
 
@@ -212,7 +220,7 @@ permalink: /changelog/
 ### Added
 - **Post scheduling**. Set a post's status to **Scheduled** with a future date and time, and it will publish automatically when that time arrives. The scheduler runs on every page load (at most once every 5 minutes). For more precise timing, a `cron.php` file can be added to `/content/` and triggered via a server cron job or external service. [Read the docs](https://pureblog.org/post-scheduling).
 - **Optional reading time displayed on posts**, with a toggle in site settings under date format (diasbled by default).
-- German translations for reading time strings. Thanks to [@bttr](https://codeberg.org/bttr).
+- German translations for reading time strings. Thanks to [@bttr](https://github.org/bttr).
 
 ### Fixed
 - Removed redundant `.htaccess` creation from the autosaves directory, as access is now blocked by the root `.htaccess`.
@@ -222,15 +230,15 @@ permalink: /changelog/
 ## v3.0.2 - 22 May 2026
 
 ### Added
-- EXIF metadata (including GPS location data) is now automatically stripped from images on upload (thanks to [@greggmc](https://codeberg.org/greggmc) for reporting [#11](https://codeberg.org/kevquirk/pureblog/issues/11)).
+- EXIF metadata (including GPS location data) is now automatically stripped from images on upload (thanks to [@greggmc](https://github.org/greggmc) for reporting [#11](https://github.com/kevquirk/pureblog/issues/11)).
 
 ### Fixed
-- Removed calls to `curl_close()`, which was deprecated in PHP 8.4 and removed in PHP 8.5. This has no effect on older PHP versions (thanks to [@maxsite](https://codeberg.org/maxsite) for reporting [#5](https://codeberg.org/kevquirk/pureblog/issues/5)).
+- Removed calls to `curl_close()`, which was deprecated in PHP 8.4 and removed in PHP 8.5. This has no effect on older PHP versions (thanks to [@maxsite](https://github.org/maxsite) for reporting [#5](https://github.com/kevquirk/pureblog/issues/5)).
 - Remember me cookie is no longer set if the server-side token fails to save, preventing a silent bug where the cookie appeared valid but never worked.
 
 ### Updated
-- Updated German translation [#2](https://codeberg.org/kevquirk/pureblog/pulls/2) thanks to [@bttr](https://codeberg.org/bttr) for the contribution.
-- Updated French translation [#4](https://codeberg.org/kevquirk/pureblog/pulls/4) thanks to [@nfriedli](https://codeberg.org/nfriedli) for the contribution.
+- Updated German translation [#2](https://github.com/kevquirk/pureblog/pull/2) thanks to [@bttr](https://github.org/bttr) for the contribution.
+- Updated French translation [#4](https://github.com/kevquirk/pureblog/pull/4) thanks to [@nfriedli](https://github.org/nfriedli) for the contribution.
 - [Caching](https://pureblog.org/local-caching) will now be enabled for new installs as part of the setup process. Existing installs are unaffected.
 - Simplified radio buttons and checkboxes. Now uses browser's built-in styling, only with `var(--accent-color)` for the background.
 
@@ -238,7 +246,7 @@ permalink: /changelog/
 
 Security rules previously spread across multiple `.htaccess` files have been consolidated into the root `.htaccess`. **This cleanup is entirely optional** — the old subdirectory files won't cause any problems if left in place, as duplicate rules are harmless. It's purely best practice to remove them.
 
-Open your root `.htaccess` and replace it with the [latest version of the file](https://codeberg.org/kevquirk/pureblog/src/branch/main/.htaccess), keeping any custom rules you already have.
+Open your root `.htaccess` and replace it with the [latest version of the file](https://github.com/kevquirk/pureblog/blob/main/.htaccess), keeping any custom rules you already have.
 
 **If you have SSH access**, run this from your Pure Blog root to remove the old `.htaccess` files:
 
@@ -266,16 +274,16 @@ v3.0.0 started off as a maintenance release, but as I got more and more into it,
 
 ### ⚠ Upgrade notice
 
-This release restructures core PHP files and **cannot be applied via the in-app updater**. Please upgrade manually by downloading the release zip from Codeberg. Future releases without breaking changes can resume using the in-app updater.
+This release restructures core PHP files and **cannot be applied via the in-app updater**. Please upgrade manually by downloading the release zip from GitHub. Future releases without breaking changes can resume using the in-app updater.
 
-[Read more about that here.](/upgrading-to-v300-and-moving-to-codeberg)
+[Read more about that here.](/upgrading-to-v300-and-moving-to-github)
 
 Existing `pb_remember` cookies will be invalidated by the remember-me change - you will need to log in once and re-tick "remember me".
 
 ### Manual upgrade steps
 
 1. **Back up your site** — download a copy of your entire Pure Blog directory before proceeding.
-2. **Download the v3 release zip** from the [Codeberg releases page](https://codeberg.org/kevquirk/pureblog/releases) and extract it.
+2. **Download the v3 release zip** from the [GitHub releases page](https://github.com/kevquirk/pureblog/releases) and extract it.
 3. **Delete everything EXCEPT** for the `config/`, `content/` and `data/` directories - these hold your posts, pages, images, and configuration and must not be overwritten.
 4. **Copy the new files to your existing installation**, replacing everything except your `config/`, `content/` and `data/` directories.
 5. **Restore any other file(s)** (like `.htaccess`) that you have customised from your backup.
@@ -291,7 +299,7 @@ Major code overhaul covering security hardening, performance improvements, and s
 - **Significant reduction in duplication** — eliminated ~800 lines of duplicated or dead code: 4 copy-pasted HTTP fetch blocks collapsed into 2 helpers, identical delete handlers merged, 15-file auth boilerplate replaced by a single bootstrap include, and 3 dead functions removed.
 - **`functions.php` broken up** — the 2444-line monolith is now a 142-line loader; 100 functions live in five focused files under `includes/lib/` (`i18n`, `auth`, `content`, `template`, `cache`). `admin/settings-updates.php` similarly reduced from ~1000 lines to 264 by extracting its updater logic into `includes/updater.php`.
 - **Six performance wins** — `load_config()` memoised, `get_all_posts()` and `get_all_pages()` published-only lists cached, metadata-only post loading for sitemap and admin content list (skips reading post bodies entirely), `get_excerpt()` truncates input before running 8 regexes, `find_post_filepath_by_slug()` routed through the existing post cache instead of re-globbing disk.
-- **Moved source code** from GitHub to [Codeberg](https://codeberg.org/kevquirk/pureblog).
+- **Moved source code** from GitHub to [GitHub](https://github.com/kevquirk/pureblog).
 
 ### Security
 

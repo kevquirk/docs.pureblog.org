@@ -4,7 +4,7 @@ description: How to import your content from other providers to Pure Blog.
 date: 2026-03-23
 ---
 
-Switching to Pure Blog from another platform shouldn't mean leaving your content behind. The [Pure Blog Importers](https://codeberg.org/kevquirk/pureblog-importers) repository is a collection of standalone import tools that make it straightforward to bring your existing posts and pages across.
+Switching to Pure Blog from another platform shouldn't mean leaving your content behind. The [Pure Blog Importers](https://github.com/kevquirk/pureblog-importers) repository is a collection of standalone import tools that make it straightforward to bring your existing posts and pages across.
 
 ## What's available
 
@@ -44,4 +44,4 @@ A web UI importer for Pagecord exports. Export your posts as Markdown from Pagec
 
 The repository is open to contributions. If you've migrated from a platform that isn't listed here and want to help others do the same, pull requests are welcome.
 
-Full usage instructions for each importer are in the [repository README](https://codeberg.org/kevquirk/pureblog-importers).
+Full usage instructions for each importer are in the [repository README](https://github.com/kevquirk/pureblog-importers).

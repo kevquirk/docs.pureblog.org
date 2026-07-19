@@ -29,7 +29,7 @@ To enable comments on your posts:
 
 Pure Comments loads its own styles asynchronously via `embed.js`. To customize the appearance of comments (colors, spacing, fonts) to match your Pure Blog theme:
 
-1. Copy the example [comments.css](https://codeberg.org/kevquirk/purecomments/src/branch/main/public/comments.css) from the Pure Comments repository.
+1. Copy the example [comments.css](https://github.com/kevquirk/purecomments/blob/main/public/comments.css) from the Pure Comments repository.
 2. Save it to your blog's stylesheet folder (e.g. `/content/css/comments.css`) or paste the contents into your existing custom stylesheet.
 3. If saved as a separate file, you can load it on all pages by adding the link tag to **Admin** → **Settings** → **Header Injects** under *Post head HTML*:
 
