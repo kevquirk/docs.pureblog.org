@@ -8,7 +8,7 @@ permalink: /changelog/
 ---
 ## v3.6.2 - 19 July 2026
 
-## Changed
+### Changed
 - **Moved back to [GitHub](https://github.com/kevquirk/pureblog) for repo hosting.**
 
 ### Added
