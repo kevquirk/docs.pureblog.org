@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Added
+- Pass the render context array (`$context`) through the `on_render_markdown` filter, allowing hooks to determine what content type is being rendered (thanks [@zaakirio](https://github.com/zaakirio) for [#80](https://github.com/kevquirk/pureblog/pull/80)).
+
 ## v3.6.2 - 19 July 2026
 
 ### Changed
