@@ -11,6 +11,9 @@ permalink: /changelog/
 ### Added
 - Pass the render context array (`$context`) through the `on_render_markdown` filter, allowing hooks to determine what content type is being rendered (thanks [@zaakirio](https://github.com/zaakirio) for [#80](https://github.com/kevquirk/pureblog/pull/80)).
 
+### Fixed
+- Fixed an issue where uploaded transparent PNG and WebP images lost their transparency and were flattened to a solid colour background when processed using the GD library fallback. Thanks to [orkoweb](https://github.com/orkoweb) for reporting this in issue [#81](https://github.com/kevquirk/pureblog/issues/81).
+
 ## v3.6.2 - 19 July 2026
 
 ### Changed
