@@ -6,10 +6,12 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## v3.6.3 - 24 July 2026
 
 ### Added
 - Pass the render context array (`$context`) through the `on_render_markdown` filter, allowing hooks to determine what content type is being rendered (thanks [@zaakirio](https://github.com/zaakirio) for [#80](https://github.com/kevquirk/pureblog/pull/80)).
+- Replicated the favicon logic to automatically render the `apple-touch-icon` link tag in both the public site header and the admin panel head when a custom favicon is configured. Thanks to [MatKlein](https://github.com/MatKlein) for requesting this in issue [#82](https://github.com/kevquirk/pureblog/issues/82).
+- Updated stylesheet and icon references in the admin panel head to consistently use full absolute URLs (`get_base_url()`), aligning them with the public header.
 
 ### Fixed
 - Fixed an issue where uploaded transparent PNG and WebP images lost their transparency and were flattened to a solid colour background when processed using the GD library fallback. Thanks to [orkoweb](https://github.com/orkoweb) for reporting this in issue [#81](https://github.com/kevquirk/pureblog/issues/81).
