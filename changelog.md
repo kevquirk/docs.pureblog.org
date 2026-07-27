@@ -6,6 +6,14 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.6.4 - 27 July 2026
+
+### Added
+- Added clear visual status header (`🎉 New Version Available`) to the admin updates panel.
+
+### Changed
+- Migrated the release updater from the GitHub Releases API to a custom Bunny CDN endpoint (`packages.purecommons.org/blog/latest.json`) to decouple package hosting from Git repositories.
+
 ## v3.6.3 - 24 July 2026
 
 ### Added
