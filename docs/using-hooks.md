@@ -60,7 +60,8 @@ At the moment, Pure Blog supports these events:
 **Filter hooks**
 
 - `on_filter_content($markdown)` — transform post/page content after built-in shortcodes are processed but before Markdown conversion. Return the modified string.
-- `on_render_markdown($html)` — post-process the rendered HTML after Markdown conversion. Return the modified string.
+- `on_render_markdown($html, $context)` — post-process the rendered HTML after Markdown conversion. Return the modified string.
+- `on_og_image_font($fontPath, $context)` — supply a custom TrueType (`.ttf`) or OpenType (`.otf`) font file path for dynamic Open Graph image generation. Return the resolved font file path string. [Read the docs](/open-graph-images/#customising-the-font-with-hooks)
 
 You can implement any or all of them, it's entirely optional. You can find pre-made examples (like clearing cache with Bunny CDN or posting to Mastodon) on [hooks.pureblog.org](https://hooks.pureblog.org).
 

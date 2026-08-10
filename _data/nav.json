@@ -16,6 +16,7 @@
             { "label": "Setting time zones & date format", "slug": "setting-time-zones-and-date-format" },
             { "label": "Hiding the blog page",        "slug": "hiding-the-blog-page" },
             { "label": "Using feature images",        "slug": "using-feature-images" },
+            { "label": "Open Graph images",           "slug": "open-graph-images" },
             { "label": "Post scheduling",             "slug": "post-scheduling" },
             { "label": "Local caching",               "slug": "local-caching" },
             { "label": "Integrating Pure Comments",   "slug": "integrating-pure-comments" },

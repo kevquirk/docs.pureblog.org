@@ -8,7 +8,12 @@ permalink: /changelog/
 ---
 ## Unreleased
 
+### Added
+- Added dynamic Open Graph banner image generator (`/og-image.php`) rendering 1360×712 social preview cards for posts, pages, and home views using the site's configured theme colours and bundled typography (Inter, Iosevka, Merriweather). [Read the docs](/open-graph-images/)
+- Added `on_og_image_font` filter hook allowing custom TrueType/OpenType font files to be supplied for dynamic OG image generation.
+
 ### Changed
+- Defaulted public site favicon and OG image configuration to unbranded defaults, gracefully displaying the site title alone on dynamic OG cards until a custom favicon is uploaded.
 - Increased the size of the mobile navigation hamburger and post settings icons in the post/page editor by around 30% to improve touch targets on mobile screens.
 
 ## v3.6.4 - 27 July 2026
