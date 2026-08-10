@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Changed
+- Increased the size of the mobile navigation hamburger and post settings icons in the post/page editor by around 30% to improve touch targets on mobile screens.
+
 ## v3.6.4 - 27 July 2026
 
 ### Added
