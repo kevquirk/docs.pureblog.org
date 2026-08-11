@@ -16,18 +16,18 @@ The generated card automatically incorporates your site's branding:
 
 - **Colours**: Automatically matches your configured theme colours. If your site is set to dark mode, it uses your dark theme colours, otherwise, it uses your light theme colours.
 - **Typography**: Uses the TrueType bold font matching your site's active font stack:
-  - **Sans** $\rightarrow$ Inter
-  - **Mono** $\rightarrow$ Iosevka
-  - **Serif** $\rightarrow$ Merriweather
+  - **Sans** → Inter
+  - **Mono** → Iosevka
+  - **Serif** → Merriweather
 - **Post/Page Title**: Drawn in large, bold text (**56pt**) with automatic multi-line word wrapping.
-- **Footer**: If you have uploaded a site favicon in **Settings $\rightarrow$ Site**, it is displayed at **64×64 px** in the bottom-left corner alongside your **Site Title** in **42pt** font. If no favicon is uploaded, the site title is aligned cleanly at the left margin without any default placeholder branding.
+- **Footer**: If you have uploaded a site favicon in **Settings → Site**, it is displayed at **64×64 px** in the bottom-left corner alongside your **Site Title** in **42pt** font. If no favicon is uploaded, the site title is aligned cleanly at the left margin without any default placeholder branding.
 
 ## OG Image Precedence
 
 Pure Blog uses a straightforward priority system to determine which OG image to show for any given URL:
 
 1. **Feature Image** *(Highest priority)*: If a post or page has an individual [feature image](/using-feature-images/) set, that image is used as the `og:image` for that specific post/page.
-2. **Custom Uploaded OG Image**: If you upload a custom site-wide Open Graph image under **Settings $\rightarrow$ Site**, it will be used across your site.
+2. **Custom Uploaded OG Image**: If you upload a custom site-wide Open Graph image under **Settings → Site**, it will be used across your site.
 3. **Dynamic Generated Banner** *(Default)*: When the Open Graph image format is set to **Banner (default)** and no custom image is specified, Pure Blog automatically generates and serves dynamic branded preview cards.
 
 ## Customising the Font with Hooks

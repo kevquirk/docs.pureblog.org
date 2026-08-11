@@ -6,7 +6,7 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## v3.7.0 10 August 2026
 
 ### Added
 - Added dynamic Open Graph banner image generator (`/og-image.php`) rendering 1360×712 social preview cards for posts, pages, and home views using the site's configured theme colours and bundled typography (Inter, Iosevka, Merriweather). [Read the docs](/open-graph-images/)
