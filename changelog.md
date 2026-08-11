@@ -6,6 +6,12 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+
+## v3.7.1 - 11 August 2026
+
+### Added
+- Added a "Replace entire navigation with custom nav items" toggle in Site Settings to allow custom navigation links to completely replace the automatic Home link and alphabetical pages list with full control over menu ordering. [Read the docs](/custom-navigation/)
+
 ## v3.7.0 - 10 August 2026
 
 ### Added

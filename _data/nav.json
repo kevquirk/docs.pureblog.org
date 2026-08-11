@@ -20,6 +20,7 @@
             { "label": "Post scheduling",             "slug": "post-scheduling" },
             { "label": "Local caching",               "slug": "local-caching" },
             { "label": "Integrating Pure Comments",   "slug": "integrating-pure-comments" },
+            { "label": "Custom navigation",           "slug": "custom-navigation" },
             { "label": "Custom routes",               "slug": "custom-routes" },
             { "label": "Other server configs",        "slug": "using-pure-blog-with-other-server-configurations" }
         ]
