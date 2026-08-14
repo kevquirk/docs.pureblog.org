@@ -1,102 +1,92 @@
 ---
 title: How to Add Syntax Highlighting to Pure Blog
-description: How to add server-side syntax highlighting to Pure Blog using highlight.php.
-date: 2026-04-13
+description: How to add client-side syntax highlighting to Pure Blog using Prism.js.
+date: 2026-08-14
 ---
 
-This guide walks through adding server-side syntax highlighting to Pure Blog using [highlight.php](https://github.com/scrivo/highlight.php) — a PHP port of highlight.js. Because highlighting happens on the server, no JavaScript is required.
+This guide walks through adding client-side syntax highlighting to Pure Blog using [Prism.js](https://prismjs.com) — a lightweight, robust, and highly customisable syntax highlighter. Because the highlighting happens in the browser, no PHP libraries or complex server-side installations are required, and your setup will not be affected by Pure Blog updates.
 
-You will need four things:
+You can set this up using either a Content Delivery Network (CDN) for a quick installation or by self-hosting the files for better privacy and offline support.
 
-1. The highlight.php library files copied into your site.
-2. An entry in `config/update-ignore` to protect them from being overwritten on updates.
-3. An `on_render_markdown` hook that runs the highlighter over fenced code blocks.
-4. A CSS theme file linked in your post pages.
+---
 
-## Step 1: Get the library
+## Option A: Using a CDN (Quickest Setup)
 
-Download the latest release from [github.com/scrivo/highlight.php](https://github.com/scrivo/highlight.php). Inside the zip you'll find a `src/` directory containing two folders: `Highlight` and `HighlightUtilities`.
+Using a CDN is the simplest way to add syntax highlighting. Since syntax highlighting is typically only needed on post pages, you can inject the required files only on those pages via the Pure Blog admin panel.
 
-Copy both into your site's `lib/` directory so the structure looks like this:
+### Step 1: Add the CSS theme
 
-```
-lib/
-  Highlight/
-    Autoloader.php
-    Highlighter.php
-    ... (languages, etc.)
-  HighlightUtilities/
-    functions.php
-    ...
-```
-
-Also copy the `LICENSE` file from the repo root into `lib/Highlight/LICENSE.txt` to satisfy the BSD 3-Clause licence terms.
-
-## Step 2: Protect the library from updates
-
-Pure Blog's update system will overwrite files in the site root. Add the library directories to `config/update-ignore` so they're preserved:
-
-```
-lib/Highlight
-lib/HighlightUtilities
-```
-
-## Step 3: Add the hook
-
-The `on_render_markdown` filter fires on the rendered HTML of every post and page, before it's returned to the browser. Add the following to `config/hooks.php`:
-
-```php
-require_once __DIR__ . '/../lib/Highlight/Autoloader.php';
-spl_autoload_register('\\Highlight\\Autoloader::load');
-
-function on_render_markdown(string $html): string
-{
-    return preg_replace_callback(
-        '/<pre><code class="language-([a-zA-Z0-9_+\-]+)">(.*?)<\/code><\/pre>/s',
-        function (array $m): string {
-            $lang = $m[1];
-            $code = html_entity_decode($m[2], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-            try {
-                $highlighter = new \Highlight\Highlighter();
-                $result = $highlighter->highlight($lang, $code);
-                return '<pre><code class="hljs language-'
-                    . htmlspecialchars($result->language, ENT_QUOTES, 'UTF-8') . '">'
-                    . $result->value
-                    . '</code></pre>';
-            } catch (\Exception $e) {
-                return $m[0];
-            }
-        },
-        $html
-    ) ?? $html;
-}
-```
-
-The hook matches fenced code blocks that Parsedown has already rendered to `<pre><code class="language-xxx">`, decodes the HTML entities back to raw code, runs the highlighter, and returns the highlighted markup. If the language isn't recognised it falls back to the original block unchanged.
-
-## Step 4: Add the CSS
-
-The highlight.php repo includes pre-built CSS themes in its `styles/` directory. Copy the theme you want into `content/css/` in your site.
-
-A good starting point is to use **atom-one-light** for light mode and **atom-one-dark** for dark mode, combined into a single file using `@media (prefers-color-scheme: dark)`.
-
-Save this as `content/css/syntax.css`.
-
-### Link the stylesheet
-
-Since syntax highlighting is only needed on post pages, add a `<link>` tag via **Admin → Settings → Head Inject (Posts)**:
+1. Go to your Pure Blog **Admin → Settings**.
+2. Scroll down to the **Header Injects** section.
+3. In the **Post head HTML** field, paste the link to your preferred Prism.js theme (for example, the "Tomorrow Night" theme):
 
 ```html
-<link rel="stylesheet" href="/content/css/syntax.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 ```
 
-Alternatively, if you want it on all pages, you can paste the CSS directly into `content/css/custom.css` and Pure Blog will inline it automatically.
+### Step 2: Add the JavaScript files
 
-That's it — fenced code blocks with a language identifier will now be highlighted server-side with no JavaScript required.
+To keep pages loading quickly, the JavaScript files should be loaded at the bottom of the page.
 
-## How to use syntax highlighting with markdown
+1. In the same **Settings** page, scroll down to the **Footer Injects** section.
+2. In the **Post footer HTML** field, paste the following script tags:
 
-To trigger highlighting, use a fenced code block with a language identifier:
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+```
+
+> [!NOTE]
+> The `prism-autoloader` plugin automatically detects the languages used in your post's fenced code blocks and loads the corresponding language definitions on demand. This keeps the initial page weight minimal.
+
+3. Click **Save Settings**.
+
+---
+
+## Option B: Self-Hosting (Privacy-Friendly & Offline Support)
+
+If you prefer not to rely on third-party CDNs, or want your blog to function entirely offline, you can host the Prism.js files directly on your server.
+
+### Step 1: Download the files
+
+Visit the [Prism.js Download Page](https://prismjs.com/download.html):
+1. Choose your preferred compression level (Minified version is recommended).
+2. Select your desired theme (e.g., *Default*, *Okaidia*, *Tomorrow Night*).
+3. Select the languages you want to support (or select the **Autoloader** plugin under the **Plugins** section to load them dynamically).
+4. Download both the JS and CSS files.
+
+### Step 2: Copy the files to your site
+
+Place the downloaded files into your Pure Blog directories:
+* Save the CSS file as `content/css/prism.css`
+* Save the JS file as `content/js/prism.js`
+
+If you are using the Autoloader plugin:
+1. Create a folder named `components` inside `content/js/` (i.e. `content/js/components/`).
+2. Download the language component files you need from the Prism.js repository or CDN and place them there. The autoloader will look for them in that directory relative to the main `prism.js` script.
+
+### Step 3: Reference the local files
+
+1. Go to your Pure Blog **Admin → Settings**.
+2. Add the stylesheet to the **Post head HTML** field:
+
+```html
+<link rel="stylesheet" href="/content/css/prism.css">
+```
+
+3. Add the script to the **Post footer HTML** field:
+
+```html
+<script src="/content/js/prism.js" defer></script>
+```
+
+4. Click **Save Settings**.
+
+---
+
+## How to Use Syntax Highlighting in Markdown
+
+To trigger highlighting, write a standard Markdown fenced code block and specify the language identifier immediately after the opening backticks:
 
 ````markdown
 ```php
@@ -107,6 +97,15 @@ function hello(): string
 ```
 ````
 
-The language name must match one of the identifiers supported by highlight.js — common ones include `php`, `javascript`, `python`, `css`, `html`, `bash`, `sql`, `json`, and `yaml`. A full list is available in the `lib/Highlight/languages/` directory of your site (each filename without `.json` is a valid identifier).
+Prism.js supports a vast range of languages. Common identifiers include:
+* `php`
+* `javascript` or `js`
+* `python` or `py`
+* `css`
+* `markup` (for HTML, XML, SVG, etc.)
+* `bash` or `shell`
+* `sql`
+* `json`
+* `yaml` or `yml`
 
-If you omit the language identifier, Parsedown renders the block without a `language-xxx` class and the hook leaves it untouched — it will render as a plain unstyled code block.
+If you omit the language identifier, Parsedown renders the code block without any specific class, and Prism.js will leave the block as plain, unstyled text.
