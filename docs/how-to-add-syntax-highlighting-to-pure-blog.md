@@ -35,9 +35,7 @@ To keep pages loading quickly, the JavaScript files should be loaded at the bott
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 ```
-
-> [!NOTE]
-> The `prism-autoloader` plugin automatically detects the languages used in your post's fenced code blocks and loads the corresponding language definitions on demand. This keeps the initial page weight minimal.
+<p class="notice">The <code>prism-autoloader</code> plugin automatically detects the languages used in your post's fenced code blocks and loads the corresponding language definitions on demand. This keeps the initial page weight minimal.</p>
 
 3. Click **Save Settings**.
 
