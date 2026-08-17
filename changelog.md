@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## v3.7.2 - 17 August 2026
+
+### Fixed
+- Fixed an issue where the sub-folder path was duplicated in the RSS feed's image and link URLs when Pure Blog was installed in a sub-folder. Thanks to [@p4tpr0](https://github.com/p4tpr0) for reporting this in issue [#85](https://github.com/kevquirk/pureblog/issues/85).
+
 ## v3.7.1 - 11 August 2026
 
 ### Added
