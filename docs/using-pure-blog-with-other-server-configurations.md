@@ -30,16 +30,59 @@ Replace `unix:/var/run/php/php-fpm.sock` with the correct PHP-FPM socket path fo
 
 Add the following to your `Caddyfile`:
 
-```
+```caddy
 yourdomain.com {
-    root * /path/to/pureblog
-    php_fastcgi unix//var/run/php/php-fpm.sock
-    file_server
-    try_files {path} {path}/ /index.php?{query}
+	root * /path/to/pureblog
+
+	# --- Front controller -------------------------------------------------
+	# Serve existing files and directories, send everything else to index.php.
+	# php_fastcgi already does this internally, so no explicit try_files is needed.
+	# Adjust the socket path or use 127.0.0.1:9000 for a TCP pool.
+	php_fastcgi unix//var/run/php/php-fpm.sock
+	file_server
+
+	# --- Pretty sitemap ---------------------------------------------------
+	# Rewrite sitemap.xml to sitemap.php
+	rewrite /sitemap.xml /sitemap.php
+
+	# --- Block sensitive paths --------------------------------------------
+	# Prevent access to runtime state, draft autosaves, templates, and raw Markdown posts
+	@blocked path /data/* /content/autosaves/* /content/layouts/* *.md
+	handle @blocked {
+		error 403
+	}
+
+	# Prevent execution of any uploaded PHP files under the content directory
+	@content_php {
+		path /content/*
+		path_regexp \.(php[0-9]?|phtml)$
+	}
+	handle @content_php {
+		error 403
+	}
+
+	# --- Static asset caching ---------------------------------------------
+	@fonts path *.woff2 *.woff *.ttf
+	header @fonts Cache-Control "public, max-age=7776000"
+
+	@static path *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.webp *.ico
+	header @static Cache-Control "public, max-age=2592000"
+
+	# --- Optional: restrict /admin by IP ----------------------------------
+	# Add your public IP addresses to the remote_ip condition to restrict access
+	# @admin_denied {
+	#	path /admin /admin/*
+	#	not remote_ip 11.22.33.44 55.66.77.88
+	# }
+	# handle @admin_denied {
+	#	error 403
+	# }
 }
 ```
 
-Replace `yourdomain.com` with your domain, `/path/to/pureblog` with the path to your Pure Blog installation, and the PHP-FPM socket path as appropriate.
+Replace `yourdomain.com` with your domain, `/path/to/pureblog` with the path to your Pure Blog installation, and `/var/run/php/php-fpm.sock` with the correct path to your PHP-FPM socket.
+
+*Special thanks to [Jack Baty](https://baty.net/) for providing this improved Caddy configuration.*
 
 ## LiteSpeed
 
