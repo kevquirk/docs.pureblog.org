@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function loadIndex() {
-        fetch('/search-index.json').then(function (r) { return r.json(); }).then(function (data) {
+        fetch('/search-index.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (data) {
             index = data;
         });
     }

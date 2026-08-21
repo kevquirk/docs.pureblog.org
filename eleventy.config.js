@@ -24,6 +24,8 @@ export default function (eleventyConfig) {
 
     eleventyConfig.ignores.add("reallysimpledocs-main/**");
 
+    eleventyConfig.addGlobalData("buildTime", () => Date.now());
+
     eleventyConfig.addCollection("docs", function (api) {
         return api.getFilteredByTag("docs");
     });
