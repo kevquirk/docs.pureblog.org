@@ -11,20 +11,58 @@ Pure Blog ships with a `.htaccess` file that handles URL routing on Apache, so i
 Add the following to your server block configuration:
 
 ```nginx
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
+server {
+    listen 80;
+    server_name yourdomain.com;
+    root /path/to/pureblog;
+    index index.php;
 
-location ~ \.php$ {
-    try_files $uri =404;
-    fastcgi_pass unix:/var/run/php/php-fpm.sock;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    include fastcgi_params;
+    # --- Front controller -------------------------------------------------
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # --- Pretty sitemap ---------------------------------------------------
+    rewrite ^/sitemap\.xml$ /sitemap.php last;
+
+    # --- Block sensitive paths --------------------------------------------
+    location ~ ^/(data|content/autosaves|content/layouts)/ {
+        deny all;
+    }
+
+    location ~ \.md$ {
+        deny all;
+    }
+
+    # --- Block PHP execution in content/ ----------------------------------
+    # Must be placed above the general PHP block to intercept uploaded files
+    location ~* ^/content/.*\.php[0-9]?$ {
+        deny all;
+    }
+
+    # --- PHP processor ----------------------------------------------------
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_pass unix:/var/run/php/php-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    # --- Static asset caching ---------------------------------------------
+    location ~* \.(woff|woff2|ttf)$ {
+        expires 3m;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    location ~* \.(css|js|gif|jpg|jpeg|png|svg|webp|ico)$ {
+        expires 1m;
+        add_header Cache-Control "public, no-transform";
+    }
 }
 ```
 
-Replace `unix:/var/run/php/php-fpm.sock` with the correct PHP-FPM socket path for your server.
+Replace `yourdomain.com` with your domain, `/path/to/pureblog` with the path to your Pure Blog installation, and `unix:/var/run/php/php-fpm.sock` with the correct PHP-FPM socket path for your server.
 
 ## Caddy
 
@@ -109,6 +147,25 @@ Create a `web.config` file in the Pure Blog root directory with the following co
     <system.webServer>
         <rewrite>
             <rules>
+                <!-- Block access to sensitive directories and files -->
+                <rule name="Block sensitive paths" stopProcessing="true">
+                    <match url="^(data/|content/autosaves/|content/layouts/|.*\.md$)" />
+                    <action type="CustomResponse" statusCode="403" statusReason="Forbidden" statusDescription="Access is forbidden." />
+                </rule>
+
+                <!-- Prevent execution of uploaded PHP files -->
+                <rule name="Block PHP in content" stopProcessing="true">
+                    <match url="^content/.*\.ph(p[0-9]?|tml)$" />
+                    <action type="CustomResponse" statusCode="403" statusReason="Forbidden" statusDescription="Access is forbidden." />
+                </rule>
+
+                <!-- Pretty sitemap -->
+                <rule name="Sitemap" stopProcessing="true">
+                    <match url="^sitemap\.xml$" />
+                    <action type="Rewrite" url="sitemap.php" />
+                </rule>
+
+                <!-- Front controller -->
                 <rule name="Pure Blog" stopProcessing="true">
                     <match url="^(.*)$" />
                     <conditions>
