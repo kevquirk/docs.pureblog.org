@@ -12,6 +12,14 @@ export default function (eleventyConfig) {
         .use(markdownItAttrs);
     eleventyConfig.setLibrary("md", md);
 
+    eleventyConfig.addFilter("stripHtml", function (value) {
+        if (!value) return "";
+        return value
+            .replace(/<[^>]*>/g, " ") // Strip HTML tags
+            .replace(/\s+/g, " ")    // Collapse whitespace/newlines to optimise index size
+            .trim();
+    });
+
     eleventyConfig.addPassthroughCopy("assets");
 
     eleventyConfig.ignores.add("reallysimpledocs-main/**");

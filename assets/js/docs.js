@@ -150,7 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const matches = index.filter(function (item) {
                 return item.title.toLowerCase().includes(q) ||
-                    (item.description && item.description.toLowerCase().includes(q));
+                    (item.description && item.description.toLowerCase().includes(q)) ||
+                    (item.content && item.content.toLowerCase().includes(q));
             }).slice(0, 8);
 
             if (matches.length === 0) {
