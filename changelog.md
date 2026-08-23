@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.7.3 - 23 August 2026
+
+### Fixed
+- Sanitised manually entered page and post slugs to prevent path traversal outside designated content directories. Thanks to [@sumo166](https://github.com/sumo166) for reporting this in issue [#87](https://github.com/kevquirk/pureblog/issues/87).
+- Restricted image upload extensions to enforce matching the verified MIME type and removed interior dots from filenames to prevent double-extension bypasses. Thanks to [@sumo166](https://github.com/sumo166) for reporting this in issue [#86](https://github.com/kevquirk/pureblog/issues/86).
 
 ## v3.7.2 - 17 August 2026
 
