@@ -6,6 +6,18 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## v3.8.0 - 29 August 2026
+
+### Added
+- Added a structured theme management system with a Theme Collection grid, Theme Creator, and `.json` theme file importing.
+- Added live admin-only theme preview mode with a sticky control bar to test and apply themes across the site.
+- Added a custom sidebar logo upload option in Site Settings to replace the default Pure Blog logo in the admin sidebar.
+- Added a dedicated, optional Apple touch icon upload field in Site Settings requiring square PNG images (recommended 360×360px), cleanly separating touch icons from site favicons. Thanks to [MatKlein](https://github.com/MatKlein) for requesting this in issue [#82](https://github.com/kevquirk/pureblog/issues/82).
+- Added the ability to delete the configured Favicon, Apple touch icon, Open Graph image, and sidebar logo directly from Site Settings, removing the entry from configuration and deleting the associated file from disk.
+
+### Fixed
+- Fixed an issue where restoring from a backup in Site Updates did not restore the `VERSION` file, leaving the site displaying the newer version number.
+
 ## v3.7.3 - 23 August 2026
 
 ### Fixed
