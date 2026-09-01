@@ -11,6 +11,9 @@ permalink: /changelog/
 ### Fixed
 - Fixed an issue where using emojis or symbols as tags caused tag normalisation to generate empty slugs and broken `/tag/` links. Thanks to [@p4tpr0](https://github.com/p4tpr0) for reporting this in issue [#88](https://github.com/kevquirk/pureblog/issues/88).
 
+### Added
+- Made titles in the markdown editor larger so they're more prominent. They're now 125% the size of the rest of the text.
+
 ## v3.8.0 - 29 August 2026
 
 ### Added
