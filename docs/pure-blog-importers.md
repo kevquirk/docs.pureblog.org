@@ -40,6 +40,12 @@ A web UI importer for Pagecord exports. Export your posts as Markdown from Pagec
 
 <p><a class="button" href="/pagecord-importer">Read Pagecord importer docs</a></p>
 
+### WriteFreely
+
+A web UI importer for WriteFreely CSV exports. Export your posts from WriteFreely, upload the CSV file (or place it in a folder), and the importer converts your markdown posts, extracts hashtags, and handles drafts and images.
+
+<p><a class="button" href="/writefreely-importer">Read WriteFreely importer docs</a></p>
+
 ## More importers
 
 The repository is open to contributions. If you've migrated from a platform that isn't listed here and want to help others do the same, pull requests are welcome.
