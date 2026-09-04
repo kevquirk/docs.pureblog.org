@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Fixed
+- Added `overflow-wrap: break-word` to core body, paragraph, and link styles to prevent long URLs and unbroken strings from overflowing card and page containers on smaller screens.
+
 ## 3.8.1 - 04 Septemeber 2026
 
 ### Added
