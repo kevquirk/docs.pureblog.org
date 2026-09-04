@@ -6,7 +6,7 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## 3.8.1 - 04 Septemeber 2026
 
 ### Added
 - Made titles in the markdown editor larger so they're more prominent. They're now 125% the size of the rest of the text.
