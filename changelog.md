@@ -6,13 +6,14 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## 3.8.2 - 13 September 2026
 
 ### Fixed
 - Added `overflow-wrap: break-word` to core body, paragraph, and link styles to prevent long URLs and unbroken strings from overflowing card and page containers on smaller screens.
 
 ### Changed
 - Optimised TTF fonts used for OG image generation. Thanks to [@nfriedli](https://github.com/nfriedli) for reporting [issue #91](https://github.com/kevquirk/pureblog/pull/91).
+- Replaced `h1` for site title in `masthead` with `p.site-title` for accessibility.
 
 ## 3.8.1 - 04 Septemeber 2026
 
