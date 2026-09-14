@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## 3.8.4 - 14 September 2026
+
+### Fixed
+- Issue where site tagline overlapped the site title. Thanks to [@deljones](https://github.com/deljones) for [issue #95](https://github.com/kevquirk/pureblog/issues/95).
+
 ## 3.8.3 - 14 September 2026
 
 ### Added
