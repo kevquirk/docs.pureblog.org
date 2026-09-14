@@ -6,6 +6,19 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+
+## 3.8.3 - 14 September 2026
+
+### Added
+- Added an option in Site Settings ("Include pages in search results", enabled by default) to index pages alongside blog posts.
+- Added `Home page`, `Blog page`, and `Search page` badges in the admin Pages list to highlight pages configured with special roles. Thanks to [@hozza](https://github.com/hozza) for suggesting this in [issue #93](https://github.com/kevquirk/pureblog/issues/93).
+- Added [Using search](https://docs.pureblog.org/using-search/) documentation to explain search configuration and customisation.
+- Added [Special pages](https://docs.pureblog.org/special-pages/) documentation and linked special page badges in admin to the guide.
+
+### Changed
+- Rendered Markdown page content on the Search page directly above the search form. Thanks to [@hozza](https://github.com/hozza) for reporting this in [issue #93](https://github.com/kevquirk/pureblog/issues/93).
+- Dynamically rendered the masthead site title as `h1` when no other `h1` exists on the page (such as the blog home feed or static pages without custom headings), and as `p` when a dedicated `h1` is present (such as single posts, tag archives, 404 pages, or pages with Markdown headings). Thanks to [@nfriedli](https://github.com/nfriedli) for reporting this in [issue #94](https://github.com/kevquirk/pureblog/issues/94).
+
 ## 3.8.2 - 13 September 2026
 
 ### Fixed
