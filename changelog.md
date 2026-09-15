@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Fixed
+- Fixed an issue during updates where attempting to restore preserved `.htaccess` files inside directories like `/data` could trigger a rollback if permissions were read-only. Preserved directories are now skipped during `.htaccess` collection, and files with identical content are no longer rewritten. Thanks to [@shep](https://micro.blog/shep/97539191) for reporting this.
+
 ## 3.8.4 - 14 September 2026
 
 ### Fixed
