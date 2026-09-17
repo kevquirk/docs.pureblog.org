@@ -9,6 +9,16 @@ permalink: /changelog/
 
 ## Unreleased
 
+### Added
+- Added native Multi-Factor Authentication in User Settings.
+    - 100% offline, zero-dependency SVG QR code generation and manual secret key copying during MFA setup.
+    - 8 single-use recovery backup codes with one-click copying to prevent administrator lockouts.
+    - Two-step login authentication challenge supporting both 6-digit TOTP codes and backup recovery codes, integrated with IP rate limiting and lockout protection.
+
+### Changed
+- Added `.htaccess` rules to block direct web access to `/config` and `/cache` directories (HTTP 403 Forbidden).
+- Updated admin error notices to display with red danger styling (`notice.delete`).
+
 ### Fixed
 - Fixed an issue during updates where attempting to restore preserved `.htaccess` files inside directories like `/data` could trigger a rollback if permissions were read-only. Preserved directories are now skipped during `.htaccess` collection, and files with identical content are no longer rewritten. Thanks to [@shep](https://micro.blog/shep/97539191) for reporting this.
 
