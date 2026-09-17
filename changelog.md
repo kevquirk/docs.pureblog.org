@@ -7,15 +7,18 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.8.5 - 17 September 2026
 
 ### Added
+- Added a "View post" / "View page" link to the metadata in the admin content list to open or preview pages and posts in a new tab.
+- Added clickable tags to the admin post list items to quickly filter posts by tag.
 - Added native Multi-Factor Authentication in User Settings.
-    - 100% offline, zero-dependency SVG QR code generation and manual secret key copying during MFA setup.
+    - SVG QR code generation and manual secret key copying during MFA setup.
     - 8 single-use recovery backup codes with one-click copying to prevent administrator lockouts.
     - Two-step login authentication challenge supporting both 6-digit TOTP codes and backup recovery codes, integrated with IP rate limiting and lockout protection.
 
 ### Changed
+- Converted the language setting in Site Settings into a dropdown selector populated with all installed interface languages.
 - Added `.htaccess` rules to block direct web access to `/config` and `/cache` directories (HTTP 403 Forbidden).
 - Updated admin error notices to display with red danger styling (`notice.delete`).
 
