@@ -10,6 +10,7 @@ permalink: /changelog/
 ## Unreleased
 
 ### Fixed
+- Fixed an `Undefined array key "date"` warning when search results contain pages without dates. Thanks to [@nfriedli](https://github.com/nfriedli) for [issue #97](https://github.com/kevquirk/pureblog/issues/97).
 - Improved image upload error reporting by distinguishing specific server and PHP upload error codes (such as file size exceeding `upload_max_filesize` or `post_max_size`, partial uploads, or missing temporary directories) and displaying specific error messages during drag-and-drop uploads. Thanks to [@hozza](https://github.com/hozza) for [issue #96](https://github.com/kevquirk/pureblog/issues/96).
 - Sanitised RSS feed content by stripping non-printable XML 1.0 control characters (such as `\x00-\x08`, `\x0B-\x0C`, and `\x0E-\x1F`), preventing XML parsing failures in feed readers when characters are inadvertently pasted into posts. Thanks to Hans ([aufderdurchreise.de](https://aufderdurchreise.de/)) for reporting this.
 
