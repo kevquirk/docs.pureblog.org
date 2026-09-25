@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Changed
+- Replaced calendar icon in `/assets/icons/sprite.svg` with a simpler version.
+
 ## 3.8.6 - 25 September 2026
 
 ### Fixed
