@@ -7,10 +7,14 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.8.7 - 01 October 2026
+
+### Added
+- Added interactive tag badges with individual remove buttons and autocomplete to the post editor, replacing comma-separated plain text entry.
 
 ### Changed
 - Replaced calendar icon in `/assets/icons/sprite.svg` with a simpler version.
+- Removed `border-radius` from various UI elements throughout the admin interface.
 
 ## 3.8.6 - 25 September 2026
 
