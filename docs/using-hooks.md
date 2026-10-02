@@ -200,7 +200,7 @@ function on_filter_content(string $markdown): string
         '/\[youtube:([a-zA-Z0-9_-]+)\]/',
         function (array $m): string {
             $id = htmlspecialchars($m[1], ENT_QUOTES, 'UTF-8');
-            return '<iframe width="560" height="315" '
+            return '<iframe width="100%" height="360" '
                  . 'src="https://www.youtube-nocookie.com/embed/' . $id . '" '
                  . 'allowfullscreen></iframe>';
         },
