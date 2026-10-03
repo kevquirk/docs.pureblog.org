@@ -7,6 +7,15 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Added
+- Added an image lightbox preview in the admin images manager when clicking any image thumbnail.
+
+### Changed
+- Replaced the folder label in the admin images manager with direct "Used in:" links to the post or page editor where the image is used, with an interactive dropdown menu when an image is used across multiple posts or pages.
+- Removed `mid` class from `main` on the images page in admin to make better use of available horizontal space.
+
 ## 3.8.7 - 01 October 2026
 
 ### Added
