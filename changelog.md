@@ -7,7 +7,7 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.8.8 - 07 October 2026
 
 ### Added
 - Added an image lightbox preview in the admin images manager when clicking any image thumbnail.
