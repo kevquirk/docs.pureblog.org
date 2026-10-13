@@ -1,0 +1,1168 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * Windows 95 (Classic 3D Bevel & Desktop Teal) Theme customised with:
+ * - Authentic Windows 95 palette: #008080 Desktop Teal, #c0c0c0 3D Grey, #000080 Active Titlebar Navy
+ * - Zero border radiuses across all elements (sharp 90-degree corners)
+ * - Classic 3D Outset push buttons with sunken Inset pressed states
+ * - Deep Inset form fields with signature #808080 / #000000 sunken bevels
+ * - MessageBox style notice dialogues and classic High Contrast Black dark mode
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes (Windows 95 Classic)
+   ========================================================================== */
+
+:root {
+    /* Windows 95 Classic Palette */
+    --bg-color: #008080;
+    /* The legendary Windows 95 Desktop Teal */
+    --accent-bg-color: #c0c0c0;
+    /* Windows 95 3D face grey */
+    --text-color: #000000;
+    /* Pure black text */
+    --accent-text-color: #ffffff;
+    --accent-color: #000080;
+    /* Windows 95 Titlebar Navy Blue */
+    --accent-hover: #1010a0;
+    --accent-active: #000050;
+    --border-color: #808080;
+    /* 3D Shadow grey */
+    --input-bg: #ffffff;
+    --subnav-bg: #b0b0b0;
+    --red: #800000;
+    /* Classic dark red */
+    --green: #008000;
+    /* Classic dark green */
+    --blue: #000080;
+    --orange: #804000;
+    --code-selection-bg: #000080;
+    --code-active-line-bg: rgba(0, 0, 128, 0.06);
+
+    /* 3D Bevel Tokens */
+    --win-white: #ffffff;
+    --win-light: #dfdfdf;
+    --win-grey: #c0c0c0;
+    --win-shadow: #808080;
+    --win-dark: #000000;
+
+    /* Surface Tokens */
+    --heading-color: #000080;
+    --text-secondary: #555555;
+    --card-bg: #ffffff;
+    --toolbar-bg: #c0c0c0;
+
+    /* Outset 3D Bevel (Buttons, Titlebars, Window Frames) */
+    --bevel-outset-border: 2px solid;
+    --bevel-inset-border: 2px solid;
+
+    /* Status Badges */
+    --status-pub-bg: #c0c0c0;
+    --status-pub-color: #006000;
+    --status-draft-bg: #c0c0c0;
+    --status-draft-color: #800000;
+    --status-sched-bg: #c0c0c0;
+    --status-sched-color: #000080;
+}
+
+/* Dark Mode Tokens (Windows 95 High Contrast Black Scheme) */
+html[data-admin-theme="dark"] {
+    --bg-color: #000000;
+    /* Pure black */
+    --accent-bg-color: #000000;
+    --text-color: #ffffff;
+    /* Pure white */
+    --accent-text-color: #000000;
+    --accent-color: #00ffff;
+    /* High Contrast Cyan */
+    --accent-hover: #ffffff;
+    --accent-active: #00cccc;
+    --border-color: #ffffff;
+    --input-bg: #000000;
+    --subnav-bg: #111111;
+    --red: #ff0000;
+    --green: #00ff00;
+    /* High Contrast Green */
+    --blue: #00ffff;
+    --orange: #ffff00;
+    /* High Contrast Yellow */
+    --code-selection-bg: #00ffff;
+    --code-active-line-bg: rgba(0, 255, 255, 0.1);
+
+    --win-white: #ffffff;
+    --win-light: #cccccc;
+    --win-grey: #000000;
+    --win-shadow: #888888;
+    --win-dark: #ffffff;
+
+    --heading-color: #00ffff;
+    --text-secondary: #aaaaaa;
+    --card-bg: #000000;
+    --toolbar-bg: #000000;
+
+    --status-pub-bg: #000000;
+    --status-pub-color: #00ff00;
+    --status-draft-bg: #000000;
+    --status-draft-color: #ff5555;
+    --status-sched-bg: #000000;
+    --status-sched-color: #00ffff;
+}
+
+/* System Dark Mode (when set to Auto) */
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        --bg-color: #000000;
+        --accent-bg-color: #000000;
+        --text-color: #ffffff;
+        --accent-text-color: #000000;
+        --accent-color: #00ffff;
+        --accent-hover: #ffffff;
+        --accent-active: #00cccc;
+        --border-color: #ffffff;
+        --input-bg: #000000;
+        --subnav-bg: #111111;
+        --red: #ff0000;
+        --green: #00ff00;
+        --blue: #00ffff;
+        --orange: #ffff00;
+        --code-selection-bg: #00ffff;
+        --code-active-line-bg: rgba(0, 255, 255, 0.1);
+
+        --win-white: #ffffff;
+        --win-light: #cccccc;
+        --win-grey: #000000;
+        --win-shadow: #888888;
+        --win-dark: #ffffff;
+
+        --heading-color: #00ffff;
+        --text-secondary: #aaaaaa;
+        --card-bg: #000000;
+        --toolbar-bg: #000000;
+
+        --status-pub-bg: #000000;
+        --status-pub-color: #00ff00;
+        --status-draft-bg: #000000;
+        --status-draft-color: #ff5555;
+        --status-sched-bg: #000000;
+        --status-sched-color: #00ffff;
+    }
+}
+
+
+/* ==========================================================================
+   2. Global Reset: Strict 0px Border Radius & MS Sans Serif
+   ========================================================================== */
+
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "MS Sans Serif", "Microsoft Sans Serif", "Tahoma", Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+}
+
+/* Windows 95 Client Window Shell */
+.admin-main {
+    background-color: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow);
+    margin: 4px;
+    padding-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 1rem 0 0.75rem 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 1.25rem 0 0.5rem 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+::selection {
+    background: #000080;
+    color: #ffffff;
+}
+
+html[data-admin-theme="dark"] ::selection {
+    background: #00ffff;
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] ::selection {
+        background: #00ffff;
+        color: #000000;
+    }
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (Windows 95 Explorer Tree / Menu)
+   ========================================================================== */
+
+.admin-nav {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow);
+    margin: 4px 0 4px 4px;
+    width: 14rem;
+    padding: 0;
+}
+
+/* Active Titlebar Header: Solid Navy with White Text */
+.sidebar-header {
+    background: #000080;
+    color: #ffffff;
+    border-bottom: 2px solid var(--win-dark);
+    height: 2.2rem;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+html[data-admin-theme="dark"] .sidebar-header {
+    background: #ffffff;
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .sidebar-header {
+        background: #ffffff;
+        color: #000000;
+    }
+}
+
+.sidebar-logo .logo {
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    border: none;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+html[data-admin-theme="dark"] .sidebar-logo .logo {
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .sidebar-logo .logo {
+        color: #000000;
+    }
+}
+
+.sidebar-logo .pure {
+    color: inherit;
+    padding: 0;
+}
+
+.sidebar-logo .service {
+    background: #c0c0c0;
+    color: #000000;
+    padding: 0 4px;
+    margin-left: 4px;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    font-size: 10px;
+}
+
+.sidebar-toggle {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: var(--win-grey);
+    color: #000000;
+    padding: 2px 5px;
+    min-height: 18px;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.sidebar-toggle:active {
+    border-top: 1px solid var(--win-dark);
+    border-left: 1px solid var(--win-dark);
+    border-right: 1px solid var(--win-white);
+    border-bottom: 1px solid var(--win-white);
+}
+
+.admin-nav-list {
+    padding: 0.5rem 0.25rem;
+    gap: 1px;
+}
+
+/* Menu Items */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    text-transform: none;
+    font-size: 11px;
+    font-weight: normal;
+    color: var(--text-color);
+    padding: 0.35rem 0.65rem;
+    margin: 1px 2px;
+    border: 1px solid transparent;
+    gap: 0.5rem;
+    line-height: 1.3;
+}
+
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: #000080;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+html[data-admin-theme="dark"] .admin-nav .admin-nav-list a:hover,
+html[data-admin-theme="dark"] .admin-nav .admin-nav-list .link-button:hover {
+    background-color: #00ffff;
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    html[data-admin-theme="auto"] .admin-nav .admin-nav-list a:hover,
+    html[data-admin-theme="auto"] .admin-nav .admin-nav-list .link-button:hover {
+        background-color: #00ffff;
+        color: #000000;
+    }
+}
+
+/* Active Item: Windows 95 Solid Selection Block */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: #000080;
+    color: #ffffff;
+    font-weight: 700;
+    outline: 1px dotted #ffffff;
+    outline-offset: -2px;
+}
+
+html[data-admin-theme="dark"] .admin-nav .admin-nav-list a.current {
+    background-color: #00ffff;
+    color: #000000;
+    outline: 1px dotted #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .admin-nav .admin-nav-list a.current {
+        background-color: #00ffff;
+        color: #000000;
+        outline: 1px dotted #000000;
+    }
+}
+
+.admin-nav .admin-nav-list a.current .icon {
+    stroke: #ffffff;
+}
+
+html[data-admin-theme="dark"] .admin-nav .admin-nav-list a.current .icon {
+    stroke: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .admin-nav .admin-nav-list a.current .icon {
+        stroke: #000000;
+    }
+}
+
+/* Submenu */
+.admin-nav .sidebar-subnav {
+    background: transparent;
+    border-top: 1px solid var(--win-shadow);
+    border-bottom: 1px solid var(--win-white);
+    margin: 2px 4px;
+    padding: 0.25rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding-left: 1.5rem;
+    font-size: 11px;
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    border-top: 1px solid var(--win-shadow);
+    box-shadow: inset 0 1px 0 var(--win-white);
+    padding-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. Windows 95 Push Buttons (Chunky 3D Outset Bevels)
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: none;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    min-height: 23px;
+    padding: 3px 12px;
+    background: var(--win-grey);
+    color: var(--text-color);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow);
+    cursor: default;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* Hover: Keep 3D bevel intact */
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--win-grey);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Pressed / Active: Invert 3D Bevel & Shift 1px */
+button:active,
+a.button:active,
+.link-button:active,
+.editor-actions button:active,
+.editor-actions a:active {
+    border-top: 2px solid var(--win-dark);
+    border-left: 2px solid var(--win-dark);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-shadow);
+    transform: translate(1px, 1px);
+}
+
+/* Primary Button (.save): Windows 95 Default Button (Thick Black Border) */
+.save,
+a.save,
+button.save {
+    font-weight: 700;
+    outline: 1px solid #000000;
+    outline-offset: 1px;
+}
+
+.save:active,
+a.save:active,
+button.save:active {
+    outline-offset: 0;
+}
+
+/* Destructive (.delete) */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    color: var(--red);
+}
+
+a.delete:active,
+button.delete:active {
+    color: #ffffff;
+    background-color: #800000;
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    color: #808080 !important;
+    text-shadow: 1px 1px 0 #ffffff !important;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+
+/* ==========================================================================
+   5. Form Controls (Deep Sunken Inset Bevels)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-dark), inset -1px -1px 0 var(--win-light);
+    padding: 3px 5px;
+    font-family: "MS Sans Serif", "Tahoma", monospace;
+    font-size: 11px;
+    line-height: 1.3;
+    min-height: 22px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: inset 1px 1px 0 var(--win-dark), inset -1px -1px 0 var(--win-light);
+}
+
+form label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+}
+
+form label span.tip,
+p.tip {
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 13px;
+    height: 13px;
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-dark);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px 0 0;
+    cursor: default;
+}
+
+input[type="checkbox"]:checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13"><path d="M3 6 l2 3 l5 -6" stroke="black" stroke-width="2" fill="none"/></svg>');
+    background-size: contain;
+}
+
+/* Layout Preview */
+.layout-preview {
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    background: #ffffff;
+}
+
+.layout-choice input:checked+.layout-preview {
+    border-top: 2px solid #000080;
+    border-left: 2px solid #000080;
+    border-right: 2px solid #000080;
+    border-bottom: 2px solid #000080;
+    outline: 2px solid #000080;
+}
+
+/* Tags */
+.tag-badge {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: var(--win-grey);
+    color: #000000;
+    padding: 1px 5px;
+    font-size: 10px;
+}
+
+.tag-suggestions {
+    border-top: 2px solid var(--win-dark);
+    border-left: 2px solid var(--win-dark);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    background: #ffffff;
+    box-shadow: 2px 2px 0 #000000;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: #000080;
+    color: #ffffff;
+}
+
+
+/* ==========================================================================
+   6. Command Toolbar (Windows 95 Tool Palette)
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow);
+    padding: 4px 8px;
+    margin: 0.75rem 0 1.25rem 0;
+    z-index: 100;
+}
+
+.mobile-nav-header {
+    background: #000080;
+    color: #ffffff;
+    border-bottom: 2px solid var(--win-dark);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+
+/* ==========================================================================
+   7. Content Lists & Windows 95 GroupBoxes (Grooved Frames)
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.5rem;
+}
+
+.admin-list-item {
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-dark), inset -1px -1px 0 var(--win-light);
+    padding: 0.75rem 1rem;
+}
+
+html[data-admin-theme="dark"] .admin-list-item {
+    background: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .admin-list-item {
+        background: #000000;
+    }
+}
+
+.admin-list-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.admin-list-meta {
+    font-size: 11px;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Status Badges */
+.admin-list-meta .status.published,
+.admin-list-meta .status.draft,
+.admin-list-meta .status.scheduled {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: var(--win-grey);
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.admin-list-meta .status.published {
+    color: #006000;
+}
+
+.admin-list-meta .status.draft {
+    color: #800000;
+}
+
+.admin-list-meta .status.scheduled {
+    color: #000080;
+}
+
+.admin-list-meta button.page-badge {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: var(--win-grey);
+    color: #006000;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   8. Search & Content Filter Panel
+   ========================================================================== */
+
+.content-filter {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    padding: 0.5rem 0.75rem;
+    margin: 1.25rem 0;
+}
+
+.content-filter-summary {
+    text-transform: none;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--heading-color);
+    padding: 0.15rem 0;
+}
+
+.content-filter-active-label {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: #000080;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 4px;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Widgets & Metric Frames
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 2.5rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 1.75rem;
+}
+
+.dashboard-stat-card {
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-dark), inset -1px -1px 0 var(--win-light);
+    padding: 1rem;
+}
+
+html[data-admin-theme="dark"] .dashboard-stat-card {
+    background: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .dashboard-stat-card {
+        background: #000000;
+    }
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-value {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 1.9rem;
+}
+
+.dashboard-chart {
+    border-bottom: 2px solid var(--win-dark);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    background: #000080;
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+}
+
+html[data-admin-theme="dark"] .dashboard-chart-bar {
+    background: #00ffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .dashboard-chart-bar {
+        background: #00ffff;
+    }
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--win-shadow);
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+
+/* ==========================================================================
+   10. Windows 95 MessageBox Notifications (.notice)
+   ========================================================================== */
+
+.notice {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow), 2px 2px 0 #000000;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    font-size: 11px;
+}
+
+.notice.delete {
+    border-left: 4px solid var(--red);
+}
+
+.admin-toast-container .notice {
+    box-shadow: 3px 3px 0 #000000;
+}
+
+
+/* ==========================================================================
+   11. CodeJar & Prism Editor
+   ========================================================================== */
+
+.editor {
+    background-color: var(--input-bg) !important;
+    border-top: 2px solid var(--win-shadow) !important;
+    border-left: 2px solid var(--win-shadow) !important;
+    border-right: 2px solid var(--win-white) !important;
+    border-bottom: 2px solid var(--win-white) !important;
+    box-shadow: inset 1px 1px 0 var(--win-dark) !important;
+    padding: 0.75rem;
+}
+
+.editor-sidebar {
+    background: var(--win-grey);
+    border-left: 2px solid var(--win-shadow);
+}
+
+.editor-sidebar .sidebar-header {
+    background: #000080;
+    color: #ffffff;
+    height: 2.2rem;
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: none;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--input-bg);
+}
+
+
+/* ==========================================================================
+   12. Dialogue Windows & Modals (Windows 95 Window Chrome)
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow), 4px 4px 0 #000000;
+    padding: 1.5rem;
+}
+
+.layout-picker-list a {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    color: var(--text-color);
+    text-transform: none;
+    font-weight: 700;
+}
+
+.layout-picker-list a:active {
+    border-top: 2px solid var(--win-dark);
+    border-left: 2px solid var(--win-dark);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+}
+
+.image-lightbox {
+    border-top: 3px solid var(--win-white);
+    border-left: 3px solid var(--win-white);
+    border-right: 3px solid var(--win-dark);
+    border-bottom: 3px solid var(--win-dark);
+    box-shadow: 4px 4px 0 #000000;
+}
+
+.image-delete-dialog {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    box-shadow: 4px 4px 0 #000000;
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    box-shadow: inset 1px 1px 0 var(--win-dark);
+}
+
+html[data-admin-theme="dark"] .image-library-card {
+    background: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .image-library-card {
+        background: #000000;
+    }
+}
+
+.image-list li {
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+}
+
+html[data-admin-theme="dark"] .image-list li {
+    background: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .image-list li {
+        background: #000000;
+    }
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Settings Cards
+   ========================================================================== */
+
+.theme-card {
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+}
+
+.theme-card.active {
+    border-top: 2px solid #000080;
+    border-left: 2px solid #000080;
+    border-right: 2px solid #000080;
+    border-bottom: 2px solid #000080;
+    outline: 1px dotted #000080;
+}
+
+.theme-badge {
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    background: var(--win-grey);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   15. Login Screen (Windows 95 Logon Dialog)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 320px;
+    margin: 4rem auto;
+    padding: 1.5rem;
+    background: var(--win-grey);
+    border-top: 3px solid var(--win-white);
+    border-left: 3px solid var(--win-white);
+    border-right: 3px solid var(--win-dark);
+    border-bottom: 3px solid var(--win-dark);
+    box-shadow: inset 1px 1px 0 var(--win-light), inset -1px -1px 0 var(--win-shadow), 4px 4px 0 #000000;
+}
+
+main.narrow h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--heading-color);
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.4rem 1rem;
+    min-height: 26px;
+    font-size: 11px;
+}
+
+
+/* ==========================================================================
+   16. Tables & Pagination Controls
+   ========================================================================== */
+
+table {
+    border-collapse: collapse;
+    background: #ffffff;
+    border-top: 2px solid var(--win-shadow);
+    border-left: 2px solid var(--win-shadow);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+}
+
+html[data-admin-theme="dark"] table {
+    background: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] table {
+        background: #000000;
+    }
+}
+
+th {
+    background: var(--win-grey);
+    font-size: 11px;
+    font-weight: 700;
+    color: #000000;
+    border-top: 1px solid var(--win-white);
+    border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-dark);
+    border-bottom: 1px solid var(--win-dark);
+    padding: 4px 6px;
+    text-transform: none;
+}
+
+html[data-admin-theme="dark"] th {
+    color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] th {
+        color: #ffffff;
+    }
+}
+
+td {
+    border: 1px solid #d5d5cd;
+    padding: 4px 6px;
+    font-size: 11px;
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    background: var(--win-grey);
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-dark);
+    border-bottom: 2px solid var(--win-dark);
+    color: var(--text-color);
+    padding: 3px 10px;
+    min-height: 22px;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+nav.pagination a:active {
+    border-top: 2px solid var(--win-dark);
+    border-left: 2px solid var(--win-dark);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+}

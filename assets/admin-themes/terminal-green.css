@@ -1,0 +1,1028 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * Matrix / VT220 Phosphor Green CRT Terminal Theme (Dark Only) customised with:
+ * - 100% dark CRT console environment (#0c100c obsidian canvas across all modes)
+ * - P1 Phosphor Green (#00ff66) with luminous CRT text-shadow glow
+ * - Full Iosevka monospace font stack across all UI components
+ * - Horizontal CRT scanline overlay and glass tube curvature vignettes
+ * - Interactive command bracket buttons ([SAVE], [EXEC], [DEL]) with inverse-video hover
+ * - Terminal prompt prefixes (> dir, [PARAM], [SYSTEM_LOG], [ONLINE])
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes (Phosphor Green CRT - Dark Only)
+   ========================================================================== */
+
+:root,
+html[data-admin-theme="light"],
+html[data-admin-theme="dark"],
+html[data-admin-theme="auto"] {
+    color-scheme: dark;
+
+    /* P1 Phosphor Green Matrix Palette */
+    --bg-color: #0c100c;                /* Deep console obsidian */
+    --accent-bg-color: #070a07;         /* Terminal sidebar */
+    --text-color: #00ff66;              /* Glowing P1 Green Phosphor */
+    --accent-text-color: #000000;
+    --accent-color: #00ff66;            /* Neon phosphor green */
+    --accent-hover: #55ff88;
+    --accent-active: #00cc55;
+    --border-color: #005522;            /* Dim matrix border */
+    --input-bg: #050805;
+    --subnav-bg: #030503;
+    --red: #ff3344;                     /* Emergency red alert */
+    --green: #00ff66;                   /* Phosphor matrix green */
+    --blue: #00ddff;                    /* Subsystem cyan */
+    --orange: #ffb000;                  /* Warning amber */
+    --code-selection-bg: #00ff66;
+    --code-active-line-bg: rgba(0, 255, 102, 0.08);
+
+    /* Terminal Console Tokens */
+    --heading-color: #00ff66;
+    --text-secondary: #00aa44;          /* Dim green phosphor */
+    --border-subtle: #003314;
+    --card-bg: #080c08;
+    --card-hover-border: #00ff66;
+    --sidebar-text: #00bb4e;
+    --sidebar-icon: #00aa44;
+    --sidebar-hover-bg: rgba(0, 255, 102, 0.1);
+    --sidebar-hover-text: #00ff66;
+    --sidebar-active-bg: #00ff66;
+    --sidebar-active-text: #000000;
+    --toolbar-bg: #080c08;
+
+    /* Phosphor Glow Tokens */
+    --crt-glow: 0 0 6px rgba(0, 255, 102, 0.5);
+    --crt-glow-strong: 0 0 12px rgba(0, 255, 102, 0.8);
+    --crt-glow-box: 0 0 8px rgba(0, 255, 102, 0.25);
+
+    /* Status Badges */
+    --status-pub-bg: rgba(0, 255, 102, 0.12);
+    --status-pub-color: #00ff66;
+    --status-pub-border: #00ff66;
+    --status-draft-bg: rgba(255, 176, 0, 0.12);
+    --status-draft-color: #ffb000;
+    --status-draft-border: #ffb000;
+    --status-sched-bg: rgba(0, 221, 255, 0.12);
+    --status-sched-color: #00ddff;
+    --status-sched-border: #00ddff;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        color-scheme: dark;
+        --bg-color: #0c100c;
+        --accent-bg-color: #070a07;
+        --text-color: #00ff66;
+        --accent-text-color: #000000;
+        --accent-color: #00ff66;
+        --accent-hover: #55ff88;
+        --accent-active: #00cc55;
+        --border-color: #005522;
+        --input-bg: #050805;
+        --subnav-bg: #030503;
+        --red: #ff3344;
+        --green: #00ff66;
+        --blue: #00ddff;
+        --orange: #ffb000;
+        --code-selection-bg: #00ff66;
+        --code-active-line-bg: rgba(0, 255, 102, 0.08);
+    }
+}
+
+
+/* ==========================================================================
+   2. Global Typography & CRT Scanline Ambience
+   ========================================================================== */
+
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Iosevka", ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    text-shadow: var(--crt-glow);
+    /* Cathode Ray Tube horizontal scanlines & subpixel shadow */
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%),
+                      linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 6px 100%;
+}
+
+.admin-main {
+    background: transparent;
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 1.25rem 0 1rem 0;
+    text-shadow: var(--crt-glow-strong);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h1::before {
+    content: "root@terminal:~#";
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 2rem 0 0.75rem 0;
+    text-shadow: var(--crt-glow);
+}
+
+h2::before {
+    content: ">> ";
+    color: var(--text-secondary);
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+h3::before {
+    content: "$ ";
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-shadow: var(--crt-glow-strong);
+}
+
+::selection {
+    background: var(--code-selection-bg);
+    color: #000000;
+    text-shadow: none;
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (Terminal Directory Tree)
+   ========================================================================== */
+
+.admin-nav {
+    background: var(--accent-bg-color);
+    border-right: 1px solid var(--border-color);
+    width: 14rem;
+    padding: 0;
+    box-shadow: var(--crt-glow-box);
+}
+
+.sidebar-header {
+    background: var(--accent-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    height: 3.5rem;
+    padding: 0 0.75rem;
+}
+
+.sidebar-logo .logo {
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 2px 6px;
+    box-shadow: var(--crt-glow-box);
+}
+
+.sidebar-logo .pure {
+    color: var(--text-color);
+    padding: 0;
+}
+
+.sidebar-logo .service {
+    background: var(--accent-color);
+    color: #000000;
+    padding: 0 4px;
+    margin-left: 4px;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.sidebar-toggle {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    padding: 0.4rem;
+    font-family: inherit;
+}
+
+.sidebar-toggle:hover {
+    background: var(--accent-color);
+    color: #000000;
+}
+
+.admin-nav-list {
+    padding: 0.75rem 0;
+    gap: 2px;
+}
+
+/* Menu Items */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--sidebar-text);
+    padding: 0.45rem 0.85rem;
+    margin: 1px 6px;
+    border: 1px solid transparent;
+    gap: 0.65rem;
+    line-height: 1.4;
+    transition: all 0.1s ease;
+}
+
+.admin-nav .admin-nav-list a .icon,
+.admin-nav .admin-nav-list .link-button .icon {
+    color: var(--sidebar-icon);
+    stroke: currentColor;
+}
+
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+    border-color: var(--border-color);
+    text-shadow: var(--crt-glow);
+}
+
+.admin-nav .admin-nav-list a:hover .icon,
+.admin-nav .admin-nav-list .link-button:hover .icon {
+    color: var(--sidebar-hover-text);
+}
+
+/* Active navigation item: Solid Inverse Video */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 700;
+    border-color: var(--sidebar-active-bg);
+    text-shadow: none;
+    box-shadow: var(--crt-glow-box);
+}
+
+.admin-nav .admin-nav-list a.current .icon {
+    color: var(--sidebar-active-text);
+    stroke: #000000;
+}
+
+/* Submenu items */
+.admin-nav .sidebar-subnav {
+    background: transparent;
+    border-left: 1px dashed var(--border-color);
+    margin: 2px 6px 2px 14px;
+    border-bottom: none;
+    padding: 0.25rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding-left: 1.25rem;
+    margin: 1px 4px;
+    font-size: 11px;
+}
+
+#sidebar-new-post-button {
+    color: var(--text-color);
+    border: 1px dashed var(--accent-color);
+}
+
+#sidebar-new-post-button:hover {
+    background-color: var(--accent-color);
+    color: #000000;
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. Terminal Command Buttons ([EXEC], [SAVE], [DEL])
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    min-height: 32px;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    text-decoration: none;
+    text-shadow: var(--crt-glow);
+    box-shadow: inset 0 0 4px rgba(0, 255, 102, 0.15), var(--crt-glow-box);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.1s ease;
+}
+
+/* Hover: Inverse Video Glow */
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--accent-color);
+    color: #000000;
+    text-shadow: none;
+    box-shadow: var(--crt-glow-strong);
+}
+
+button:hover .icon,
+a.button:hover .icon,
+.link-button:hover .icon,
+.editor-actions button:hover .icon,
+.editor-actions a:hover .icon {
+    stroke: #000000;
+}
+
+button:active,
+a.button:active,
+.link-button:active,
+.editor-actions button:active,
+.editor-actions a:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: 2px dashed var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Primary Action (.save) */
+.save,
+a.save,
+button.save {
+    border: 2px solid var(--accent-color);
+    background: rgba(0, 255, 102, 0.1);
+}
+
+/* Destructive Action (.delete) */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    border-color: var(--red);
+    color: var(--red);
+    text-shadow: 0 0 6px rgba(255, 51, 68, 0.5);
+    box-shadow: inset 0 0 4px rgba(255, 51, 68, 0.2);
+}
+
+.delete .icon,
+a.delete .icon,
+button.delete .icon {
+    stroke: var(--red);
+}
+
+a.delete:hover,
+button.delete:hover,
+.editor-actions a.delete:hover,
+.link-button.delete:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: #000000;
+    text-shadow: none;
+    box-shadow: 0 0 10px rgba(255, 51, 68, 0.7);
+}
+
+a.delete:hover .icon,
+button.delete:hover .icon,
+.link-button.delete:hover .icon {
+    stroke: #000000;
+}
+
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.35;
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+
+/* ==========================================================================
+   5. Form Controls (Terminal Prompt Inputs)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 0.5rem 0.75rem;
+    min-height: 34px;
+    text-shadow: var(--crt-glow);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.35), inset 0 0 4px rgba(0, 255, 102, 0.1);
+}
+
+form label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-color);
+    margin-bottom: 0.35rem;
+}
+
+form label::before {
+    content: "[PARAM] ";
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+form label span.tip,
+p.tip {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Layout Preview */
+.layout-preview {
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--crt-glow-box);
+}
+
+.layout-choice:hover .layout-preview {
+    border-color: var(--accent-color);
+}
+
+.layout-choice input:checked+.layout-preview {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+/* Tag Entry & Badges */
+.tag-badge {
+    border: 1px solid var(--accent-color);
+    background: rgba(0, 255, 102, 0.08);
+    color: var(--text-color);
+    padding: 0.2rem 0.6rem;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.tag-badge::before {
+    content: "#";
+    color: var(--text-secondary);
+}
+
+.tag-suggestions {
+    border: 1px solid var(--accent-color);
+    background: var(--input-bg);
+    box-shadow: var(--crt-glow-box);
+}
+
+.tag-suggestions li {
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: var(--accent-color);
+    color: #000000;
+}
+
+
+/* ==========================================================================
+   6. Command Palette Toolbars
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    background: var(--toolbar-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+    padding: 0.65rem 1rem;
+    margin: 1rem 0 1.5rem 0;
+    z-index: 100;
+}
+
+.mobile-nav-header {
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.autosave-status::before {
+    content: "[STATUS] ";
+}
+
+
+/* ==========================================================================
+   7. Content Lists & Terminal Window Frames
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.65rem;
+}
+
+.admin-list-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.04);
+    padding: 1rem 1.25rem;
+    transition: all 0.15s ease;
+}
+
+.admin-list-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.2), inset 0 0 8px rgba(0, 255, 102, 0.08);
+}
+
+.admin-list-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.admin-list-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Status Badges */
+.admin-list-meta .status.published,
+.admin-list-meta .status.draft,
+.admin-list-meta .status.scheduled {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.6rem;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid currentColor;
+    background: transparent;
+}
+
+.admin-list-meta .status.published {
+    color: var(--green);
+}
+
+.admin-list-meta .status.published::before {
+    content: "[ONLINE] ";
+}
+
+.admin-list-meta .status.draft {
+    color: var(--orange);
+}
+
+.admin-list-meta .status.draft::before {
+    content: "[DRAFT] ";
+}
+
+.admin-list-meta .status.scheduled {
+    color: var(--blue);
+}
+
+.admin-list-meta .status.scheduled::before {
+    content: "[QUEUED] ";
+}
+
+.admin-list-meta button.page-badge {
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    padding: 0.15rem 0.6rem;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.page-badge-popover {
+    border: 1px solid var(--accent-color);
+    background: var(--card-bg);
+    box-shadow: var(--crt-glow-box);
+}
+
+
+/* ==========================================================================
+   8. Search & Content Filter Panel
+   ========================================================================== */
+
+.content-filter {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.content-filter-summary {
+    text-transform: uppercase;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--heading-color);
+    padding: 0.2rem 0;
+}
+
+.content-filter-active-label {
+    border: 1px solid var(--accent-color);
+    background: rgba(0, 255, 102, 0.15);
+    color: var(--accent-color);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Telemetry & System Gauges
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 3.5rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 2.25rem;
+}
+
+.dashboard-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+    padding: 1.25rem;
+    transition: all 0.15s ease;
+}
+
+.dashboard-stat-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.25);
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-label::before {
+    content: "SYS_METRIC: ";
+}
+
+.dashboard-stat-value {
+    color: var(--heading-color);
+    font-weight: 700;
+    text-shadow: var(--crt-glow);
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    text-shadow: var(--crt-glow-strong);
+}
+
+.dashboard-chart {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    background: var(--accent-color);
+    box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+    opacity: 0.85;
+}
+
+a.dashboard-chart-col:hover .dashboard-chart-bar {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   10. System Log Alerts (.notice)
+   ========================================================================== */
+
+.notice {
+    background: var(--card-bg);
+    border: 1px solid var(--green);
+    border-left: 4px solid var(--green);
+    box-shadow: var(--crt-glow-box);
+    padding: 0.85rem 1.15rem;
+    color: var(--text-color);
+    font-size: 13px;
+}
+
+.notice::before {
+    content: "[SYSTEM_LOG] ";
+    font-weight: 700;
+    color: var(--green);
+}
+
+.notice.delete {
+    border-color: var(--red);
+    border-left-color: var(--red);
+    color: var(--red);
+    text-shadow: 0 0 6px rgba(255, 51, 68, 0.5);
+}
+
+.notice.delete::before {
+    content: "[CRITICAL_ALERT] ";
+    color: var(--red);
+}
+
+.admin-toast-container .notice {
+    box-shadow: 0 0 16px rgba(0, 255, 102, 0.3);
+}
+
+
+/* ==========================================================================
+   11. CodeJar & Prism Editor
+   ========================================================================== */
+
+.editor {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+    padding: 1.1rem;
+    font-family: inherit !important;
+}
+
+.editor:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.35);
+}
+
+.editor-sidebar {
+    background: var(--accent-bg-color);
+    border-left: 1px solid var(--border-color);
+}
+
+.editor-sidebar .sidebar-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+
+/* ==========================================================================
+   12. Dialogue Modals & System Prompts
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 24px rgba(0, 255, 102, 0.35);
+    padding: 2.25rem;
+}
+
+.layout-picker-list a {
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.layout-picker-list a:hover {
+    background: var(--accent-color);
+    color: #000000;
+    text-shadow: none;
+}
+
+.image-lightbox {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 32px rgba(0, 255, 102, 0.45);
+}
+
+.image-delete-dialog {
+    border: 2px solid var(--red);
+    background: var(--card-bg);
+    box-shadow: 0 0 24px rgba(255, 51, 68, 0.4);
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+    overflow: hidden;
+    transition: all 0.15s ease;
+}
+
+.image-library-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+}
+
+.image-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Telemetry Settings
+   ========================================================================== */
+
+.theme-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+    transition: all 0.15s ease;
+}
+
+.theme-card.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+}
+
+.theme-badge {
+    border: 1px solid currentColor;
+    background: transparent;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   15. Login Screen (Terminal Access Gate)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 360px;
+    margin: 5rem auto;
+    padding: 2.25rem;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 24px rgba(0, 255, 102, 0.3);
+}
+
+main.narrow h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--heading-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+main.narrow h1::before {
+    content: "[AUTH_GATE] ";
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem 1rem;
+    min-height: 38px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   16. Tables & System Data Buffers
+   ========================================================================== */
+
+table {
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--crt-glow-box);
+}
+
+th {
+    background: var(--input-bg);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 0.75rem 1rem;
+}
+
+td {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.85rem 1rem;
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 255, 102, 0.05);
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    padding: 0.4rem 0.95rem;
+    min-height: 32px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: var(--crt-glow-box);
+}
+
+nav.pagination a:hover {
+    background: var(--accent-color);
+    color: #000000;
+    text-shadow: none;
+}

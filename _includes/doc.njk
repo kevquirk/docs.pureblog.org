@@ -162,3 +162,27 @@ layout: base.njk
         <div id="search-empty" class="search-empty" hidden>No results found</div>
     </div>
 </div>
+
+{# ── Image lightbox modal ── #}
+<dialog id="image-lightbox" class="image-lightbox" aria-label="Image preview">
+    <div class="image-lightbox-wrapper">
+        <header class="image-lightbox-header">
+            <span id="lightbox-caption" class="image-lightbox-caption"></span>
+            <div class="image-lightbox-controls">
+                <button type="button" id="lightbox-prev" class="image-lightbox-btn" aria-label="Previous image" title="Previous (Left arrow)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button type="button" id="lightbox-next" class="image-lightbox-btn" aria-label="Next image" title="Next (Right arrow)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+                <button type="button" id="lightbox-close" class="image-lightbox-btn image-lightbox-close" aria-label="Close preview" title="Close (Escape)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+        </header>
+        <div class="image-lightbox-body">
+            <img id="lightbox-image" class="image-lightbox-img" src="" alt="">
+        </div>
+    </div>
+</dialog>
+

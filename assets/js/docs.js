@@ -177,4 +177,111 @@ document.addEventListener('DOMContentLoaded', function () {
         return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
+    /* ── Image Lightbox ────────────────────────────────────────────────── */
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentGalleryImages = [];
+    let currentImageIndex = -1;
+
+    function openLightbox(images, index) {
+        if (!lightbox || !lightboxImg || index < 0 || index >= images.length) return;
+        currentGalleryImages = images;
+        currentImageIndex = index;
+        updateLightboxImage();
+        if (typeof lightbox.showModal === 'function') {
+            lightbox.showModal();
+        } else {
+            lightbox.setAttribute('open', '');
+        }
+    }
+
+    function updateLightboxImage() {
+        const item = currentGalleryImages[currentImageIndex];
+        if (!item) return;
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.caption || '';
+        if (lightboxCaption) {
+            lightboxCaption.textContent = item.caption || '';
+        }
+        if (lightboxPrev) {
+            lightboxPrev.style.display = currentGalleryImages.length > 1 ? '' : 'none';
+        }
+        if (lightboxNext) {
+            lightboxNext.style.display = currentGalleryImages.length > 1 ? '' : 'none';
+        }
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        if (typeof lightbox.close === 'function') {
+            lightbox.close();
+        } else {
+            lightbox.removeAttribute('open');
+        }
+        if (lightboxImg) lightboxImg.src = '';
+        currentGalleryImages = [];
+        currentImageIndex = -1;
+    }
+
+    function showPrevImage() {
+        if (currentGalleryImages.length <= 1) return;
+        currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+        updateLightboxImage();
+    }
+
+    function showNextImage() {
+        if (currentGalleryImages.length <= 1) return;
+        currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+        updateLightboxImage();
+    }
+
+    if (lightbox) {
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevImage);
+        if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (lightbox.hasAttribute('open') || lightbox.open) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    showPrevImage();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    showNextImage();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeLightbox();
+                }
+            }
+        });
+
+        document.querySelectorAll('.image-gallery, .theme-gallery').forEach(function (gallery) {
+            const items = Array.from(gallery.querySelectorAll('.gallery-item, .theme-gallery-item'));
+            const imageList = items.map(function (item) {
+                const img = item.querySelector('img');
+                const captionEl = item.querySelector('.gallery-caption, .theme-gallery-caption, figcaption');
+                return {
+                    src: item.getAttribute('data-full') || item.getAttribute('href') || (img ? img.getAttribute('src') : ''),
+                    caption: item.getAttribute('data-caption') || (captionEl ? captionEl.textContent.trim() : (img ? img.getAttribute('alt') : ''))
+                };
+            });
+
+            items.forEach(function (item, idx) {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openLightbox(imageList, idx);
+                });
+            });
+        });
+    }
+
 });

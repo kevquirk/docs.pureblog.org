@@ -835,3 +835,253 @@ table.themes td code {
     background: var(--accent-bg);
     padding: 0.1rem 0.25rem;
 }
+
+/* ─── Galleries & Lightbox ───────────────────────────────────────────────── */
+.theme-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 1.25rem 0 1.5rem 0;
+}
+
+.theme-gallery-item {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--accent-bg);
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-gallery-item:hover,
+.theme-gallery-item:focus-visible {
+    border-color: var(--accent);
+    outline: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.theme-gallery-item img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    margin: 0 !important;
+    border-radius: 0;
+    transition: opacity 0.15s;
+}
+
+.theme-gallery-item:hover img {
+    opacity: 0.95;
+}
+
+.theme-gallery-caption {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    font-family: var(--font);
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.theme-gallery-badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+/* ─── Lightbox Modal ─────────────────────────────────────────────────────── */
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    max-width: min(94vw, 1280px);
+    max-height: 94vh;
+    border-radius: var(--radius);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.image-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(4px);
+}
+
+.image-lightbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(94vh - 2.5rem);
+}
+
+.image-lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+}
+
+.image-lightbox-caption {
+    font-family: var(--font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.image-lightbox-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.image-lightbox-btn {
+    background: var(--accent-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: var(--radius);
+    padding: 0.35rem 0.55rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.image-lightbox-btn:hover {
+    background: var(--bg);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.image-lightbox-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 0;
+    background: var(--accent-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+}
+
+.image-lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 !important;
+}
+
+/* ─── Details / Summary Styling ──────────────────────────────────────────── */
+.article-body details {
+    border: 1px solid var(--border);
+    background: var(--accent-bg);
+    border-radius: var(--radius);
+    margin: 1.25rem 0 2rem 0;
+    overflow: hidden;
+    transition: border-color 0.15s;
+}
+
+.article-body details:focus-within {
+    border-color: var(--accent);
+}
+
+.article-body details summary {
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    background: var(--accent-bg);
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.article-body details summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-body details summary::after {
+    content: "▾";
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+    margin-left: 0.5rem;
+    color: var(--accent);
+}
+
+.article-body details[open] summary {
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+}
+
+.article-body details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.article-body details pre {
+    margin: 0 !important;
+    max-height: 480px;
+    overflow-y: auto;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.article-body details .code-wrapper .copy-btn {
+    opacity: 0.85;
+    z-index: 5;
+}
+
+.article-body details .code-wrapper:hover .copy-btn {
+    opacity: 1;
+}
+
+.theme-card {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--radius);
+}
+
+.theme-card h3 {
+    margin-top: 0;
+}
+

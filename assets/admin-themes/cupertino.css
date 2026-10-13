@@ -1,0 +1,1217 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * Elegant macOS-inspired theme customised with:
+ * - Curated greys and blues palette (supporting both light and dark modes)
+ * - Subtle border radiuses (6px-12px) across controls, cards, and dialogue windows
+ * - Frosted acrylic translucency and refined typography
+ * - Smooth micro-transitions and clean push-button aesthetics
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes
+   ========================================================================== */
+
+:root {
+    /* Base colour overrides */
+    --bg-color: #f5f5f7;
+    --accent-bg-color: #e8e8ed;
+    --text-color: #1d1d1f;
+    --accent-text-color: #ffffff;
+    --accent-color: #0071e3;
+    --accent-hover: #0077ed;
+    --accent-active: #005bb5;
+    --border-color: #d2d2d7;
+    --input-bg: #ffffff;
+    --subnav-bg: #dfdfe4;
+    --red: #ff3b30;
+    --green: #34c759;
+    --blue: #0071e3;
+    --orange: #ff9500;
+    --code-selection-bg: rgba(0, 113, 227, 0.2);
+    --code-active-line-bg: rgba(0, 0, 0, 0.03);
+
+    /* macOS specific surface & typography tokens */
+    --text-secondary: #6e6e73;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --card-bg: #ffffff;
+    --card-hover-border: #b8b8be;
+    --sidebar-hover-bg: rgba(0, 0, 0, 0.05);
+    --subnav-active-bg: rgba(0, 113, 227, 0.12);
+    --toolbar-bg: rgba(245, 245, 247, 0.82);
+
+    /* Push-button tokens */
+    --btn-bg: #ffffff;
+    --btn-border: #d2d2d7;
+    --btn-hover-bg: #f5f5f7;
+    --btn-hover-border: #bcbcc0;
+    --btn-active-bg: #ebebf0;
+    --btn-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --delete-btn-bg: rgba(255, 59, 48, 0.06);
+    --delete-btn-border: rgba(255, 59, 48, 0.25);
+
+    /* Input & shadow tokens */
+    --input-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) inset;
+    --focus-ring: 0 0 0 3px rgba(0, 113, 227, 0.28);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    /* Status badges & pills */
+    --pill-bg: #e8e8ed;
+    --status-pub-bg: rgba(52, 199, 89, 0.12);
+    --status-pub-color: #248a3d;
+    --status-pub-border: rgba(52, 199, 89, 0.3);
+    --status-draft-bg: rgba(255, 59, 48, 0.1);
+    --status-draft-color: #d70015;
+    --status-draft-border: rgba(255, 59, 48, 0.25);
+    --status-sched-bg: rgba(0, 113, 227, 0.1);
+    --status-sched-color: #0071e3;
+    --status-sched-border: rgba(0, 113, 227, 0.25);
+
+    /* Notice banners */
+    --notice-success-bg: rgba(52, 199, 89, 0.08);
+    --notice-success-border: rgba(52, 199, 89, 0.25);
+    --notice-danger-bg: rgba(255, 59, 48, 0.08);
+    --notice-danger-border: rgba(255, 59, 48, 0.25);
+
+    /* Tables */
+    --table-row-hover: rgba(0, 0, 0, 0.025);
+}
+
+/* Dark Mode Tokens */
+html[data-admin-theme="dark"] {
+    --bg-color: #1c1c1e;
+    --accent-bg-color: #252528;
+    --text-color: #f5f5f7;
+    --accent-text-color: #ffffff;
+    --accent-color: #0a84ff;
+    --accent-hover: #409cff;
+    --accent-active: #0066d6;
+    --border-color: #38383a;
+    --input-bg: #2c2c2e;
+    --subnav-bg: #1e1e20;
+    --red: #ff453a;
+    --green: #32d74b;
+    --blue: #0a84ff;
+    --orange: #ff9f0a;
+    --code-selection-bg: rgba(10, 132, 255, 0.3);
+    --code-active-line-bg: rgba(255, 255, 255, 0.04);
+
+    --text-secondary: #98989d;
+    --border-subtle: rgba(255, 255, 255, 0.09);
+    --card-bg: #252528;
+    --card-hover-border: #48484a;
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.07);
+    --subnav-active-bg: rgba(10, 132, 255, 0.18);
+    --toolbar-bg: rgba(28, 28, 30, 0.85);
+
+    --btn-bg: #2c2c2e;
+    --btn-border: #3a3a3c;
+    --btn-hover-bg: #38383a;
+    --btn-hover-border: #545458;
+    --btn-active-bg: #404044;
+    --btn-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --delete-btn-bg: rgba(255, 69, 58, 0.12);
+    --delete-btn-border: rgba(255, 69, 58, 0.3);
+
+    --input-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+    --focus-ring: 0 0 0 3px rgba(10, 132, 255, 0.35);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+
+    --pill-bg: #323236;
+    --status-pub-bg: rgba(50, 215, 75, 0.15);
+    --status-pub-color: #32d74b;
+    --status-pub-border: rgba(50, 215, 75, 0.3);
+    --status-draft-bg: rgba(255, 69, 58, 0.15);
+    --status-draft-color: #ff453a;
+    --status-draft-border: rgba(255, 69, 58, 0.3);
+    --status-sched-bg: rgba(10, 132, 255, 0.15);
+    --status-sched-color: #0a84ff;
+    --status-sched-border: rgba(10, 132, 255, 0.3);
+
+    --notice-success-bg: rgba(50, 215, 75, 0.1);
+    --notice-success-border: rgba(50, 215, 75, 0.3);
+    --notice-danger-bg: rgba(255, 69, 58, 0.1);
+    --notice-danger-border: rgba(255, 69, 58, 0.3);
+
+    --table-row-hover: rgba(255, 255, 255, 0.04);
+}
+
+/* System Dark Mode Preference (when set to Auto) */
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        --bg-color: #1c1c1e;
+        --accent-bg-color: #252528;
+        --text-color: #f5f5f7;
+        --accent-text-color: #ffffff;
+        --accent-color: #0a84ff;
+        --accent-hover: #409cff;
+        --accent-active: #0066d6;
+        --border-color: #38383a;
+        --input-bg: #2c2c2e;
+        --subnav-bg: #1e1e20;
+        --red: #ff453a;
+        --green: #32d74b;
+        --blue: #0a84ff;
+        --orange: #ff9f0a;
+        --code-selection-bg: rgba(10, 132, 255, 0.3);
+        --code-active-line-bg: rgba(255, 255, 255, 0.04);
+
+        --text-secondary: #98989d;
+        --border-subtle: rgba(255, 255, 255, 0.09);
+        --card-bg: #252528;
+        --card-hover-border: #48484a;
+        --sidebar-hover-bg: rgba(255, 255, 255, 0.07);
+        --subnav-active-bg: rgba(10, 132, 255, 0.18);
+        --toolbar-bg: rgba(28, 28, 30, 0.85);
+
+        --btn-bg: #2c2c2e;
+        --btn-border: #3a3a3c;
+        --btn-hover-bg: #38383a;
+        --btn-hover-border: #545458;
+        --btn-active-bg: #404044;
+        --btn-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        --delete-btn-bg: rgba(255, 69, 58, 0.12);
+        --delete-btn-border: rgba(255, 69, 58, 0.3);
+
+        --input-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+        --focus-ring: 0 0 0 3px rgba(10, 132, 255, 0.35);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+
+        --pill-bg: #323236;
+        --status-pub-bg: rgba(50, 215, 75, 0.15);
+        --status-pub-color: #32d74b;
+        --status-pub-border: rgba(50, 215, 75, 0.3);
+        --status-draft-bg: rgba(255, 69, 58, 0.15);
+        --status-draft-color: #ff453a;
+        --status-draft-border: rgba(255, 69, 58, 0.3);
+        --status-sched-bg: rgba(10, 132, 255, 0.15);
+        --status-sched-color: #0a84ff;
+        --status-sched-border: rgba(10, 132, 255, 0.3);
+
+        --notice-success-bg: rgba(50, 215, 75, 0.1);
+        --notice-success-border: rgba(50, 215, 75, 0.3);
+        --notice-danger-bg: rgba(255, 69, 58, 0.1);
+        --notice-danger-border: rgba(255, 69, 58, 0.3);
+
+        --table-row-hover: rgba(255, 255, 255, 0.04);
+    }
+}
+
+
+/* ==========================================================================
+   2. Typography, Reset & Scrollbar Enhancements
+   ========================================================================== */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    color: var(--text-color);
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    color: var(--text-color);
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Selection colour */
+::selection {
+    background-color: var(--code-selection-bg);
+}
+
+/* Sleek macOS-style overlay scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 128, 0.28);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 128, 0.45);
+    background-clip: padding-box;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(120, 120, 128, 0.28) transparent;
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (macOS Finder/Settings aesthetic)
+   ========================================================================== */
+
+.admin-nav {
+    border-right: 1px solid var(--border-subtle);
+    background: var(--accent-bg-color);
+    padding: 0;
+}
+
+.sidebar-header {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.25rem 0.5rem;
+    min-height: 3.5rem;
+}
+
+.sidebar-logo .logo {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1.5px solid var(--accent-color);
+}
+
+.sidebar-logo .service {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+.sidebar-toggle {
+    border: none;
+    border-radius: 6px;
+    margin: auto 0.25rem;
+    padding: 0.5rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--text-color);
+}
+
+.admin-nav-list {
+    padding: 0.6rem 0;
+    gap: 2px;
+}
+
+/* macOS Sidebar list item pills */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    text-transform: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 0.45rem 0.75rem;
+    margin: 1px 8px;
+    border-radius: 6px;
+    border: none;
+    border-left: none;
+    color: var(--text-color);
+    gap: 0.65rem;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--text-color);
+}
+
+/* Active navigation item: macOS System Blue highlight */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.admin-nav .admin-nav-list a.current .icon,
+.admin-nav .admin-nav-list a.current svg {
+    stroke: #ffffff;
+}
+
+/* Sidebar Subnav items */
+.admin-nav .sidebar-subnav {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0.2rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding-left: 2.1rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    opacity: 0.8;
+    margin: 1px 8px;
+    border-radius: 5px;
+}
+
+.admin-nav .sidebar-subnav a:hover,
+.admin-nav .sidebar-subnav .link-button:hover {
+    opacity: 1;
+    background-color: var(--sidebar-hover-bg);
+    color: var(--text-color);
+}
+
+.admin-nav .sidebar-subnav a.current,
+.admin-nav .sidebar-subnav a.current:hover {
+    opacity: 1;
+    background-color: var(--subnav-active-bg);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.admin-nav .sidebar-subnav a.current .icon {
+    stroke: var(--accent-color);
+}
+
+#sidebar-new-post-button {
+    color: var(--accent-color);
+}
+
+#sidebar-new-post-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--accent-color);
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+
+/* ==========================================================================
+   4. Buttons & Interactive Controls (macOS Push Buttons)
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    border-radius: 6px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--text-color);
+    padding: 0.45rem 0.85rem;
+    box-shadow: var(--btn-shadow);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border);
+    color: var(--text-color);
+}
+
+button:active,
+a.button:active,
+.link-button:active,
+.editor-actions button:active,
+.editor-actions a:active {
+    background-color: var(--btn-active-bg);
+    transform: scale(0.985);
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--focus-ring);
+}
+
+/* Primary / Save Button */
+.save,
+a.save,
+button.save {
+    background: var(--accent-color);
+    color: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.save .icon,
+a.save .icon,
+button.save .icon {
+    stroke: #ffffff;
+}
+
+a.save:hover,
+button.save:hover,
+.editor-actions button.save:hover,
+.editor-actions a.save:hover {
+    background: var(--accent-hover);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 113, 227, 0.28);
+}
+
+a.save:active,
+button.save:active {
+    background: var(--accent-active);
+    color: #ffffff;
+    transform: scale(0.985);
+}
+
+/* Destructive / Delete Button */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    background: var(--delete-btn-bg);
+    color: var(--red);
+    border: 1px solid var(--delete-btn-border);
+}
+
+.delete .icon,
+a.delete .icon,
+button.delete .icon {
+    stroke: var(--red);
+}
+
+a.delete:hover,
+button.delete:hover,
+.editor-actions a.delete:hover,
+.link-button.delete:hover {
+    background: var(--red);
+    color: #ffffff;
+    border-color: var(--red);
+    box-shadow: 0 2px 5px rgba(255, 59, 48, 0.25);
+}
+
+a.delete:hover .icon,
+button.delete:hover .icon,
+.link-button.delete:hover .icon {
+    stroke: #ffffff;
+}
+
+a.delete:active,
+button.delete:active {
+    transform: scale(0.985);
+}
+
+/* Disabled buttons */
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+button:disabled:hover,
+button[disabled]:hover,
+.button[aria-disabled="true"]:hover {
+    background: var(--btn-bg);
+    color: var(--text-color);
+    border-color: var(--btn-border);
+}
+
+
+/* ==========================================================================
+   5. Form Controls & Inputs
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    box-shadow: var(--input-shadow);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--focus-ring);
+}
+
+form label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-color);
+}
+
+form label span.tip,
+p.tip {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+/* Checkboxes and Radios */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.checkbox-label,
+.inline-checkbox,
+.inline-radio {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Layout picker selector cards */
+.layout-preview {
+    border-radius: 8px;
+    border: 2px solid var(--border-subtle);
+    background: var(--card-bg);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.layout-choice:hover .layout-preview {
+    border-color: var(--accent-color);
+}
+
+.layout-choice input:checked + .layout-preview {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Tags Entry & Suggestions */
+.tag-entry-row input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tag-entry-row .tag-add-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.tag-suggestions {
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-md);
+}
+
+.tag-suggestions li {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    transition: background-color 0.1s ease;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Tag Capsule Pills */
+.tag-badge {
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--pill-bg);
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.tag-badge-remove {
+    border-radius: 50%;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   6. Sticky Toolbars & Action Bars (Translucent Frosted Glass)
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    border-top: none;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--toolbar-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 0.75rem 0;
+    margin: 1rem 0 1.5rem 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.mobile-nav-header {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+
+/* ==========================================================================
+   7. Content Lists, Cards & Metadata Badges
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.65rem;
+}
+
+.admin-list-item {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.admin-list-item:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-md);
+}
+
+.admin-list-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-color);
+}
+
+.admin-list-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Status Badges: Sleek Capsule Pills */
+.admin-list-meta .status.published {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+}
+
+.admin-list-meta .status.draft {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--status-draft-bg);
+    color: var(--status-draft-color);
+    border: 1px solid var(--status-draft-border);
+}
+
+.admin-list-meta .status.scheduled {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--status-sched-bg);
+    color: var(--status-sched-color);
+    border: 1px solid var(--status-sched-border);
+}
+
+.admin-list-meta button.page-badge {
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--status-pub-border);
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    transition: all 0.15s ease;
+}
+
+.admin-list-meta button.page-badge:hover,
+.admin-list-meta button.page-badge:focus-visible,
+.admin-list-meta button.page-badge[aria-expanded="true"] {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+}
+
+.page-badge-popover {
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ==========================================================================
+   8. Search & Filter Accordion Panel
+   ========================================================================== */
+
+.content-filter {
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.content-filter-summary {
+    text-transform: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 0.25rem 0;
+    transition: color 0.15s ease;
+}
+
+.content-filter-summary:hover {
+    color: var(--accent-color);
+}
+
+.content-filter-active-label {
+    border-radius: 9999px;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.15rem 0.55rem;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Cards, Statistics & Activity Charts
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 3.5rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-top: 2.5rem;
+}
+
+.dashboard-stat-card {
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.15rem 1.25rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dashboard-stat-card:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-value {
+    color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 2.1rem;
+}
+
+.dashboard-chart {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    border-radius: 4px 4px 0 0;
+    background: var(--accent-color);
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+}
+
+a.dashboard-chart-col:hover .dashboard-chart-bar {
+    opacity: 1;
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
+/* ==========================================================================
+   10. Alerts, Notices & Toast Notifications
+   ========================================================================== */
+
+.notice {
+    border-radius: 8px;
+    border: 1px solid var(--notice-success-border);
+    border-left: 4px solid var(--green);
+    background: var(--notice-success-bg);
+    color: var(--text-color);
+    padding: 0.85rem 1.1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.notice.delete {
+    border: 1px solid var(--notice-danger-border);
+    border-left: 4px solid var(--red);
+    background: var(--notice-danger-bg);
+    color: var(--text-color);
+}
+
+.admin-toast-container .notice {
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--green);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.admin-toast-container .notice.delete {
+    border-left-color: var(--red);
+}
+
+.toast-close-btn {
+    border-radius: 50%;
+    transition: background-color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   11. Editor & CodeJar / Prism
+   ========================================================================== */
+
+.editor {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg) !important;
+    box-shadow: var(--input-shadow);
+    padding: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.editor:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: var(--focus-ring);
+}
+
+.editor-sidebar {
+    border-left: 1px solid var(--border-subtle);
+    background: var(--accent-bg-color);
+}
+
+body.editor-sidebar-open .editor-sidebar {
+    border-left: 1px solid var(--border-subtle);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+.editor-sidebar .sidebar-header {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
+   12. Dialogue Windows, Modals & Lightbox
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem;
+}
+
+.layout-picker-list a {
+    border-radius: 6px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    text-transform: none;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.layout-picker-list a:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+.image-lightbox {
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.image-lightbox-header {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.image-delete-dialog {
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    background: var(--card-bg);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.image-library-card:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.image-library-thumb {
+    border-radius: 7px 7px 0 0;
+}
+
+.image-usage-summary {
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+}
+
+.image-usage-menu {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-md);
+    background: var(--card-bg);
+}
+
+.image-list li {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+    background: var(--card-bg);
+}
+
+.image-list-preview {
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Settings Cards
+   ========================================================================== */
+
+.theme-card {
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.15s ease;
+}
+
+.theme-card.active {
+    border-color: var(--accent-color);
+    border-width: 2px;
+    box-shadow: 0 0 0 1px var(--accent-color), var(--shadow-sm);
+}
+
+.theme-badge {
+    border-radius: 9999px;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 0.72rem;
+}
+
+.swatch-chip {
+    border-radius: 4px;
+}
+
+.theme-creator-details {
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+
+/* ==========================================================================
+   15. Login Screen (macOS Authentication Pane Aesthetic)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 25rem;
+    margin: 4rem auto;
+    padding: 2.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+main.narrow h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.925rem;
+}
+
+
+/* ==========================================================================
+   16. Tables & Pagination Controls
+   ========================================================================== */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.65rem 0.5rem;
+}
+
+td {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--text-color);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+nav.pagination a:hover {
+    background: var(--btn-hover-bg);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+}

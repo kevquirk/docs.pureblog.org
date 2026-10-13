@@ -1,0 +1,1282 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * Windows 11 (Fluent Design & Mica Material) Theme customised with:
+ * - Fluent colour system: Mica canvas (#f3f3f3), Cobalt accent (#0067b8 / dark #4cc2ff)
+ * - Segoe UI Variable typography stack with authentic Fluent hierarchy
+ * - Fluent inputs featuring signature bottom-line accent focus transitions
+ * - Fluent command bar push buttons with subtle resting bevels
+ * - Fluent InfoBar style notifications and Mica settings cards (8px radius)
+ * - Complete light and dark mode support
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes (Windows 11 Fluent System)
+   ========================================================================== */
+
+:root {
+    /* Fluent Light Palette */
+    --bg-color: #f3f3f3;                /* Windows 11 Mica canvas */
+    --accent-bg-color: #f9f9f9;         /* Windows 11 Settings sidebar */
+    --text-color: #1a1a1a;              /* Primary text */
+    --accent-text-color: #ffffff;
+    --accent-color: #0067b8;            /* Windows 11 Cobalt blue */
+    --accent-hover: #1975c5;
+    --accent-active: #005293;
+    --border-color: rgba(0, 0, 0, 0.08); /* Fluent hairline border */
+    --input-bg: #ffffff;
+    --subnav-bg: #ececec;
+    --red: #c42b1c;                     /* Windows 11 Error red */
+    --green: #107c10;                   /* Windows 11 Success green */
+    --blue: #0067b8;
+    --orange: #9d5d00;                  /* Windows 11 Warning amber */
+    --code-selection-bg: rgba(0, 103, 184, 0.22);
+    --code-active-line-bg: rgba(0, 0, 0, 0.025);
+
+    /* Fluent UI Surface Tokens */
+    --heading-color: #1a1a1a;
+    --text-secondary: #5d5d5d;          /* Secondary label */
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --card-bg: #ffffff;
+    --card-hover-border: rgba(0, 0, 0, 0.18);
+    --sidebar-text: #242424;
+    --sidebar-icon: #5d5d5d;
+    --sidebar-hover-bg: rgba(0, 0, 0, 0.04);
+    --sidebar-active-bg: rgba(0, 103, 184, 0.08);
+    --sidebar-active-text: #0067b8;
+    --toolbar-bg: #ffffff;
+
+    /* Fluent Button Tokens */
+    --btn-bg: #fbfbfb;
+    --btn-border: rgba(0, 0, 0, 0.12);
+    --btn-border-bottom: rgba(0, 0, 0, 0.18);
+    --btn-color: #1a1a1a;
+    --btn-hover-bg: #f5f5f5;
+    --btn-active-bg: #eeeeee;
+    --primary-btn-bg: #0067b8;
+    --primary-btn-border: #005fb8;
+    --primary-btn-border-bottom: #004578;
+    --delete-btn-bg: #fff8f7;
+    --delete-btn-border: rgba(196, 43, 28, 0.25);
+    --delete-btn-color: #c42b1c;
+
+    /* Fluent Focus & Elevation */
+    --focus-ring: 0 0 0 2px #000000, 0 0 0 4px #0067b8;
+    --shadow-fluent-card: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-fluent-flyout: 0 8px 16px rgba(0, 0, 0, 0.14);
+
+    /* Fluent InfoBars & Status Pills */
+    --status-pub-bg: #dff6dd;
+    --status-pub-color: #0f7b0f;
+    --status-pub-border: rgba(15, 123, 15, 0.2);
+    --status-draft-bg: #fff4ce;
+    --status-draft-color: #795e00;
+    --status-draft-border: rgba(121, 94, 0, 0.2);
+    --status-sched-bg: #e5f1fb;
+    --status-sched-color: #005fb8;
+    --status-sched-border: rgba(0, 95, 184, 0.2);
+
+    /* InfoBar Banners */
+    --notice-bg: #fdfdfd;
+    --notice-success-border: #107c10;
+    --notice-danger-border: #c42b1c;
+
+    /* Tables */
+    --table-header-bg: #f7f7f7;
+    --table-row-hover: rgba(0, 0, 0, 0.03);
+}
+
+/* Dark Mode Tokens (Windows 11 Dark Mica) */
+html[data-admin-theme="dark"] {
+    --bg-color: #202020;                /* Mica Dark background */
+    --accent-bg-color: #272727;         /* Settings dark sidebar */
+    --text-color: #ffffff;
+    --accent-text-color: #000000;
+    --accent-color: #4cc2ff;            /* Windows 11 Dark Cobalt/Cyan accent */
+    --accent-hover: #6cd0ff;
+    --accent-active: #2bb4f8;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --input-bg: #2d2d2d;
+    --subnav-bg: #1f1f1f;
+    --red: #ff99a4;
+    --green: #6ccb5f;
+    --blue: #4cc2ff;
+    --orange: #fce100;
+    --code-selection-bg: rgba(76, 194, 255, 0.3);
+    --code-active-line-bg: rgba(255, 255, 255, 0.03);
+
+    --heading-color: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --card-bg: #2b2b2b;
+    --card-hover-border: rgba(255, 255, 255, 0.16);
+    --sidebar-text: #e0e0e0;
+    --sidebar-icon: #a0a0a0;
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+    --sidebar-active-bg: rgba(76, 194, 255, 0.12);
+    --sidebar-active-text: #4cc2ff;
+    --toolbar-bg: #2b2b2b;
+
+    --btn-bg: #2d2d2d;
+    --btn-border: rgba(255, 255, 255, 0.08);
+    --btn-border-bottom: rgba(255, 255, 255, 0.14);
+    --btn-color: #ffffff;
+    --btn-hover-bg: #323232;
+    --btn-active-bg: #282828;
+    --primary-btn-bg: #4cc2ff;
+    --primary-btn-border: #4cc2ff;
+    --primary-btn-border-bottom: #2bb4f8;
+    --delete-btn-bg: rgba(255, 153, 164, 0.08);
+    --delete-btn-border: rgba(255, 153, 164, 0.25);
+    --delete-btn-color: #ff99a4;
+
+    --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #4cc2ff;
+    --shadow-fluent-card: 0 2px 6px rgba(0, 0, 0, 0.28);
+    --shadow-fluent-flyout: 0 12px 28px rgba(0, 0, 0, 0.45);
+
+    --status-pub-bg: rgba(108, 203, 95, 0.15);
+    --status-pub-color: #6ccb5f;
+    --status-pub-border: rgba(108, 203, 95, 0.3);
+    --status-draft-bg: rgba(252, 225, 0, 0.15);
+    --status-draft-color: #fce100;
+    --status-draft-border: rgba(252, 225, 0, 0.3);
+    --status-sched-bg: rgba(76, 194, 255, 0.15);
+    --status-sched-color: #4cc2ff;
+    --status-sched-border: rgba(76, 194, 255, 0.3);
+
+    --notice-bg: #272727;
+    --notice-success-border: #6ccb5f;
+    --notice-danger-border: #ff99a4;
+
+    --table-header-bg: #272727;
+    --table-row-hover: rgba(255, 255, 255, 0.04);
+}
+
+/* System Dark Mode (when set to Auto) */
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        --bg-color: #202020;
+        --accent-bg-color: #272727;
+        --text-color: #ffffff;
+        --accent-text-color: #000000;
+        --accent-color: #4cc2ff;
+        --accent-hover: #6cd0ff;
+        --accent-active: #2bb4f8;
+        --border-color: rgba(255, 255, 255, 0.08);
+        --input-bg: #2d2d2d;
+        --subnav-bg: #1f1f1f;
+        --red: #ff99a4;
+        --green: #6ccb5f;
+        --blue: #4cc2ff;
+        --orange: #fce100;
+        --code-selection-bg: rgba(76, 194, 255, 0.3);
+        --code-active-line-bg: rgba(255, 255, 255, 0.03);
+
+        --heading-color: #ffffff;
+        --text-secondary: #a0a0a0;
+        --border-subtle: rgba(255, 255, 255, 0.05);
+        --card-bg: #2b2b2b;
+        --card-hover-border: rgba(255, 255, 255, 0.16);
+        --sidebar-text: #e0e0e0;
+        --sidebar-icon: #a0a0a0;
+        --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+        --sidebar-hover-text: #ffffff;
+        --sidebar-active-bg: rgba(76, 194, 255, 0.12);
+        --sidebar-active-text: #4cc2ff;
+        --toolbar-bg: #2b2b2b;
+
+        --btn-bg: #2d2d2d;
+        --btn-border: rgba(255, 255, 255, 0.08);
+        --btn-border-bottom: rgba(255, 255, 255, 0.14);
+        --btn-color: #ffffff;
+        --btn-hover-bg: #323232;
+        --btn-active-bg: #282828;
+        --primary-btn-bg: #4cc2ff;
+        --primary-btn-border: #4cc2ff;
+        --primary-btn-border-bottom: #2bb4f8;
+        --delete-btn-bg: rgba(255, 153, 164, 0.08);
+        --delete-btn-border: rgba(255, 153, 164, 0.25);
+        --delete-btn-color: #ff99a4;
+
+        --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #4cc2ff;
+        --shadow-fluent-card: 0 2px 6px rgba(0, 0, 0, 0.28);
+        --shadow-fluent-flyout: 0 12px 28px rgba(0, 0, 0, 0.45);
+
+        --status-pub-bg: rgba(108, 203, 95, 0.15);
+        --status-pub-color: #6ccb5f;
+        --status-pub-border: rgba(108, 203, 95, 0.3);
+        --status-draft-bg: rgba(252, 225, 0, 0.15);
+        --status-draft-color: #fce100;
+        --status-draft-border: rgba(252, 225, 0, 0.3);
+        --status-sched-bg: rgba(76, 194, 255, 0.15);
+        --status-sched-color: #4cc2ff;
+        --status-sched-border: rgba(76, 194, 255, 0.3);
+
+        --notice-bg: #272727;
+        --notice-success-border: #6ccb5f;
+        --notice-danger-border: #ff99a4;
+
+        --table-header-bg: #272727;
+        --table-row-hover: rgba(255, 255, 255, 0.04);
+    }
+}
+
+
+/* ==========================================================================
+   2. Typography & Global Layout (Segoe UI Variable)
+   ========================================================================== */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Segoe UI Variable Text", "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--heading-color);
+    margin: 1.25rem 0 1rem 0;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--heading-color);
+    margin: 2rem 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.1s ease, text-decoration-color 0.1s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (Windows 11 Settings Navigation)
+   ========================================================================== */
+
+.admin-nav {
+    background: var(--accent-bg-color);
+    border-right: 1px solid var(--border-color);
+    width: 14rem;
+    padding: 0;
+}
+
+.sidebar-header {
+    background: var(--accent-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    height: 3.5rem;
+    padding: 0 0.75rem;
+}
+
+.sidebar-logo .logo {
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    color: var(--heading-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.sidebar-logo .pure {
+    padding: 0;
+    color: var(--heading-color);
+}
+
+.sidebar-logo .service {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.sidebar-toggle {
+    border: none;
+    border-radius: 4px;
+    color: var(--sidebar-icon);
+    padding: 0.5rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--heading-color);
+}
+
+.admin-nav-list {
+    padding: 0.5rem 0;
+    gap: 2px;
+}
+
+/* Windows 11 Navigation Items with Left Accent Indicator */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    position: relative;
+    text-transform: none;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    padding: 0.5rem 0.85rem;
+    margin: 1px 8px;
+    border-radius: 4px;
+    border-left: none;
+    gap: 0.75rem;
+    line-height: 1.4;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.admin-nav .admin-nav-list a .icon,
+.admin-nav .admin-nav-list .link-button .icon {
+    color: var(--sidebar-icon);
+    stroke: currentColor;
+    transition: color 0.1s ease;
+}
+
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--heading-color);
+}
+
+.admin-nav .admin-nav-list a:hover .icon,
+.admin-nav .admin-nav-list .link-button:hover .icon {
+    color: var(--heading-color);
+}
+
+/* Active navigation item: Accent pill and vertical indicator line */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 600;
+}
+
+.admin-nav .admin-nav-list a.current::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
+
+.admin-nav .admin-nav-list a.current .icon {
+    color: var(--sidebar-active-text);
+    stroke: currentColor;
+}
+
+/* Submenu items */
+.admin-nav .sidebar-subnav {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0.15rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding-left: 2.2rem;
+    margin: 1px 8px;
+    font-size: 13px;
+    color: var(--sidebar-text);
+    border-radius: 4px;
+    opacity: 0.85;
+}
+
+.admin-nav .sidebar-subnav a:hover,
+.admin-nav .sidebar-subnav .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--heading-color);
+    opacity: 1;
+}
+
+.admin-nav .sidebar-subnav a.current,
+.admin-nav .sidebar-subnav a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 600;
+    opacity: 1;
+}
+
+#sidebar-new-post-button {
+    color: var(--accent-color);
+}
+
+#sidebar-new-post-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--accent-hover);
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. Fluent Push Buttons (CommandBar Style with Resting Bevel)
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: none;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 400;
+    min-height: 32px;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    border: 1px solid var(--btn-border);
+    border-bottom: 1px solid var(--btn-border-bottom);
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: background-color 0.1s ease, border-color 0.1s ease, transform 0.05s ease;
+}
+
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-color);
+    text-decoration: none;
+}
+
+button:active,
+a.button:active,
+.link-button:active,
+.editor-actions button:active,
+.editor-actions a:active {
+    background-color: var(--btn-active-bg);
+    border-bottom-color: var(--btn-border);
+    transform: scale(0.99);
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* Primary Button (.save in Windows 11 Cobalt Blue) */
+.save,
+a.save,
+button.save {
+    background: var(--primary-btn-bg);
+    border-color: var(--primary-btn-border);
+    border-bottom-color: var(--primary-btn-border-bottom);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+html[data-admin-theme="dark"] .save,
+html[data-admin-theme="dark"] a.save,
+html[data-admin-theme="dark"] button.save {
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .save,
+    html[data-admin-theme="auto"] a.save,
+    html[data-admin-theme="auto"] button.save {
+        color: #000000;
+    }
+}
+
+.save .icon,
+a.save .icon,
+button.save .icon {
+    stroke: currentColor;
+}
+
+a.save:hover,
+button.save:hover,
+.editor-actions button.save:hover,
+.editor-actions a.save:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #ffffff;
+}
+
+html[data-admin-theme="dark"] a.save:hover,
+html[data-admin-theme="dark"] button.save:hover {
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] a.save:hover,
+    html[data-admin-theme="auto"] button.save:hover {
+        color: #000000;
+    }
+}
+
+/* Destructive / Delete Button */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    background: var(--delete-btn-bg);
+    border-color: var(--delete-btn-border);
+    color: var(--delete-btn-color);
+}
+
+.delete .icon,
+a.delete .icon,
+button.delete .icon {
+    stroke: var(--delete-btn-color);
+}
+
+a.delete:hover,
+button.delete:hover,
+.editor-actions a.delete:hover,
+.link-button.delete:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #ffffff;
+}
+
+a.delete:hover .icon,
+button.delete:hover .icon,
+.link-button.delete:hover .icon {
+    stroke: #ffffff;
+}
+
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: default;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   5. Form Controls (Windows 11 Signature Bottom-Border Focus Line)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0.45rem 0.75rem;
+    min-height: 34px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+html[data-admin-theme="dark"] input[type="text"],
+html[data-admin-theme="dark"] input[type="email"],
+html[data-admin-theme="dark"] input[type="search"],
+html[data-admin-theme="dark"] input[type="password"],
+html[data-admin-theme="dark"] input[type="number"],
+html[data-admin-theme="dark"] input[type="url"],
+html[data-admin-theme="dark"] textarea,
+html[data-admin-theme="dark"] select {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] input[type="text"],
+    html[data-admin-theme="auto"] input[type="email"],
+    html[data-admin-theme="auto"] input[type="search"],
+    html[data-admin-theme="auto"] input[type="password"],
+    html[data-admin-theme="auto"] input[type="number"],
+    html[data-admin-theme="auto"] input[type="url"],
+    html[data-admin-theme="auto"] textarea,
+    html[data-admin-theme="auto"] select {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+    }
+}
+
+/* Distinctive Windows 11 Focus: Bottom Border transitions into Accent Cobalt */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-bottom-color: var(--accent-color);
+    border-bottom-width: 2px;
+}
+
+form label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--heading-color);
+    margin-bottom: 0.3rem;
+}
+
+form label span.tip,
+p.tip {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--accent-color);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Layout Preview Cards */
+.layout-preview {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-fluent-card);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.layout-choice:hover .layout-preview {
+    border-color: var(--accent-color);
+}
+
+.layout-choice input:checked+.layout-preview {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Tag Entry & Badges */
+.tag-entry-row input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tag-entry-row .tag-add-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.tag-suggestions {
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 6px 6px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-fluent-flyout);
+}
+
+.tag-suggestions li {
+    padding: 0.4rem 0.8rem;
+    font-size: 13px;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+.tag-badge {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--subnav-bg);
+    color: var(--text-color);
+    padding: 0.2rem 0.6rem;
+    font-size: 12px;
+}
+
+.tag-badge-remove {
+    border-radius: 3px;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+
+/* ==========================================================================
+   6. Command Bars & Sticky Toolbars
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    background: var(--toolbar-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-fluent-card);
+    padding: 0.65rem 1rem;
+    margin: 1rem 0 1.5rem 0;
+    z-index: 100;
+}
+
+.mobile-nav-header {
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+
+/* ==========================================================================
+   7. Content Lists & Mica Settings Cards (8px Radius)
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.65rem;
+}
+
+.admin-list-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-fluent-card);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-list-item:hover {
+    border-color: var(--card-hover-border);
+}
+
+.admin-list-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--heading-color);
+}
+
+.admin-list-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Windows 11 Status Pills */
+.admin-list-meta .status.published {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0.15rem 0.55rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+}
+
+.admin-list-meta .status.draft {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0.15rem 0.55rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-draft-bg);
+    color: var(--status-draft-color);
+    border: 1px solid var(--status-draft-border);
+}
+
+.admin-list-meta .status.scheduled {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0.15rem 0.55rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-sched-bg);
+    color: var(--status-sched-color);
+    border: 1px solid var(--status-sched-border);
+}
+
+.admin-list-meta button.page-badge {
+    border-radius: 4px;
+    padding: 0.15rem 0.55rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+    transition: all 0.15s ease;
+}
+
+.admin-list-meta button.page-badge:hover,
+.admin-list-meta button.page-badge:focus-visible,
+.admin-list-meta button.page-badge[aria-expanded="true"] {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+}
+
+.page-badge-popover {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-fluent-flyout);
+}
+
+
+/* ==========================================================================
+   8. Search & Content Filter Panel
+   ========================================================================== */
+
+.content-filter {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-fluent-card);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.content-filter-summary {
+    text-transform: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--heading-color);
+    padding: 0.2rem 0;
+    transition: color 0.1s ease;
+}
+
+.content-filter-summary:hover {
+    color: var(--accent-color);
+}
+
+.content-filter-active-label {
+    border-radius: 4px;
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Widgets, Metrics & Charts
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--heading-color);
+    margin-top: 3.5rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-top: 2.25rem;
+}
+
+.dashboard-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-fluent-card);
+    padding: 1.25rem;
+    transition: border-color 0.15s ease;
+}
+
+.dashboard-stat-card:hover {
+    border-color: var(--card-hover-border);
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-value {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 2.1rem;
+}
+
+.dashboard-chart {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    border-radius: 3px 3px 0 0;
+    background: var(--accent-color);
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+}
+
+a.dashboard-chart-col:hover .dashboard-chart-bar {
+    opacity: 1;
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: none;
+}
+
+
+/* ==========================================================================
+   10. Windows 11 InfoBars (.notice)
+   ========================================================================== */
+
+.notice {
+    background: var(--notice-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--green);
+    border-radius: 4px;
+    box-shadow: var(--shadow-fluent-card);
+    padding: 0.85rem 1.15rem;
+    color: var(--text-color);
+    font-size: 13.5px;
+}
+
+.notice.delete {
+    border-left-color: var(--red);
+    background: var(--notice-bg);
+}
+
+.admin-toast-container .notice {
+    border-radius: 6px;
+    box-shadow: var(--shadow-fluent-flyout);
+    border-left: 4px solid var(--green);
+}
+
+.admin-toast-container .notice.delete {
+    border-left-color: var(--red);
+}
+
+.toast-close-btn {
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   11. CodeJar & Prism Editor
+   ========================================================================== */
+
+.editor {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 1.1rem;
+    transition: border-color 0.15s ease;
+}
+
+.editor:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.editor-sidebar {
+    background: var(--card-bg);
+    border-left: 1px solid var(--border-color);
+}
+
+body.editor-sidebar-open .editor-sidebar {
+    border-left: 1px solid var(--border-color);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.editor-sidebar .sidebar-header {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+
+/* ==========================================================================
+   12. Dialogue Windows & Modals
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-fluent-flyout);
+    padding: 2.25rem;
+}
+
+.layout-picker-list a {
+    border-radius: 4px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    text-transform: none;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.layout-picker-list a:hover {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    border-color: var(--accent-color);
+}
+
+.image-lightbox {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-fluent-flyout);
+    overflow: hidden;
+}
+
+.image-lightbox-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.image-delete-dialog {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-fluent-flyout);
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-fluent-card);
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+}
+
+.image-library-card:hover {
+    border-color: var(--card-hover-border);
+}
+
+.image-library-thumb {
+    border-radius: 5px 5px 0 0;
+}
+
+.image-usage-summary {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.image-usage-menu {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-fluent-flyout);
+    background: var(--card-bg);
+}
+
+.image-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-fluent-card);
+}
+
+.image-list-preview {
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Settings Cards
+   ========================================================================== */
+
+.theme-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-fluent-card);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-card.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.theme-badge {
+    border-radius: 4px;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 11.5px;
+}
+
+.swatch-chip {
+    border-radius: 3px;
+}
+
+.theme-creator-details {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+
+/* ==========================================================================
+   15. Login Screen (Fluent Authentication Card)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 340px;
+    margin: 5rem auto;
+    padding: 2.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-fluent-flyout);
+}
+
+main.narrow h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--heading-color);
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    min-height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--primary-btn-bg);
+    border-color: var(--primary-btn-border);
+    border-bottom-color: var(--primary-btn-border-bottom);
+    color: #ffffff;
+}
+
+html[data-admin-theme="dark"] main.narrow form button[type="submit"] {
+    color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] main.narrow form button[type="submit"] {
+        color: #000000;
+    }
+}
+
+
+/* ==========================================================================
+   16. Tables & Pagination Controls
+   ========================================================================== */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--table-header-bg);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    text-transform: none;
+}
+
+td {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.85rem 1rem;
+    font-size: 13.5px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid var(--btn-border);
+    border-bottom: 1px solid var(--btn-border-bottom);
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 0.35rem 0.85rem;
+    min-height: 32px;
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+nav.pagination a:hover {
+    background: var(--btn-hover-bg);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}

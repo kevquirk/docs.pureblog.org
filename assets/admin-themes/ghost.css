@@ -1,0 +1,1239 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * Ghost Admin-inspired theme customised with:
+ * - Ghost signature palette: #15171a deep obsidian, #f8f9fa canvas, #30cf43 publish green, #3eb0ef electric blue
+ * - Clean 6px border radiuses across controls, floating toolbars, post cards, and dialogues
+ * - Minimalist sidebar navigation with muted slate typography and subtle hover pills
+ * - Modern publishing push buttons (.save in Ghost Green, secondary in sleek minimalist cards)
+ * - Full light and dark mode support
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes (Ghost Palette)
+   ========================================================================== */
+
+:root {
+    /* Ghost Core Light Colours */
+    --bg-color: #f8f9fa;
+    /* Ghost soft off-white canvas */
+    --accent-bg-color: #ffffff;
+    /* Ghost clean white sidebar */
+    --text-color: #15171a;
+    /* Ghost signature deep obsidian text */
+    --accent-text-color: #ffffff;
+    --accent-color: #3eb0ef;
+    /* Ghost electric blue */
+    --accent-hover: #1292ee;
+    --accent-active: #0b79c9;
+    --border-color: #e5eff5;
+    /* Ghost hairline border */
+    --input-bg: #ffffff;
+    --subnav-bg: #f4f5f6;
+    --red: #f0523d;
+    /* Ghost coral red */
+    --green: #30cf43;
+    /* Ghost signature publish green */
+    --blue: #3eb0ef;
+    --orange: #f5a623;
+    /* Ghost amber */
+    --code-selection-bg: rgba(62, 176, 239, 0.2);
+    --code-active-line-bg: rgba(0, 0, 0, 0.025);
+
+    /* Ghost Surface & Component Tokens */
+    --heading-color: #15171a;
+    --text-secondary: #738a94;
+    /* Ghost muted slate text */
+    --border-subtle: #edf2f7;
+    --card-bg: #ffffff;
+    --card-hover-border: #c5d2d9;
+    --sidebar-text: #738a94;
+    --sidebar-icon: #8b9ba2;
+    --sidebar-hover-bg: #f4f5f6;
+    --sidebar-hover-text: #15171a;
+    --sidebar-active-bg: rgba(62, 176, 239, 0.1);
+    --sidebar-active-text: #1292ee;
+    --toolbar-bg: #ffffff;
+
+    /* Ghost Button Tokens */
+    --btn-secondary-bg: #ffffff;
+    --btn-secondary-border: #dbe3e8;
+    --btn-secondary-color: #15171a;
+    --btn-secondary-hover-bg: #f8f9fa;
+    --btn-secondary-hover-border: #c5d2d9;
+    --delete-btn-bg: rgba(240, 82, 61, 0.06);
+    --delete-btn-border: rgba(240, 82, 61, 0.25);
+    --delete-btn-color: #f0523d;
+
+    /* Focus & Elevation Tokens */
+    --focus-ring: 0 0 0 3px rgba(62, 176, 239, 0.25);
+    --input-focus-border: #3eb0ef;
+    --shadow-ghost: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-float: 0 4px 14px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+    --shadow-dialog: 0 12px 36px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    /* Ghost Post Status Badges */
+    --status-pub-bg: rgba(48, 207, 67, 0.12);
+    --status-pub-color: #249b34;
+    --status-pub-border: rgba(48, 207, 67, 0.25);
+    --status-draft-bg: rgba(245, 166, 35, 0.12);
+    --status-draft-color: #d97706;
+    --status-draft-border: rgba(245, 166, 35, 0.25);
+    --status-sched-bg: rgba(62, 176, 239, 0.12);
+    --status-sched-color: #1292ee;
+    --status-sched-border: rgba(62, 176, 239, 0.25);
+
+    /* Notice Banners */
+    --notice-bg: #ffffff;
+    --notice-success-border: #30cf43;
+    --notice-danger-border: #f0523d;
+
+    /* Tables */
+    --table-header-bg: #ffffff;
+    --table-row-hover: #f8f9fa;
+}
+
+/* Dark Mode Tokens (Ghost Dark Mode) */
+html[data-admin-theme="dark"] {
+    --bg-color: #15171a;
+    /* Ghost deep slate canvas */
+    --accent-bg-color: #181a1e;
+    /* Ghost dark sidebar */
+    --text-color: #ffffff;
+    --accent-text-color: #ffffff;
+    --accent-color: #3eb0ef;
+    --accent-hover: #60c5fa;
+    --accent-active: #1292ee;
+    --border-color: #272b30;
+    --input-bg: #181a1e;
+    --subnav-bg: #1f2226;
+    --red: #f0523d;
+    --green: #30cf43;
+    --blue: #3eb0ef;
+    --orange: #f5a623;
+    --code-selection-bg: rgba(62, 176, 239, 0.3);
+    --code-active-line-bg: rgba(255, 255, 255, 0.035);
+
+    --heading-color: #ffffff;
+    --text-secondary: #8b9ba2;
+    --border-subtle: #202327;
+    --card-bg: #1a1d21;
+    --card-hover-border: #383d45;
+    --sidebar-text: #8b9ba2;
+    --sidebar-icon: #738a94;
+    --sidebar-hover-bg: #202327;
+    --sidebar-hover-text: #ffffff;
+    --sidebar-active-bg: rgba(62, 176, 239, 0.15);
+    --sidebar-active-text: #3eb0ef;
+    --toolbar-bg: #1a1d21;
+
+    --btn-secondary-bg: #1a1d21;
+    --btn-secondary-border: #2c3138;
+    --btn-secondary-color: #ffffff;
+    --btn-secondary-hover-bg: #22262b;
+    --btn-secondary-hover-border: #383d45;
+    --delete-btn-bg: rgba(240, 82, 61, 0.12);
+    --delete-btn-border: rgba(240, 82, 61, 0.3);
+    --delete-btn-color: #f0523d;
+
+    --focus-ring: 0 0 0 3px rgba(62, 176, 239, 0.35);
+    --input-focus-border: #3eb0ef;
+    --shadow-ghost: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-float: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-dialog: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+    --status-pub-bg: rgba(48, 207, 67, 0.15);
+    --status-pub-color: #48e25b;
+    --status-pub-border: rgba(48, 207, 67, 0.3);
+    --status-draft-bg: rgba(245, 166, 35, 0.15);
+    --status-draft-color: #fbbf24;
+    --status-draft-border: rgba(245, 166, 35, 0.3);
+    --status-sched-bg: rgba(62, 176, 239, 0.15);
+    --status-sched-color: #60c5fa;
+    --status-sched-border: rgba(62, 176, 239, 0.3);
+
+    --notice-bg: #1a1d21;
+    --notice-success-border: #30cf43;
+    --notice-danger-border: #f0523d;
+
+    --table-header-bg: #1a1d21;
+    --table-row-hover: #202327;
+}
+
+/* System Dark Mode (when set to Auto) */
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        --bg-color: #15171a;
+        --accent-bg-color: #181a1e;
+        --text-color: #ffffff;
+        --accent-text-color: #ffffff;
+        --accent-color: #3eb0ef;
+        --accent-hover: #60c5fa;
+        --accent-active: #1292ee;
+        --border-color: #272b30;
+        --input-bg: #181a1e;
+        --subnav-bg: #1f2226;
+        --red: #f0523d;
+        --green: #30cf43;
+        --blue: #3eb0ef;
+        --orange: #f5a623;
+        --code-selection-bg: rgba(62, 176, 239, 0.3);
+        --code-active-line-bg: rgba(255, 255, 255, 0.035);
+
+        --heading-color: #ffffff;
+        --text-secondary: #8b9ba2;
+        --border-subtle: #202327;
+        --card-bg: #1a1d21;
+        --card-hover-border: #383d45;
+        --sidebar-text: #8b9ba2;
+        --sidebar-icon: #738a94;
+        --sidebar-hover-bg: #202327;
+        --sidebar-hover-text: #ffffff;
+        --sidebar-active-bg: rgba(62, 176, 239, 0.15);
+        --sidebar-active-text: #3eb0ef;
+        --toolbar-bg: #1a1d21;
+
+        --btn-secondary-bg: #1a1d21;
+        --btn-secondary-border: #2c3138;
+        --btn-secondary-color: #ffffff;
+        --btn-secondary-hover-bg: #22262b;
+        --btn-secondary-hover-border: #383d45;
+        --delete-btn-bg: rgba(240, 82, 61, 0.12);
+        --delete-btn-border: rgba(240, 82, 61, 0.3);
+        --delete-btn-color: #f0523d;
+
+        --focus-ring: 0 0 0 3px rgba(62, 176, 239, 0.35);
+        --input-focus-border: #3eb0ef;
+        --shadow-ghost: 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-float: 0 4px 16px rgba(0, 0, 0, 0.4);
+        --shadow-dialog: 0 16px 40px rgba(0, 0, 0, 0.6);
+
+        --status-pub-bg: rgba(48, 207, 67, 0.15);
+        --status-pub-color: #48e25b;
+        --status-pub-border: rgba(48, 207, 67, 0.3);
+        --status-draft-bg: rgba(245, 166, 35, 0.15);
+        --status-draft-color: #fbbf24;
+        --status-draft-border: rgba(245, 166, 35, 0.3);
+        --status-sched-bg: rgba(62, 176, 239, 0.15);
+        --status-sched-color: #60c5fa;
+        --status-sched-border: rgba(62, 176, 239, 0.3);
+
+        --notice-bg: #1a1d21;
+        --notice-success-border: #30cf43;
+        --notice-danger-border: #f0523d;
+
+        --table-header-bg: #1a1d21;
+        --table-row-hover: #202327;
+    }
+}
+
+
+/* ==========================================================================
+   2. Typography & Layout (Ghost Clean Sans-Serif)
+   ========================================================================== */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--heading-color);
+    margin: 1.25rem 0 1rem 0;
+}
+
+h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--heading-color);
+    margin: 2rem 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--border-color);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration-color: var(--accent-color);
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (Ghost Minimalist Sidebar)
+   ========================================================================== */
+
+.admin-nav {
+    background: var(--accent-bg-color);
+    border-right: 1px solid var(--border-color);
+    width: 14rem;
+    padding: 0;
+    box-shadow: none;
+}
+
+.sidebar-header {
+    background: var(--accent-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    height: 3.75rem;
+    padding: 0 0.75rem;
+}
+
+.sidebar-logo .logo {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    border: none;
+    color: var(--heading-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.sidebar-logo .pure {
+    padding: 0;
+    color: var(--heading-color);
+}
+
+.sidebar-logo .service {
+    background: var(--accent-color);
+    color: #ffffff;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.sidebar-toggle {
+    border: none;
+    border-radius: 6px;
+    color: var(--sidebar-icon);
+    padding: 0.5rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+}
+
+.admin-nav-list {
+    padding: 0.65rem 0;
+    gap: 2px;
+}
+
+/* Sidebar navigation links */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    text-transform: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--sidebar-text);
+    padding: 0.45rem 0.85rem;
+    margin: 1px 8px;
+    border-radius: 6px;
+    border-left: none;
+    gap: 0.65rem;
+    line-height: 1.5;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.admin-nav .admin-nav-list a .icon,
+.admin-nav .admin-nav-list .link-button .icon {
+    color: var(--sidebar-icon);
+    stroke: currentColor;
+    transition: color 0.15s ease;
+}
+
+/* Sidebar link hover state */
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+}
+
+.admin-nav .admin-nav-list a:hover .icon,
+.admin-nav .admin-nav-list .link-button:hover .icon {
+    color: var(--sidebar-hover-text);
+}
+
+/* Active navigation item: Ghost focused pill with bold typography */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 600;
+}
+
+.admin-nav .admin-nav-list a.current .icon {
+    color: var(--sidebar-active-text);
+    stroke: currentColor;
+}
+
+/* Submenu items */
+.admin-nav .sidebar-subnav {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0.2rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding-left: 2.2rem;
+    margin: 1px 8px;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    border-radius: 5px;
+    opacity: 0.85;
+}
+
+.admin-nav .sidebar-subnav a:hover,
+.admin-nav .sidebar-subnav .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+    opacity: 1;
+}
+
+.admin-nav .sidebar-subnav a.current,
+.admin-nav .sidebar-subnav a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 600;
+    opacity: 1;
+}
+
+#sidebar-new-post-button {
+    color: var(--green);
+}
+
+#sidebar-new-post-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--green);
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   4. Buttons & Interactive Controls (Ghost Modern Publishing Buttons)
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: none;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    min-height: 36px;
+    padding: 0.45rem 0.95rem;
+    border-radius: 6px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--shadow-ghost);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--btn-secondary-hover-bg);
+    border-color: var(--btn-secondary-hover-border);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+button:active,
+a.button:active,
+.link-button:active,
+.editor-actions button:active,
+.editor-actions a:active {
+    transform: scale(0.985);
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-color: var(--accent-color);
+}
+
+/* Primary Publish / Save Button (.save in Ghost Signature Green) */
+.save,
+a.save,
+button.save {
+    background: var(--green);
+    border-color: var(--green);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(48, 207, 67, 0.25);
+}
+
+.save .icon,
+a.save .icon,
+button.save .icon {
+    stroke: #ffffff;
+}
+
+a.save:hover,
+button.save:hover,
+.editor-actions button.save:hover,
+.editor-actions a.save:hover {
+    background: #28b839;
+    border-color: #28b839;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(48, 207, 67, 0.35);
+}
+
+a.save:active,
+button.save:active {
+    background: #229f31;
+    border-color: #229f31;
+    transform: scale(0.985);
+}
+
+/* Destructive / Delete Button */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    background: var(--delete-btn-bg);
+    border-color: var(--delete-btn-border);
+    color: var(--delete-btn-color);
+}
+
+.delete .icon,
+a.delete .icon,
+button.delete .icon {
+    stroke: var(--delete-btn-color);
+}
+
+a.delete:hover,
+button.delete:hover,
+.editor-actions a.delete:hover,
+.link-button.delete:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(240, 82, 61, 0.3);
+}
+
+a.delete:hover .icon,
+button.delete:hover .icon,
+.link-button.delete:hover .icon {
+    stroke: #ffffff;
+}
+
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   5. Form Controls (Ghost Minimalist Inputs)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0.5rem 0.85rem;
+    min-height: 38px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: var(--focus-ring);
+}
+
+form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.35rem;
+}
+
+form label span.tip,
+p.tip {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Post Layout Preview Cards */
+.layout-preview {
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-ghost);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.layout-choice:hover .layout-preview {
+    border-color: var(--accent-color);
+}
+
+.layout-choice input:checked+.layout-preview {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Tag Entry & Badges */
+.tag-entry-row input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tag-entry-row .tag-add-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.tag-suggestions {
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 6px 6px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-float);
+}
+
+.tag-suggestions li {
+    padding: 0.45rem 0.85rem;
+    font-size: 13.5px;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+.tag-badge {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--subnav-bg);
+    color: var(--text-color);
+    padding: 0.2rem 0.6rem;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tag-badge-remove {
+    border-radius: 50%;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   6. Sticky Action Bars & Toolbars (Ghost Floating Bar)
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    background: var(--toolbar-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    padding: 0.65rem 1rem;
+    margin: 1rem 0 1.5rem 0;
+    z-index: 100;
+}
+
+.mobile-nav-header {
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 12.5px;
+}
+
+
+/* ==========================================================================
+   7. Content Lists & Post Items (Ghost Content Row Aesthetic)
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.65rem;
+}
+
+.admin-list-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-list-item:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-float);
+}
+
+.admin-list-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--heading-color);
+}
+
+.admin-list-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Post Status Pills */
+.admin-list-meta .status.published {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+}
+
+.admin-list-meta .status.draft {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-draft-bg);
+    color: var(--status-draft-color);
+    border: 1px solid var(--status-draft-border);
+}
+
+.admin-list-meta .status.scheduled {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-sched-bg);
+    color: var(--status-sched-color);
+    border: 1px solid var(--status-sched-border);
+}
+
+.admin-list-meta button.page-badge {
+    border-radius: 9999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+    transition: all 0.15s ease;
+}
+
+.admin-list-meta button.page-badge:hover,
+.admin-list-meta button.page-badge:focus-visible,
+.admin-list-meta button.page-badge[aria-expanded="true"] {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+}
+
+.page-badge-popover {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-dialog);
+}
+
+
+/* ==========================================================================
+   8. Search & Filter Accordion Panel
+   ========================================================================== */
+
+.content-filter {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.content-filter-summary {
+    text-transform: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--heading-color);
+    padding: 0.2rem 0;
+    transition: color 0.15s ease;
+}
+
+.content-filter-summary:hover {
+    color: var(--accent-color);
+}
+
+.content-filter-active-label {
+    border-radius: 9999px;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0.15rem 0.55rem;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Cards, Statistics & Activity Charts
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--heading-color);
+    margin-top: 3.5rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--heading-color);
+    margin-top: 2.25rem;
+}
+
+.dashboard-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    padding: 1.25rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dashboard-stat-card:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-float);
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-value {
+    color: var(--heading-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 2.2rem;
+}
+
+.dashboard-chart {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    border-radius: 3px 3px 0 0;
+    background: var(--accent-color);
+    opacity: 0.85;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+a.dashboard-chart-col:hover .dashboard-chart-bar {
+    opacity: 1;
+    background: var(--accent-hover);
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 11.5px;
+    text-transform: none;
+}
+
+
+/* ==========================================================================
+   10. Alerts, Notices & Toast Notifications
+   ========================================================================== */
+
+.notice {
+    background: var(--notice-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--green);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    padding: 0.85rem 1.15rem;
+    color: var(--text-color);
+    font-size: 13.5px;
+}
+
+.notice.delete {
+    border-left-color: var(--red);
+    background: var(--notice-bg);
+}
+
+.admin-toast-container .notice {
+    border-radius: 6px;
+    box-shadow: var(--shadow-dialog);
+    border-left: 4px solid var(--green);
+}
+
+.admin-toast-container .notice.delete {
+    border-left-color: var(--red);
+}
+
+.toast-close-btn {
+    border-radius: 50%;
+    transition: background-color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   11. CodeJar & Prism Editor
+   ========================================================================== */
+
+.editor {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 1.1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.editor:focus-within {
+    border-color: var(--input-focus-border);
+    box-shadow: var(--focus-ring);
+}
+
+.editor-sidebar {
+    background: var(--card-bg);
+    border-left: 1px solid var(--border-color);
+}
+
+body.editor-sidebar-open .editor-sidebar {
+    border-left: 1px solid var(--border-color);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.06);
+}
+
+.editor-sidebar .sidebar-header {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+
+/* ==========================================================================
+   12. Dialogue Windows & Modals
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-dialog);
+    padding: 2.25rem;
+}
+
+.layout-picker-list a {
+    border-radius: 6px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    text-transform: none;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.layout-picker-list a:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+.image-lightbox {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-dialog);
+    overflow: hidden;
+}
+
+.image-lightbox-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.image-delete-dialog {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-dialog);
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.image-library-card:hover {
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-float);
+    transform: translateY(-1px);
+}
+
+.image-library-thumb {
+    border-radius: 5px 5px 0 0;
+}
+
+.image-usage-summary {
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.image-usage-menu {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-dialog);
+    background: var(--card-bg);
+}
+
+.image-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+}
+
+.image-list-preview {
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Settings Cards
+   ========================================================================== */
+
+.theme-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: var(--shadow-ghost);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-card.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.theme-badge {
+    border-radius: 9999px;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.swatch-chip {
+    border-radius: 4px;
+}
+
+.theme-creator-details {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+
+/* ==========================================================================
+   15. Login Screen (Ghost Clean Auth Card)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 340px;
+    margin: 5rem auto;
+    padding: 2.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-float);
+}
+
+main.narrow h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--heading-color);
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem 1rem;
+    min-height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--green);
+    border-color: var(--green);
+    color: #ffffff;
+}
+
+main.narrow form button[type="submit"]:hover {
+    background: #28b839;
+    border-color: #28b839;
+}
+
+
+/* ==========================================================================
+   16. Tables & Pagination Controls
+   ========================================================================== */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--table-header-bg);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+}
+
+td {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.85rem 1rem;
+    font-size: 13.5px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    padding: 0.45rem 0.95rem;
+    min-height: 36px;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+nav.pagination a:hover {
+    background: var(--btn-secondary-hover-bg);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}

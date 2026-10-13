@@ -1,0 +1,1217 @@
+/**
+ * PureBlog Admin Custom Stylesheet (admin-custom.css)
+ * 
+ * WordPress Dashboard-inspired theme customised with:
+ * - Iconic WordPress palette: #1d2327 charcoal sidebar, #f0f0f1 admin canvas, #2271b1 WP blue
+ * - Subtle 3px-4px border radiuses across buttons, inputs, postboxes, and notices
+ * - Classic WordPress notice banners with 4px coloured left indicator bars
+ * - WordPress push-button styles (.button and .button-primary) with signature 2-step focus rings
+ * - Comprehensive light and dark mode support
+ */
+
+/* ==========================================================================
+   1. Design Tokens & Colour Schemes (WordPress Palette)
+   ========================================================================== */
+
+:root {
+    /* WordPress Core Colours */
+    --bg-color: #f0f0f1;
+    /* WP Canvas background */
+    --accent-bg-color: #1d2327;
+    /* WP Dark sidebar (#adminmenu) */
+    --text-color: #2c3338;
+    /* WP Body text */
+    --accent-text-color: #ffffff;
+    --accent-color: #2271b1;
+    /* WP Blue */
+    --accent-hover: #135e96;
+    /* WP Blue Hover */
+    --accent-active: #0a4b78;
+    /* WP Blue Active */
+    --border-color: #c3c4c7;
+    /* WP Standard border */
+    --input-bg: #ffffff;
+    --subnav-bg: #2c3338;
+    /* WP Submenu background */
+    --red: #d63638;
+    /* WP Error / Destructive red */
+    --green: #00a32a;
+    /* WP Success green */
+    --blue: #2271b1;
+    --orange: #dba617;
+    /* WP Warning / Alert orange */
+    --code-selection-bg: rgba(34, 113, 177, 0.22);
+    --code-active-line-bg: rgba(0, 0, 0, 0.03);
+
+    /* WordPress Surface & Element Tokens */
+    --heading-color: #1d2327;
+    --text-secondary: #646970;
+    --border-subtle: #dcdcde;
+    --card-bg: #ffffff;
+    --card-hover-border: #8c8f94;
+    --sidebar-text: #c3c4c7;
+    --sidebar-icon: #a7aaad;
+    --sidebar-hover-bg: #131619;
+    --sidebar-hover-text: #72aee6;
+    --sidebar-active-bg: #2271b1;
+    --sidebar-subnav-bg: #2c3338;
+    --toolbar-bg: #ffffff;
+
+    /* WordPress Button Tokens */
+    --btn-secondary-bg: #f6f7f7;
+    --btn-secondary-border: #2271b1;
+    --btn-secondary-color: #2271b1;
+    --btn-secondary-hover-bg: #f0f0f1;
+    --btn-secondary-hover-color: #0a4b78;
+    --btn-secondary-hover-border: #0a4b78;
+    --delete-btn-bg: #f6f7f7;
+    --delete-btn-border: #d63638;
+    --delete-btn-color: #d63638;
+
+    /* Focus & Elevation Tokens */
+    --focus-ring: 0 0 0 1px #ffffff, 0 0 0 3px #2271b1;
+    --input-focus-border: #2271b1;
+    --shadow-wp: 0 1px 1px rgba(0, 0, 0, 0.04);
+    --shadow-dialog: 0 3px 20px rgba(0, 0, 0, 0.15);
+
+    /* WordPress Post Status Badges */
+    --status-pub-bg: #edfaef;
+    --status-pub-color: #007017;
+    --status-pub-border: #68de7c;
+    --status-draft-bg: #fcf0f1;
+    --status-draft-color: #d63638;
+    --status-draft-border: #f86868;
+    --status-sched-bg: #f0f6fc;
+    --status-sched-color: #2271b1;
+    --status-sched-border: #72aee6;
+
+    /* Notice Banners */
+    --notice-bg: #ffffff;
+    --notice-border: #c3c4c7;
+
+    /* Tables */
+    --table-header-bg: #f6f7f7;
+    --table-row-hover: #f6f7f7;
+}
+
+/* Dark Mode Tokens (WordPress VIP / Gutenberg Dark Theme) */
+html[data-admin-theme="dark"] {
+    --bg-color: #15181b;
+    --accent-bg-color: #101316;
+    --text-color: #f0f0f1;
+    --accent-text-color: #ffffff;
+    --accent-color: #72aee6;
+    --accent-hover: #9ec5ed;
+    --accent-active: #2271b1;
+    --border-color: #2c3338;
+    --input-bg: #101316;
+    --subnav-bg: #181c20;
+    --red: #f86868;
+    --green: #4ab866;
+    --blue: #72aee6;
+    --orange: #f0b849;
+    --code-selection-bg: rgba(114, 174, 230, 0.3);
+    --code-active-line-bg: rgba(255, 255, 255, 0.04);
+
+    --heading-color: #ffffff;
+    --text-secondary: #a7aaad;
+    --border-subtle: #23282d;
+    --card-bg: #1d2327;
+    --card-hover-border: #50575e;
+    --sidebar-text: #a7aaad;
+    --sidebar-icon: #8c8f94;
+    --sidebar-hover-bg: #0c0e10;
+    --sidebar-hover-text: #72aee6;
+    --sidebar-active-bg: #2271b1;
+    --sidebar-subnav-bg: #181c20;
+    --toolbar-bg: #1d2327;
+
+    --btn-secondary-bg: #1d2327;
+    --btn-secondary-border: #72aee6;
+    --btn-secondary-color: #72aee6;
+    --btn-secondary-hover-bg: #252b30;
+    --btn-secondary-hover-color: #9ec5ed;
+    --btn-secondary-hover-border: #9ec5ed;
+    --delete-btn-bg: #1d2327;
+    --delete-btn-border: #f86868;
+    --delete-btn-color: #f86868;
+
+    --focus-ring: 0 0 0 1px #101316, 0 0 0 3px #72aee6;
+    --input-focus-border: #72aee6;
+    --shadow-wp: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-dialog: 0 6px 24px rgba(0, 0, 0, 0.6);
+
+    --status-pub-bg: rgba(74, 184, 102, 0.15);
+    --status-pub-color: #68de7c;
+    --status-pub-border: #007017;
+    --status-draft-bg: rgba(248, 104, 104, 0.15);
+    --status-draft-color: #f86868;
+    --status-draft-border: #d63638;
+    --status-sched-bg: rgba(114, 174, 230, 0.15);
+    --status-sched-color: #72aee6;
+    --status-sched-border: #2271b1;
+
+    --notice-bg: #1d2327;
+    --notice-border: #2c3338;
+
+    --table-header-bg: #181c20;
+    --table-row-hover: #23282d;
+}
+
+/* System Dark Mode (when set to Auto) */
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] {
+        --bg-color: #15181b;
+        --accent-bg-color: #101316;
+        --text-color: #f0f0f1;
+        --accent-text-color: #ffffff;
+        --accent-color: #72aee6;
+        --accent-hover: #9ec5ed;
+        --accent-active: #2271b1;
+        --border-color: #2c3338;
+        --input-bg: #101316;
+        --subnav-bg: #181c20;
+        --red: #f86868;
+        --green: #4ab866;
+        --blue: #72aee6;
+        --orange: #f0b849;
+        --code-selection-bg: rgba(114, 174, 230, 0.3);
+        --code-active-line-bg: rgba(255, 255, 255, 0.04);
+
+        --heading-color: #ffffff;
+        --text-secondary: #a7aaad;
+        --border-subtle: #23282d;
+        --card-bg: #1d2327;
+        --card-hover-border: #50575e;
+        --sidebar-text: #a7aaad;
+        --sidebar-icon: #8c8f94;
+        --sidebar-hover-bg: #0c0e10;
+        --sidebar-hover-text: #72aee6;
+        --sidebar-active-bg: #2271b1;
+        --sidebar-subnav-bg: #181c20;
+        --toolbar-bg: #1d2327;
+
+        --btn-secondary-bg: #1d2327;
+        --btn-secondary-border: #72aee6;
+        --btn-secondary-color: #72aee6;
+        --btn-secondary-hover-bg: #252b30;
+        --btn-secondary-hover-color: #9ec5ed;
+        --btn-secondary-hover-border: #9ec5ed;
+        --delete-btn-bg: #1d2327;
+        --delete-btn-border: #f86868;
+        --delete-btn-color: #f86868;
+
+        --focus-ring: 0 0 0 1px #101316, 0 0 0 3px #72aee6;
+        --input-focus-border: #72aee6;
+        --shadow-wp: 0 1px 2px rgba(0, 0, 0, 0.3);
+        --shadow-dialog: 0 6px 24px rgba(0, 0, 0, 0.6);
+
+        --status-pub-bg: rgba(74, 184, 102, 0.15);
+        --status-pub-color: #68de7c;
+        --status-pub-border: #007017;
+        --status-draft-bg: rgba(248, 104, 104, 0.15);
+        --status-draft-color: #f86868;
+        --status-draft-border: #d63638;
+        --status-sched-bg: rgba(114, 174, 230, 0.15);
+        --status-sched-color: #72aee6;
+        --status-sched-border: #2271b1;
+
+        --notice-bg: #1d2327;
+        --notice-border: #2c3338;
+
+        --table-header-bg: #181c20;
+        --table-row-hover: #23282d;
+    }
+}
+
+
+/* ==========================================================================
+   2. Typography & Global Layout
+   ========================================================================== */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--heading-color);
+    margin: 1.25rem 0 1rem 0;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 2rem 0 1rem 0;
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    transition: color 0.1s ease-in-out;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+
+/* ==========================================================================
+   3. Sidebar Navigation (WordPress #adminmenu)
+   ========================================================================== */
+
+.admin-nav {
+    background: var(--accent-bg-color);
+    border-right: 1px solid transparent;
+    width: 13rem;
+    color: var(--sidebar-text);
+}
+
+.sidebar-header {
+    background: var(--accent-bg-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 3.5rem;
+    padding: 0 0.5rem;
+}
+
+.sidebar-logo .logo {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: none;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.sidebar-logo .pure {
+    padding: 0.1rem 0.2rem;
+    color: #ffffff;
+}
+
+.sidebar-logo .service {
+    background: var(--accent-color);
+    color: #ffffff;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.sidebar-toggle {
+    border: none;
+    color: var(--sidebar-icon);
+    padding: 0.5rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+}
+
+.admin-nav-list {
+    padding: 0.5rem 0;
+    gap: 0;
+}
+
+/* Sidebar navigation links */
+.admin-nav .admin-nav-list a,
+.admin-nav .admin-nav-list .link-button {
+    text-transform: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    padding: 0.6rem 0.9rem;
+    border-left: 4px solid transparent;
+    gap: 0.65rem;
+    line-height: 1.4;
+    transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+.admin-nav .admin-nav-list a .icon,
+.admin-nav .admin-nav-list .link-button .icon {
+    color: var(--sidebar-icon);
+    stroke: currentColor;
+    transition: color 0.1s ease;
+}
+
+/* Sidebar link hover state */
+.admin-nav .admin-nav-list a:hover,
+.admin-nav .admin-nav-list .link-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--sidebar-hover-text);
+    border-left-color: transparent;
+}
+
+.admin-nav .admin-nav-list a:hover .icon,
+.admin-nav .admin-nav-list .link-button:hover .icon {
+    color: var(--sidebar-hover-text);
+}
+
+/* Active navigation item: WordPress Primary Blue block with white text */
+.admin-nav .admin-nav-list a.current,
+.admin-nav .admin-nav-list a.current:hover {
+    background-color: var(--sidebar-active-bg);
+    color: #ffffff;
+    font-weight: 600;
+    border-left-color: var(--sidebar-active-bg);
+}
+
+.admin-nav .admin-nav-list a.current .icon {
+    color: #ffffff;
+    stroke: #ffffff;
+}
+
+/* Submenu items */
+.admin-nav .sidebar-subnav {
+    background-color: var(--sidebar-subnav-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.35rem 0;
+}
+
+.admin-nav .sidebar-subnav a,
+.admin-nav .sidebar-subnav .link-button {
+    padding: 0.4rem 1rem 0.4rem 2rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    border-left: none;
+    opacity: 0.85;
+}
+
+.admin-nav .sidebar-subnav a:hover,
+.admin-nav .sidebar-subnav .link-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--sidebar-hover-text);
+    opacity: 1;
+}
+
+.admin-nav .sidebar-subnav a.current,
+.admin-nav .sidebar-subnav a.current:hover {
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    opacity: 1;
+}
+
+#sidebar-new-post-button {
+    color: var(--sidebar-hover-text);
+}
+
+#sidebar-new-post-button:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: #ffffff;
+}
+
+ul.admin-nav-list .logout-item {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   4. WordPress Buttons (.button and .button-primary)
+   ========================================================================== */
+
+button,
+a.button,
+a.delete,
+a.save,
+.editor-actions button,
+.link-button,
+.editor-actions a {
+    text-transform: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 2.15384615;
+    min-height: 30px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: none;
+    transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+button:hover,
+a.button:hover,
+.link-button:hover,
+.editor-actions button:hover,
+.editor-actions a:hover {
+    background-color: var(--btn-secondary-hover-bg);
+    color: var(--btn-secondary-hover-color);
+    border-color: var(--btn-secondary-hover-border);
+}
+
+button:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+    outline: 2px solid transparent;
+    box-shadow: var(--focus-ring);
+    border-color: var(--accent-color);
+}
+
+/* Primary Button (.button-primary / .save) */
+.save,
+a.save,
+button.save {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.save .icon,
+a.save .icon,
+button.save .icon {
+    stroke: #ffffff;
+}
+
+a.save:hover,
+button.save:hover,
+.editor-actions button.save:hover,
+.editor-actions a.save:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #ffffff;
+}
+
+a.save:active,
+button.save:active {
+    background: var(--accent-active);
+    border-color: var(--accent-active);
+    color: #ffffff;
+}
+
+/* Destructive / Delete Button */
+.delete,
+a.delete,
+button.delete,
+.link-button.delete {
+    background: var(--delete-btn-bg);
+    border-color: var(--delete-btn-border);
+    color: var(--delete-btn-color);
+}
+
+.delete .icon,
+a.delete .icon,
+button.delete .icon {
+    stroke: var(--delete-btn-color);
+}
+
+a.delete:hover,
+button.delete:hover,
+.editor-actions a.delete:hover,
+.link-button.delete:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #ffffff;
+}
+
+a.delete:hover .icon,
+button.delete:hover .icon,
+.link-button.delete:hover .icon {
+    stroke: #ffffff;
+}
+
+button:disabled,
+button[disabled],
+.button[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: default;
+    border-color: var(--border-color) !important;
+    background: var(--bg-color) !important;
+    color: var(--text-secondary) !important;
+}
+
+
+/* ==========================================================================
+   5. Form Controls (WordPress Inputs & Focus Outlines)
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    border-radius: 4px;
+    border: 1px solid #8c8f94;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0 8px;
+    line-height: 2;
+    min-height: 30px;
+    font-size: 14px;
+    box-shadow: 0 0 0 transparent;
+    transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+textarea {
+    padding: 6px 8px;
+    line-height: 1.5;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--input-focus-border);
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 1px var(--input-focus-border);
+}
+
+form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.25rem;
+}
+
+form label span.tip,
+p.tip {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-style: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--accent-color);
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+/* Post Layout Options */
+.layout-preview {
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-wp);
+    transition: border-color 0.15s ease;
+}
+
+.layout-choice:hover .layout-preview {
+    border-color: var(--accent-color);
+}
+
+.layout-choice input:checked+.layout-preview {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Tags UI */
+.tag-entry-row input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.tag-entry-row .tag-add-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.tag-suggestions {
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 3px 3px;
+}
+
+.tag-suggestions li {
+    padding: 0.35rem 0.75rem;
+    font-size: 13px;
+}
+
+.tag-suggestions li:hover,
+.tag-suggestions li.active {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+.tag-badge {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    background: #f0f0f1;
+    color: var(--text-color);
+    padding: 0.15rem 0.5rem;
+    font-size: 12px;
+}
+
+html[data-admin-theme="dark"] .tag-badge {
+    background: #2c3338;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-admin-theme="auto"] .tag-badge {
+        background: #2c3338;
+    }
+}
+
+.tag-badge-remove {
+    border-radius: 3px;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+
+/* ==========================================================================
+   6. Sticky Action Bars & Toolbars
+   ========================================================================== */
+
+.admin-actions,
+.editor-actions {
+    background: var(--toolbar-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    padding: 0.65rem;
+    margin: 1rem 0 1.5rem 0;
+    z-index: 100;
+}
+
+.mobile-nav-header {
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.autosave-status {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+
+/* ==========================================================================
+   7. Content Lists & Postboxes (.postbox style)
+   ========================================================================== */
+
+.admin-list {
+    gap: 0.75rem;
+}
+
+.admin-list-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+    padding: 1rem 1.25rem;
+    transition: border-color 0.1s ease-in-out;
+}
+
+.admin-list-item:hover {
+    border-color: var(--card-hover-border);
+}
+
+.admin-list-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.admin-list-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    gap: 0.5rem 1.25rem;
+}
+
+/* Post Status Labels */
+.admin-list-meta .status.published {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+}
+
+.admin-list-meta .status.draft {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--status-draft-bg);
+    color: var(--status-draft-color);
+    border: 1px solid var(--status-draft-border);
+}
+
+.admin-list-meta .status.scheduled {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--status-sched-bg);
+    color: var(--status-sched-color);
+    border: 1px solid var(--status-sched-border);
+}
+
+.admin-list-meta button.page-badge {
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--status-pub-bg);
+    color: var(--status-pub-color);
+    border: 1px solid var(--status-pub-border);
+    transition: all 0.1s ease;
+}
+
+.admin-list-meta button.page-badge:hover,
+.admin-list-meta button.page-badge:focus-visible,
+.admin-list-meta button.page-badge[aria-expanded="true"] {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+}
+
+.page-badge-popover {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-dialog);
+}
+
+
+/* ==========================================================================
+   8. Search & Content Filter Panel
+   ========================================================================== */
+
+.content-filter {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+    padding: 0.65rem 1rem;
+    margin: 1.5rem 0;
+}
+
+.content-filter-summary {
+    text-transform: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color);
+    padding: 0.25rem 0;
+    transition: color 0.1s ease;
+}
+
+.content-filter-summary:hover {
+    color: var(--accent-hover);
+}
+
+.content-filter-active-label {
+    border-radius: 3px;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+}
+
+
+/* ==========================================================================
+   9. Dashboard Widgets, Metrics & Charts
+   ========================================================================== */
+
+.dashboard-h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-top: 3rem;
+}
+
+.dashboard-h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-top: 2rem;
+}
+
+.dashboard-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+    padding: 1.25rem;
+    transition: border-color 0.1s ease;
+}
+
+.dashboard-stat-card:hover {
+    border-color: var(--card-hover-border);
+}
+
+.dashboard-stat-label {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.dashboard-stat-value {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.dashboard-stat-card-metric .dashboard-stat-value {
+    color: var(--accent-color);
+    font-size: 2.1rem;
+}
+
+.dashboard-chart {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.dashboard-chart-bar {
+    border-radius: 2px 2px 0 0;
+    background: var(--accent-color);
+    opacity: 0.9;
+    transition: background-color 0.1s ease;
+}
+
+a.dashboard-chart-col:hover .dashboard-chart-bar {
+    background: var(--accent-hover);
+    opacity: 1;
+}
+
+.dashboard-chart-label {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   10. WordPress Classic Notice Banners (.notice)
+   ========================================================================== */
+
+.notice {
+    background: var(--notice-bg);
+    border: 1px solid var(--notice-border);
+    border-left: 4px solid var(--green);
+    border-radius: 0;
+    box-shadow: var(--shadow-wp);
+    padding: 10px 12px;
+    color: var(--text-color);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.notice.delete {
+    border-left-color: var(--red);
+    background: var(--notice-bg);
+}
+
+.admin-toast-container .notice {
+    border-radius: 3px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid var(--green);
+}
+
+.admin-toast-container .notice.delete {
+    border-left-color: var(--red);
+}
+
+.toast-close-btn {
+    border-radius: 3px;
+    transition: background-color 0.1s ease;
+}
+
+
+/* ==========================================================================
+   11. CodeJar & Prism Editor
+   ========================================================================== */
+
+.editor {
+    background-color: var(--input-bg) !important;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 1rem;
+    transition: border-color 0.1s ease-in-out;
+}
+
+.editor:focus-within {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 1px var(--input-focus-border);
+}
+
+.editor-sidebar {
+    background: var(--card-bg);
+    border-left: 1px solid var(--border-color);
+}
+
+body.editor-sidebar-open .editor-sidebar {
+    border-left: 1px solid var(--border-color);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.editor-sidebar .sidebar-header {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.editor-sidebar .sidebar-title {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+
+/* ==========================================================================
+   12. Dialogue Windows & Modals
+   ========================================================================== */
+
+#layout-picker,
+#sidebar-layout-picker {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-dialog);
+    padding: 2rem;
+}
+
+.layout-picker-list a {
+    border-radius: 3px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    text-transform: none;
+    font-weight: 400;
+    transition: all 0.1s ease;
+}
+
+.layout-picker-list a:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+.image-lightbox {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-dialog);
+}
+
+.image-lightbox-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.image-delete-dialog {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-dialog);
+}
+
+
+/* ==========================================================================
+   13. Media & Image Library
+   ========================================================================== */
+
+.image-library-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+    overflow: hidden;
+    transition: border-color 0.1s ease;
+}
+
+.image-library-card:hover {
+    border-color: var(--card-hover-border);
+}
+
+.image-library-thumb {
+    border-radius: 2px 2px 0 0;
+}
+
+.image-usage-summary {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+
+.image-usage-menu {
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-dialog);
+    background: var(--card-bg);
+}
+
+.image-list li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+}
+
+.image-list-preview {
+    border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   14. Theme Manager & Settings Cards
+   ========================================================================== */
+
+.theme-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: var(--shadow-wp);
+    transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.theme-card.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.theme-badge {
+    border-radius: 3px;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.swatch-chip {
+    border-radius: 2px;
+}
+
+.theme-creator-details {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+}
+
+
+/* ==========================================================================
+   15. Login Screen (WordPress wp-login.php Aesthetic)
+   ========================================================================== */
+
+main.narrow {
+    max-width: 320px;
+    margin: 5rem auto;
+    padding: 26px 24px 34px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+main.narrow h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--heading-color);
+}
+
+main.narrow form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0 12px;
+    min-height: 34px;
+    line-height: 2.3;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #ffffff;
+}
+
+main.narrow form button[type="submit"]:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+
+/* ==========================================================================
+   16. Tables & Pagination Controls
+   ========================================================================== */
+
+table {
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background: var(--table-header-bg);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 10px;
+    text-transform: none;
+}
+
+td {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 10px;
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+nav.pagination a {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    padding: 0 10px;
+    min-height: 30px;
+    line-height: 2.15;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+nav.pagination a:hover {
+    background: var(--btn-secondary-hover-bg);
+    border-color: var(--btn-secondary-hover-border);
+    color: var(--btn-secondary-hover-color);
+}
