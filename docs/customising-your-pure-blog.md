@@ -56,13 +56,15 @@ Someone once asked why the Pure Blog admin dashboard looks so utilitarian. The t
 
 Because Pure Blog includes a built-in Custom CSS feature for the administration dashboard, you do not need to settle for the default look. By copying and pasting a stylesheet into **Settings → CSS → Custom Admin CSS** (or editing `/content/css/admin-custom.css`), you can completely customise your CMS to look like macOS, WordPress, Windows, or an authentic retro CRT terminal.
 
-Below is a gallery of ready-to-use custom admin themes. Each theme includes screenshot previews across the Dashboard, Content Manager, and Post Editor (click any thumbnail to view the high-resolution screenshot in the interactive lightbox), followed by the complete CSS ready to copy and paste directly into your blog.
+Below is a gallery of ready-to-use custom admin themes. Each theme includes screenshot previews across the Dashboard, Content Manager, and Post Editor (click any thumbnail to view the high-resolution screenshot in the interactive lightbox), a direct download button for the stylesheet, and the complete CSS ready to copy and paste directly into your blog.
 
 ### How to Apply an Admin Theme
 
 1. Open your Pure Blog CMS and navigate to **Settings → CSS**.
 2. Scroll down to the **Custom Admin CSS** code block.
-3. Choose your preferred theme from the list below, click **View [Theme] CSS** to expand the code, and click the **Copy** button.
+3. Choose your preferred theme from the list below:
+   - Click **Download [Theme] CSS** to download the stylesheet file, or
+   - Click **View [Theme] CSS** to expand the inline code and click the **Copy** button.
 4. Paste the stylesheet into the **Custom Admin CSS** field and click **Save settings**.
 5. Your administration panel will immediately update to your chosen style.
 
@@ -96,6 +98,13 @@ A clean, modern macOS Tahoe and Aqua inspired admin dashboard. Features rounded 
   <a href="/assets/images/admin-themes/cupertino/cupertino-editor-dark.png" class="theme-gallery-item" data-caption="Cupertino — Post Editor (Dark Mode)">
     <img src="/assets/images/admin-themes/cupertino/cupertino-editor-dark.png" alt="Cupertino — Post Editor (Dark Mode)" loading="lazy">
     <span class="theme-gallery-caption">Editor <span class="theme-gallery-badge">Dark</span></span>
+  </a>
+</div>
+
+<div class="theme-actions">
+  <a href="/assets/admin-themes/cupertino.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Cupertino CSS
   </a>
 </div>
 
@@ -1355,6 +1364,13 @@ A faithful homage to the classic WordPress administration interface. Features th
   </a>
 </div>
 
+<div class="theme-actions">
+  <a href="/assets/admin-themes/wp.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download WordPress CSS
+  </a>
+</div>
+
 <details>
 <summary>View WordPress CSS</summary>
 
@@ -2608,6 +2624,13 @@ Inspired by the ultra-clean, minimalist interface of Ghost CMS. Designed with ge
   <a href="/assets/images/admin-themes/ghost/ghost-editor-dark.png" class="theme-gallery-item" data-caption="Ghost — Post Editor (Dark Mode)">
     <img src="/assets/images/admin-themes/ghost/ghost-editor-dark.png" alt="Ghost — Post Editor (Dark Mode)" loading="lazy">
     <span class="theme-gallery-caption">Editor <span class="theme-gallery-badge">Dark</span></span>
+  </a>
+</div>
+
+<div class="theme-actions">
+  <a href="/assets/admin-themes/ghost.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Ghost CSS
   </a>
 </div>
 
@@ -3886,6 +3909,13 @@ Implements Microsoft’s Fluent Design language for the Pure Blog dashboard. Fea
   <a href="/assets/images/admin-themes/win11/win11-editor-dark.png" class="theme-gallery-item" data-caption="Windows 11 — Post Editor (Dark Mode)">
     <img src="/assets/images/admin-themes/win11/win11-editor-dark.png" alt="Windows 11 — Post Editor (Dark Mode)" loading="lazy">
     <span class="theme-gallery-caption">Editor <span class="theme-gallery-badge">Dark</span></span>
+  </a>
+</div>
+
+<div class="theme-actions">
+  <a href="/assets/admin-themes/win11.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Windows 11 CSS
   </a>
 </div>
 
@@ -5210,6 +5240,13 @@ Step straight back to 2001 with this faithful tribute to Windows XP’s Luna Blu
   </a>
 </div>
 
+<div class="theme-actions">
+  <a href="/assets/admin-themes/winxp.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Windows XP CSS
+  </a>
+</div>
+
 <details>
 <summary>View Windows XP CSS</summary>
 
@@ -6411,6 +6448,13 @@ Pure retro computing nostalgia. Classic battleship grey dialogs, deep 3D bevels,
   </a>
 </div>
 
+<div class="theme-actions">
+  <a href="/assets/admin-themes/win95.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Windows 95 CSS
+  </a>
+</div>
+
 <details>
 <summary>View Windows 95 CSS</summary>
 
@@ -7606,6 +7650,13 @@ A retro monochrome CRT terminal aesthetic featuring vivid green phosphor typogra
   </a>
 </div>
 
+<div class="theme-actions">
+  <a href="/assets/admin-themes/terminal-green.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Terminal Green CSS
+  </a>
+</div>
+
 <details>
 <summary>View Terminal Green CSS</summary>
 
@@ -8658,6 +8709,13 @@ A vintage amber CRT terminal aesthetic delivering warm amber phosphor luminescen
   <a href="/assets/images/admin-themes/terminal-orange/terminal-editor.png" class="theme-gallery-item" data-caption="Terminal Orange — Post Editor">
     <img src="/assets/images/admin-themes/terminal-orange/terminal-editor.png" alt="Terminal Orange — Post Editor" loading="lazy">
     <span class="theme-gallery-caption">Editor <span class="theme-gallery-badge">CRT</span></span>
+  </a>
+</div>
+
+<div class="theme-actions">
+  <a href="/assets/admin-themes/terminal-orange.css" download class="theme-download-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download Terminal Orange CSS
   </a>
 </div>
 
