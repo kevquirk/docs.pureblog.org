@@ -35,15 +35,54 @@ Here's what this post looks like in the Pure Blog CMS:
 
 ## Managing images
 
-There's 2 ways in which you can add images to your content. You can use the image uploader, which is found in the editor sidebar. Simply click on the <kdb>Browse</kbd> buttons and select your image. ONce you're happy, click the <kbd>UPLOAD</kbd> button and the image will be added to your post.
+There's 2 ways in which you can add images to your content. You can use the image uploader, which is found in the editor sidebar. Simply click on the <kbd>Choose file</kbd> button and select your images (you can select multiple images at once). Once you're happy, click the <kbd>UPLOAD</kbd> button and the images will be added to your post.
 
 ![images](/assets/images/how-to-write-content/images.webp)
 
 From there you can delete any images, or click the <kbd>COPY</kbd> button to copy the correct Markdown for that image to your clipboard. Then, head to the main content area, find where you want the image to be inserted, and paste in the Markdown.
 
-Ta daaa! You image has been inserted.
+Ta daaa! Your image has been inserted.
 
-The other way of doing it is to simply drag and drop the image from your computer, into the content area. Pure Blog will automatically upload the image for you, and add the Markdown where ever your cursor was.
+The other way of doing it is to simply drag and drop the image from your computer, into the content area. Pure Blog will automatically upload the image for you, and add the Markdown wherever your cursor was.
+
+## Image galleries
+
+If you have a collection of photos to share — such as holiday snaps, photos of a walk, or a product showcase — you can present them in a responsive image gallery.
+
+Pure Blog automatically arranges gallery photos into a neat, responsive grid with square thumbnails that look great on both desktop and mobile screens. Clicking any image opens a full-screen, native lightbox dialogue where readers can browse through the full-resolution photos using on-screen buttons, arrow keys (<kbd>&larr;</kbd> and <kbd>&rarr;</kbd>), or swipe gestures on touchscreens.
+
+### Adding a gallery using the editor
+
+The easiest way to insert an image gallery is using the gallery picker in the post or page editor:
+
+1. In the sidebar under **Images**, select and upload the photos you wish to use (or drag and drop them into the content window).
+2. Click the **Insert gallery** button located in the **Attached images** header.
+3. An image picker dialogue will open displaying thumbnails of all attached images. Check the box next to each photo you want to include, or click <kbd>Select all</kbd>.
+4. Click <kbd>Insert gallery</kbd>. Pure Blog will insert the gallery Markdown block directly at your current cursor position in the editor!
+
+![Gallery picker](/assets/images/how-to-write-content/gallery-picker.webp)
+
+### Writing a gallery in Markdown
+
+You can also write or edit galleries manually using fenced `::: gallery` blocks:
+
+```markdown
+::: gallery
+![Autumn trees](/content/images/my-post/trees.webp "Autumn in the park")
+*Golden leaves lining the path*
+![Misty lake](/content/images/my-post/lake.webp "Morning mist")
+*Early morning reflection on the water*
+![Campfire](/content/images/my-post/campfire.webp)
+:::
+```
+
+- Start with `::: gallery` on its own line and end with `:::` on its own line.
+- Put each image on its own line using standard Markdown syntax: `![Alt text](image-url "Optional title")`. The optional title attribute appears in quotes and will be used as the photo title in the lightbox dialogue.
+- To add a caption beneath any photo, place italic text (`*Caption text*`) on the line immediately below that image. Captions are displayed directly below the thumbnail in the grid, as well as under the photo in the lightbox.
+
+![Rendered gallery example](/assets/images/how-to-write-content/gallery-example.webp)
+
+![Gallery lightbox example](/assets/images/how-to-write-content/gallery-lightbox.webp)
 
 ## Creating a page
 

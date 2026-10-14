@@ -7,6 +7,13 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Added
+- Added responsive image galleries using fenced Markdown blocks (`::: gallery`), displaying images in a clean responsive grid with lazy loading, captions, and an accessible native `<dialog>` lightbox preview (supporting keyboard navigation, backdrop dismissal, previous/next controls, and touch swipe gestures). Thanks to [@ShadowZwiebel](https://github.com/ShadowZwiebel) for [issue #98](https://github.com/kevquirk/pureblog/issues/98).
+- Added an interactive "Insert gallery" picker dialogue to both post and page editors in the admin area, allowing users to select attached images and insert gallery snippets directly at the current cursor position.
+- Added multiple file selection support to the image upload input in both post and page editors, allowing batch image uploads.
+
 ## 3.8.8 - 07 October 2026
 
 ### Added

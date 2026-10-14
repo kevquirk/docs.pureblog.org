@@ -109,6 +109,40 @@ You don't have to align the columns, this works too...
 ![This is a test image with a caption](/content/images/markdown-helper/test-image.png)
 *This is a test image with a caption*
 
+## Image galleries
+
+Pure Blog supports responsive image galleries with built-in lightbox previews using fenced `::: gallery` blocks:
+
+```
+::: gallery
+![Forest path](/content/images/my-post/forest.webp "Morning walk")
+*A quiet path through the misty woods*
+![Mountain view](/content/images/my-post/mountain.webp)
+![Sunset](/content/images/my-post/sunset.webp "Golden hour")
+*Watching the sun set over the horizon*
+:::
+```
+
+Which renders as a responsive grid of thumbnails wrapped in a lightbox container:
+
+```html
+<div class="gallery">
+    <figure class="gallery-item">
+        <a href="..." class="gallery-link" data-pb-lightbox="gallery-..." data-title="Morning walk" data-caption="A quiet path through the misty woods">
+            <img src="..." alt="Forest path" loading="lazy">
+        </a>
+        <figcaption>A quiet path through the misty woods</figcaption>
+    </figure>
+    ...
+</div>
+```
+
+- **Fenced block**: Wrap the gallery between `::: gallery` and `:::` on separate lines.
+- **Captions**: Place italic text (`*Caption text*`) on the line directly below an image to render an image caption in both the grid and the lightbox.
+- **Titles**: Add an optional title in quotes after the image URL (`"Title here"`), which appears as a title in the lightbox dialogue.
+- **Lightbox**: Clicking any thumbnail opens an accessible native `<dialog>` lightbox with keyboard navigation (<kbd>&larr;</kbd> and <kbd>&rarr;</kbd> keys, <kbd>Esc</kbd> to close), on-screen navigation buttons, backdrop dismissal, and mobile swipe support.
+- **Editor picker**: You can also insert a gallery automatically using the **Insert gallery** button in the post or page editor sidebar.
+
 ## Displaying code
 
 ````
