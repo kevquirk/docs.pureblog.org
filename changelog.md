@@ -7,7 +7,7 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.8.9 - 14 October 2026
 
 ### Added
 - Added responsive image galleries using fenced Markdown blocks (`::: gallery`), displaying images in a clean responsive grid with lazy loading, captions, and an accessible native `<dialog>` lightbox preview (supporting keyboard navigation, backdrop dismissal, previous/next controls, and touch swipe gestures). Thanks to [@ShadowZwiebel](https://github.com/ShadowZwiebel) for [issue #98](https://github.com/kevquirk/pureblog/issues/98).
