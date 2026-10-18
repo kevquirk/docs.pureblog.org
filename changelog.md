@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Changed
+- Changed background colour of `.tag-badge` so that they're a different colour than the rest of the sidebar.
+
 ## 3.8.9 - 14 October 2026
 
 ### Added
