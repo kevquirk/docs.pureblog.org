@@ -9,6 +9,9 @@ permalink: /changelog/
 
 ## Unreleased
 
+### Fixed
+- Fixed issue where aspect ratio of images wasn't right due to lack of `height: auto;` on `main img`.
+
 ### Changed
 - Changed background colour of `.tag-badge` so that they're a different colour than the rest of the sidebar.
 
