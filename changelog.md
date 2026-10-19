@@ -7,7 +7,10 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.8.10 - 19 October 2026
+
+### Added
+- Added an "Autoload comments and form" option in Site Settings to automatically load Pure Comments and the comment submission form without requiring a button click.
 
 ### Fixed
 - Fixed issue where aspect ratio of images wasn't right due to lack of `height: auto;` on `main img`.

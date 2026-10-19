@@ -21,7 +21,8 @@ To enable comments on your posts:
 3. Scroll down to the **Community** section.
 4. Check the box labeled **Enable Pure Comments**.
 5. In the URL input field that appears, enter the base URL of your hosted Pure Comments service (for example, `https://comments.example.com`).
-6. Click **Save settings** at the top or bottom of the page.
+6. *(Optional)* If you prefer comments and the submission form to load automatically as the reader scrolls near the section, check **Autoload comments and form**. Leave this unchecked if you prefer the default behaviour of requiring a button click to load.
+7. Click **Save settings** at the top or bottom of the page.
 
 *Note: The system will automatically strip any trailing slash from the comments URL to prevent link structure issues.*
 
