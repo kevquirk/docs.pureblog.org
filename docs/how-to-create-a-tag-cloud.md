@@ -51,7 +51,7 @@ render_masthead_layout($config, ['page' => null]);
                 $ratio    = ($count - $minCount) / $range;
                 $fontSize = round(0.85 + $ratio * 1.4, 2);
                 $postWord = $count === 1 ? 'post' : 'posts';
-                echo '<a href="/tag/' . e(rawurlencode((string) $slug)) . '"'
+                echo '<a href="' . e(base_path()) . '/tag/' . e(rawurlencode((string) $slug)) . '"'
                    . ' style="font-size: ' . $fontSize . 'em"'
                    . ' title="' . e((string) $count) . ' ' . $postWord . '">'
                    . e($name) . ' (' . e((string) $count) . ')' . '</a>' . '  ';
