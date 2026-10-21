@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## 3.8.11 - 21 October 2026
+
+### Fixed
+- Fixed an issue where the cursor jumps to the bottom of the text when pressing enter on Safari / MacOS. Thanks to [@adegans](https://github.com/adegans) for [issue #99](https://github.com/kevquirk/pureblog/issues/99).
+
 ## 3.8.10 - 19 October 2026
 
 ### Added
