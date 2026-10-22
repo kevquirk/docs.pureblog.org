@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## 3.8.12 - 22 October 2026
+
+### Added
+- Support for beta updates.
+
 ## 3.8.11 - 21 October 2026
 
 ### Fixed
