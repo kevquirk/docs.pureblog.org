@@ -21,6 +21,8 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPassthroughCopy(".htaccess");
+
 
     eleventyConfig.ignores.add("reallysimpledocs-main/**");
 
