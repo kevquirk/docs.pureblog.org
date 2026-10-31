@@ -7,6 +7,11 @@ tags: docs
 permalink: /changelog/
 ---
 
+## Unreleased
+
+### Added
+- Added a "Download site backup" button in Site Settings to generate and download a full-site ZIP archive (excluding `/cache` and `/backup`). Thanks to [@nfriedli](https://github.com/nfriedli) for [issue #103](https://github.com/kevquirk/pureblog/issues/103).
+
 ## 3.8.12 - 22 October 2026
 
 ### Added
