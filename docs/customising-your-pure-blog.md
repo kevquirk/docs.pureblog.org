@@ -70,6 +70,8 @@ Pure Blog includes a built-in **Theme Creator** to easily build and save custom 
    - **Accent Background Colour**
 4. Click **Save theme**. The theme is saved to `/content/themes/` and immediately added to your Theme Collection.
 
+![Theme creator](/assets/images/customising-your-pure-blog/theme-creator.webp)
+
 ### Importing Themes
 
 You can import theme files shared by other Pure Blog users or created externally:
