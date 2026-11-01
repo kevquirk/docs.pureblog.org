@@ -36,8 +36,3 @@ In your page content you can include a loop, like this:
 ```
 
 Pure Blog will replace that loop with your actual items at render time. I use this for my blogroll and projects page and it keeps things tidy.
-
-## Limitations
-This is **intentionally simple**. It is great for basic lists, not complex templates. If you need more power, you will likely want a proper CMS or a full static site generator.
-
-That said, for the small web and personal sites, this gets the job done.
