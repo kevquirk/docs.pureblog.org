@@ -3,3 +3,6 @@ RewriteEngine On
 # Redirect /docs and /docs/* to / and /* (removing /docs/ from the URL)
 RewriteRule ^docs/?$ / [R=301,L]
 RewriteRule ^docs/(.*)$ /$1 [R=301,L]
+
+# Redirect legacy /themes/ route to customising-your-pure-blog
+RewriteRule ^themes/?$ /customising-your-pure-blog/#themes [R=301,NE,L]

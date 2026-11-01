@@ -7,10 +7,18 @@ tags: docs
 permalink: /changelog/
 ---
 
-## Unreleased
+## 3.9.0 - 01 November 2026
 
 ### Added
 - Added a "Download site backup" button in Site Settings to generate and download a full-site ZIP archive (excluding `/cache` and `/backup`). Thanks to [@nfriedli](https://github.com/nfriedli) for [issue #103](https://github.com/kevquirk/pureblog/issues/103).
+
+### Changed
+- Replaced the CodeJar and Prism.js `contenteditable` editor stack across the post, page, and custom CSS editors with a dependency-free native `<textarea>` overlay and lightweight built-in syntax highlighter.
+
+### Fixed
+- Fixed an issue where tag slugs and `tag-index.json` failed to generate on servers with PCRE2 versions older than 10.43 due to the `\p{Extended_Pictographic}` Unicode property in `normalize_tag()`. Thanks to [@dnkrupinski](https://github.com/dnkrupinski) for [issue #104](https://github.com/kevquirk/pureblog/issues/104).
+- Fixed an issue where non-breaking spaces (`U+00A0`) in the Markdown editor were converted to standard spaces. Thanks to [@nfriedli](https://github.com/nfriedli) for [issue #102](https://github.com/kevquirk/pureblog/issues/102).
+- Fixed an issue where unsaved editor content could be lost when uploading or deleting attached images in the editor sidebar. Thanks to [Jan](https://j11g.com/) for reporting this.
 
 ## 3.8.12 - 22 October 2026
 
