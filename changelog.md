@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Added
+- Styling to make `table` 100% width.
+
 
 ## 3.9.0 - 01 November 2026
 
