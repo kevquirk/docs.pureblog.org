@@ -11,6 +11,9 @@ permalink: /changelog/
 ### Added
 - Styling to make `table` 100% width.
 
+### Changed
+- Updated Dutch (`nl.php`) translations, replacing remaining English placeholders and lowercasing month and day names in accordance with Dutch spelling rules. Thanks to [@RobbyTown](https://github.com/RobbyTown) for [PR #105](https://github.com/kevquirk/pureblog/pull/105).
+
 
 ## 3.9.0 - 01 November 2026
 
