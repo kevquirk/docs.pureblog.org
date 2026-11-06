@@ -6,7 +6,7 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## 3.9.1 - 06 November 2026
 
 ### Added
 - Styling to make `table` 100% width.
@@ -15,6 +15,7 @@ permalink: /changelog/
 - Updated Dutch (`nl.php`) translations, replacing remaining English placeholders and lowercasing month and day names in accordance with Dutch spelling rules. Thanks to [@RobbyTown](https://github.com/RobbyTown) for [PR #105](https://github.com/kevquirk/pureblog/pull/105).
 
 ### Fixed
+- Removed deprecated `imagedestroy()` calls in `og-image.php` and `includes/lib/content.php` for PHP 8.5 compatibility.
 - Added padding to `.content-filter-field select` so that the drop-down field height matches the button in admin content filters.
 
 
