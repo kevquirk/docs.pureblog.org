@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+## Changed
+- Images per page increased from 32 > 35 to account for new, wider page width on the Images page in admin.
+
 ## 3.9.1 - 06 November 2026
 
 ### Added
