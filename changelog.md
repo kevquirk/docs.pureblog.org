@@ -8,8 +8,9 @@ permalink: /changelog/
 ---
 ## Unreleased
 
-## Changed
+### Changed
 - Images per page increased from 32 > 35 to account for new, wider page width on the Images page in admin.
+- Updated French (`fr.php`) translations, replacing remaining English placeholders and normalising non-breaking spaces. Thanks to [@nfriedli](https://github.com/nfriedli) for [PR #106](https://github.com/kevquirk/pureblog/pull/106).
 
 ## 3.9.1 - 06 November 2026
 
