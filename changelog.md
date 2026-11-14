@@ -6,11 +6,15 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## 3.9.2 - 14 November 2026
+
+### Added
+- Generated lightweight 300px thumbnails (`/content/images/<slug>/thumbs/`) on image upload (and lazily for existing images) to serve across the post/page editor sidebars, gallery picker, and admin Images library.
 
 ### Changed
 - Images per page increased from 32 > 35 to account for new, wider page width on the Images page in admin.
 - Updated French (`fr.php`) translations, replacing remaining English placeholders and normalising non-breaking spaces. Thanks to [@nfriedli](https://github.com/nfriedli) for [PR #106](https://github.com/kevquirk/pureblog/pull/106).
+- Reduced redundant autosave and redirect requests when saving or uploading/deleting attached images in the post and page editors, and made `strip_image_metadata()` write atomically via a temporary file.
 
 ## 3.9.1 - 06 November 2026
 
