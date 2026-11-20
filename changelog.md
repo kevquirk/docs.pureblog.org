@@ -6,6 +6,12 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## 3.9.3 - 20 November 2026
+
+### Fixed
+- Improved pagination performance and prevented `503 Service Unavailable` timeouts/memory exhaustion on the admin Images page (`admin/images.php`) by deferring missing thumbnail generation to an asynchronous on-demand endpoint (`admin/thumb.php`), decoding only the first frame (`[0]`) of animated images, and scanning markdown files in a single pass. Thanks to [@dnkrupinski](https://github.com/dnkrupinski) for [issue #109](https://github.com/kevquirk/pureblog/issues/109).
+
+
 ## 3.9.2 - 14 November 2026
 
 ### Added
