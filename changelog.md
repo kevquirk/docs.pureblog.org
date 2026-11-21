@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Fixed
+- Fixed an issue where automatic post excerpts displayed raw HTML character entities (such as `&nbsp;` or `&mdash;`) instead of decoding them. Thanks to [@yannickbreyer](https://github.com/yannickbreyer) for [issue #110](https://github.com/kevquirk/pureblog/issues/110).
+
 ## 3.9.3 - 20 November 2026
 
 ### Fixed
