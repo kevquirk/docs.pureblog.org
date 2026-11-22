@@ -9,7 +9,7 @@ permalink: /changelog/
 ## 3.9.4 - 22 Novemeber 2026
 
 ### Added
-- Added a JSON REST API (`/api`) with Bearer-token authentication (managed under **Settings > User**) for creating, reading, updating, and deleting posts, pages, and uploading images.
+- Added a JSON REST API (`/api`) with Bearer-token authentication (managed under **Settings > User**) for creating, reading, updating, and deleting posts, pages, and uploading images. [Read the docs](https://docs.pureblog.org/api/)
 - Added an automatic updates setting in **Settings > Updates** (with an inline warning that updates are applied on admin page load without reviewing the changelog first, and skipping releases marked as breaking changes).
 - Added a **Maximum update backups to keep** setting in **Settings > Updates** (disabled by default) to automatically delete older backups in `/backup` after a successful update.
 
