@@ -6,7 +6,15 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
-## Unreleased
+## 3.9.4 - 22 Novemeber 2026
+
+### Added
+- Added a JSON REST API (`/api`) with Bearer-token authentication (managed under **Settings > User**) for creating, reading, updating, and deleting posts, pages, and uploading images.
+- Added an automatic updates setting in **Settings > Updates** (with an inline warning that updates are applied on admin page load without reviewing the changelog first, and skipping releases marked as breaking changes).
+- Added a **Maximum update backups to keep** setting in **Settings > Updates** (disabled by default) to automatically delete older backups in `/backup` after a successful update.
+
+### Changed
+- Replaced the sidebar sub-navigation for **Content** (Posts / Pages) and **Settings** (Site / Design / CSS / User / Updates) with horizontal tab bars to align with Pure Comments.
 
 ### Fixed
 - Fixed an issue where automatic post excerpts displayed raw HTML character entities (such as `&nbsp;` or `&mdash;`) instead of decoding them. Thanks to [@yannickbreyer](https://github.com/yannickbreyer) for [issue #110](https://github.com/kevquirk/pureblog/issues/110).

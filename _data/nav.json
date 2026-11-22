@@ -42,6 +42,7 @@
     {
         "label": "Advanced",
         "items": [
+            { "label": "REST API",                    "slug": "api" },
             { "label": "Core functions reference",    "slug": "core-functions-reference" },
             { "label": "Custom functions",            "slug": "custom-functions" },
             { "label": "Dashboard stats",             "slug": "dashboard-stats" },
