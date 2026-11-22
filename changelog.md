@@ -6,6 +6,11 @@ layout: doc.njk
 tags: docs
 permalink: /changelog/
 ---
+## Unreleased
+
+### Changed
+- Reduced the update version check cache TTL from 6 hours to 10 minutes, as updates are now served via `packages.purecommons.org` and there are no GitHub API limits to worry about. Keeping a short TTL avoids an external check on every admin page load while still picking up new releases and automatic updates promptly.
+
 ## 3.9.4 - 22 Novemeber 2026
 
 ### Added
