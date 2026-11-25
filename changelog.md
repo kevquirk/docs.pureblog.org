@@ -9,6 +9,7 @@ permalink: /changelog/
 ## Unreleased
 
 ### Changed
+- Added Dutch (`nl.php`) translations for update settings. Thanks to [@RobbyTown](https://github.com/RobbyTown) for [PR #112](https://github.com/kevquirk/pureblog/pull/112).
 - Reduced the update version check cache TTL from 6 hours to 10 minutes, as updates are now served via `packages.purecommons.org` and there are no GitHub API limits to worry about. Keeping a short TTL avoids an external check on every admin page load (if auto-updates are enabled) while still picking up new releases and automatic updates promptly.
 
 ## 3.9.4 - 22 Novemeber 2026
